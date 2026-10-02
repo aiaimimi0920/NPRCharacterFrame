@@ -6,6 +6,7 @@ var _scene: Control
 var _output: String
 var _checks: Array[Dictionary] = []
 var _samples: Array[Dictionary] = []
+var _completion: Dictionary = {}
 
 
 func _initialize() -> void:
@@ -114,7 +115,30 @@ func _run() -> void:
 		_scene.performance.expressions.active_count() == 0, "Reset prevents delayed resurrection"
 	)
 	_scene._play_speech_demo()
-	await _wait(_scene.speech.duration + 0.3, "natural_completion")
+	var finished: Array[bool] = []
+	_scene.speech.player.finished.connect(func(): finished.append(true))
+	_scene.speech.player.stream_paused = true
+	await _wait_for_finished(finished, 0.2, "completion_negative_paused")
+	_check(
+		(
+			finished.is_empty()
+			and _scene.speech.player.stream_paused
+			and _scene.speech.player.has_stream_playback()
+		),
+		"Paused playback cannot satisfy the natural completion witness"
+	)
+	_scene.speech.player.stream_paused = false
+	var started := Time.get_ticks_usec()
+	# Dummy mixes on a sleeping worker thread, not a wall-clock-locked device.
+	# Await the real finished signal; this deadline only bounds a stalled test.
+	await _wait_for_finished(finished, _scene.speech.duration * 2.0 + 0.3, "natural_completion")
+	_completion = {
+		"duration": _scene.speech.duration,
+		"elapsed_seconds": (Time.get_ticks_usec() - started) / 1000000.0,
+		"finished_signals": finished.size(),
+		"driver": AudioServer.get_driver_name(),
+	}
+	_check(finished.size() == 1, "Natural playback emits exactly one finished signal")
 	_check(not _scene.speech.player.playing, "Actual audio completes naturally")
 	_check(_scene.performance.visemes.is_empty(), "Finished signal clears phonemes")
 	_scene.save_scheme()
@@ -144,11 +168,17 @@ func _run() -> void:
 	_scene.free()
 	var failed := _checks.filter(func(row: Dictionary): return not row["pass"])
 	FileAccess.open(_output.path_join("speech_lifecycle.json"), FileAccess.WRITE).store_string(
-		JSON.stringify({"checks": _checks, "samples": _samples}, "  ")
+		JSON.stringify({"checks": _checks, "samples": _samples, "completion": _completion}, "  ")
 	)
 	print("SPEECH_LIFECYCLE_CHECKS=", _checks.size(), " FAILURES=", failed.size())
 	print("REGRESSION_OK" if failed.is_empty() else "REGRESSION_FAILED")
 	quit(0 if failed.is_empty() else 1)
+
+
+func _wait_for_finished(finished: Array[bool], timeout: float, phase: String) -> void:
+	var deadline := Time.get_ticks_usec() + int(timeout * 1000000.0)
+	while finished.is_empty() and Time.get_ticks_usec() < deadline:
+		await _wait(0.01, phase)
 
 
 func _wait(seconds: float, phase: String) -> void:

@@ -15,13 +15,13 @@ func _run() -> void:
 	driver.blink_weight = 0.4
 	driver.visemes = {"aa": 0.7}
 	driver.expressions.play(&"surprised", 3.0, 40)
-	driver._apply_face()
+	driver.evaluate_expression()
 	await _capture("speaking_surprised")
 	_check(_shape("aa") > 0.69, "Speech overrides surprised mouth, not the upper face")
 	_check(is_equal_approx(_shape("blink.L"), 0.4), "Blink coexists with surprise")
 	var eyes: int = driver.expressions.play(&"squeeze", 0.5, 80)
 	var mouth: int = driver.expressions.play(&"wave_mouth", 1.0, 70)
-	driver._apply_face()
+	driver.evaluate_expression()
 	await _capture("both_symbols")
 	_check(is_zero_approx(_shape("aa")), "Symbol mouth suppresses live speech geometry")
 	_check(is_zero_approx(_shape("blink.L")), "Symbol eyes suppress live blink geometry")
@@ -29,20 +29,21 @@ func _run() -> void:
 	_check(_wardrobe.visual_layers._symbol_mouth.visible, "Mouth replacement drawn in same frame")
 	driver.visemes = {"oh": 0.3}
 	driver.blink_weight = 0.6
-	driver._apply_face(0.6)
+	driver.evaluate_expression(0.6)
 	_check(not driver.symbolic_eyes and driver.symbolic_mouth, "Independent expiry")
 	_check(is_equal_approx(_shape("blink.R"), 0.6), "Latest blink restored after expiry")
 	driver.expressions.cancel(mouth)
 	driver.expressions.cancel(eyes)
-	driver._apply_face()
+	driver.evaluate_expression()
 	_check(is_equal_approx(_shape("oh"), 0.3), "Cancel restores current phoneme, not old aa")
 	_check(_wardrobe.state.to_data() == saved, "Temporary behavior never writes saved preferences")
 	driver.expressions.clear()
 	driver.visemes = {}
 	driver.blink_weight = 0.0
-	driver._apply_face()
+	driver.evaluate_expression()
 	await _capture("restored")
 	_check(_same_image("neutral", "restored"), "Clearing requests restores exact original pixels")
+	_immediate_evaluation()
 	var failed := _checks.filter(func(item: Dictionary): return not item["pass"])
 	FileAccess.open(_output.path_join("report.json"), FileAccess.WRITE).store_string(
 		JSON.stringify({"checks": _checks, "captures": _captures}, "  ")
@@ -52,6 +53,102 @@ func _run() -> void:
 	if failed.is_empty():
 		print("REGRESSION_OK")
 	quit(0 if failed.is_empty() else 1)
+
+
+func _immediate_evaluation() -> void:
+	var driver: Node = _wardrobe.performance
+	var saved: Dictionary = _wardrobe.state.to_data()
+	var inputs := {}
+	for field in ["blink_weight", "visemes", "expression", "base_eye_symbol", "base_mouth_symbol"]:
+		inputs[field] = driver.get(field)
+	var was_paused: bool = driver.is_paused()
+	driver.set_paused(true)
+	driver.expression = 0
+	driver.base_eye_symbol = 0
+	driver.base_mouth_symbol = 0
+	driver.expressions.clear()
+	var clocks := [driver.clock, driver._blink_clock, driver._spring, driver._wind_spring]
+	var palette: Array = driver._pose_palette.duplicate()
+	var events: Array[Dictionary] = []
+	var poses: Array[bool] = []
+	var on_pose := func(): poses.append(true)
+	var on_expression := func(frame: Dictionary):
+		(
+			events
+			. append(
+				{
+					"frame": frame.duplicate(true),
+					"blink": _shape("blink.L"),
+					"aa": _shape("aa"),
+					"oh": _shape("oh"),
+					"eyes": _wardrobe.visual_layers._symbol_eyes.visible,
+					"mouth": _wardrobe.visual_layers._symbol_mouth.visible,
+				}
+			)
+		)
+	driver.pose_applied.connect(on_pose)
+	driver.expression_evaluated.connect(on_expression)
+	driver.blink_weight = 0.4
+	driver.visemes = {"aa": 0.7}
+	driver.evaluate_expression()
+	_check(events.size() == 1, "Public evaluation synchronously emits one expression event")
+	_check(
+		is_equal_approx(events[-1].blink, 0.4), "Expression signal observes applied blink geometry"
+	)
+	_check(
+		is_equal_approx(events[-1].aa, 0.7), "Expression signal observes applied speech geometry"
+	)
+	driver.expressions.play(&"squeeze", 0.5, 80)
+	var mouth: int = driver.expressions.play(&"wave_mouth", 1.0, 70)
+	driver.evaluate_expression()
+	_check(
+		events[-1].eyes and events[-1].mouth,
+		"Face presentation updates before later signal observers"
+	)
+	_check(
+		is_zero_approx(events[-1].blink) and is_zero_approx(events[-1].aa),
+		"Symbols suppress geometry while paused"
+	)
+	var requests: Array = driver.expressions._requests.duplicate(true)
+	driver.evaluate_expression()
+	_check(
+		driver.expressions._requests == requests, "Default zero delta preserves request lifetime"
+	)
+	driver.blink_weight = 0.6
+	driver.visemes = {"oh": 0.3}
+	driver.evaluate_expression(0.6)
+	_check(
+		not events[-1].eyes and events[-1].mouth,
+		"Explicit expression delta expires eyes independently"
+	)
+	_check(is_equal_approx(events[-1].blink, 0.6), "Expired symbol restores latest blink input")
+	_check(events[-1].frame.speech_suppressed, "Live mouth symbol retains speech ownership")
+	driver.expressions.cancel(mouth)
+	driver.evaluate_expression()
+	_check(
+		is_equal_approx(events[-1].oh, 0.3),
+		"Cancel restores latest phoneme without advancing action"
+	)
+	_check(not events[-1].mouth, "Cancel synchronously restores original mouth representation")
+	_check(
+		events[-1].frame.owners.mouth == "speech", "Latest speech producer regains mouth ownership"
+	)
+	_check(events.size() == 5, "Each public evaluation emits exactly one expression event")
+	_check(poses.is_empty(), "Immediate face evaluation never emits pose_applied")
+	_check(
+		clocks == [driver.clock, driver._blink_clock, driver._spring, driver._wind_spring],
+		"Face-only delta leaves action and simulation clocks unchanged"
+	)
+	_check(driver._pose_palette == palette, "Face-only evaluation preserves bone palette")
+	_check(driver.is_paused(), "Public evaluation preserves explicit action pause")
+	_check(_wardrobe.state.to_data() == saved, "Immediate evaluation never writes saved scheme")
+	driver.expression_evaluated.disconnect(on_expression)
+	driver.pose_applied.disconnect(on_pose)
+	driver.expressions.clear()
+	for field in inputs:
+		driver.set(field, inputs[field])
+	driver.evaluate_expression()
+	driver.set_paused(was_paused)
 
 
 func _contract() -> void:

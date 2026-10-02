@@ -3,5 +3,8 @@
 __pycache__/
 .pytest_cache/
 build/
+!addons/npr_character_frame/.ci_script/build/
+addons/npr_character_frame/.ci_script/build/*
+!addons/npr_character_frame/.ci_script/build/*.py
 .temp/
 .export/

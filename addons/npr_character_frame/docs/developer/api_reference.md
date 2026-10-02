@@ -58,6 +58,9 @@ func pick_surface(origin: Vector3, direction: Vector3) -> Dictionary:
 @export var wetness_profile: NPRWetnessProfile
 @export var rain_profile: NPRRainProfile
 @export var equipment_profile: NPREquipmentProfile
+@export var showcase_camera_profile: NPRShowcaseCameraProfile
+@export var showcase_palette_profile: NPRShowcasePaletteProfile
+@export var showcase_height_profile: NPRShowcaseHeightProfile
 @export_file("*.json") var performance_data_path := ""
 @export_file("*.json") var soft_tissue_data_path := ""
 @export_file("*.json") var hair_dynamics_data_path := ""
@@ -292,6 +295,46 @@ func validate() -> PackedStringArray:
 static func validate_surface(surface: Dictionary) -> PackedStringArray:
 ```
 
+## NPRShowcaseCameraProfile
+
+[源代码](../../npr_showcase_camera_profile.gd)
+
+```gdscript
+@export var view_heights := PackedFloat64Array()
+@export var view_distances := PackedFloat64Array()
+@export var horizontal_offset := 0.0
+@export var vertical_offset := 0.0
+@export_range(1.0, 179.0) var field_of_view := 36.0
+@export var pressure_target := Vector3.ZERO
+@export var pressure_distance := 1.0
+func validate() -> PackedStringArray:
+```
+
+## NPRShowcaseHeightProfile
+
+[源代码](../../npr_showcase_height_profile.gd)
+
+```gdscript
+@export var min_height := 0.0
+@export var max_height := 0.0
+@export var default_height := 0.0
+@export var step := 0.0
+func validate() -> PackedStringArray:
+func accepts(value: float) -> bool:
+```
+
+## NPRShowcasePaletteProfile
+
+[源代码](../../npr_showcase_palette_profile.gd)
+
+```gdscript
+@export var labels := PackedStringArray()
+@export var rgb := PackedStringArray()
+@export var default_index := 0
+func validate() -> PackedStringArray:
+func colors_at(index: int) -> Array[Color]:
+```
+
 ## NPRStylePreset
 
 [源代码](../../npr_style_preset.gd)
@@ -357,6 +400,7 @@ func play(
 	attachment: Attachment = Attachment.ANCHOR,
 	surface_material: ShaderMaterial = null
 ) -> int:
+func geometry_snapshot(token: int) -> Dictionary:
 func pin(token: int, world_position: Vector3) -> void:
 func cancel(token: int) -> void:
 func clear() -> void:

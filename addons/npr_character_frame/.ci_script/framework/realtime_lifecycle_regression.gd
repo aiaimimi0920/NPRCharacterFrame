@@ -36,7 +36,7 @@ func _run() -> void:
 		_scene.framework.set_locked(true)
 		_scene.reset_scheme()
 		_check(not _scene.framework.locked, "Reset releases A/B lock")
-		_check(not _scene.performance._paused, "Reset releases pose pause")
+		_check(not _scene.performance.is_paused(), "Reset releases pose pause")
 		_check(not _scene.visual_layers._paused, "Reset releases global rain pause")
 		_check(not _scene.visual_layers._preview_paused, "Reset releases rain preview pause")
 		_check(not _scene.performance.hair_dynamic_enabled, "Reset disables dynamic hair")
@@ -139,7 +139,7 @@ func _exercise() -> void:
 	_scene.visual_layers.set_paused(true)
 	_scene.framework.set_locked(true)
 	_scene.framework.set_locked(false)
-	_check(_scene.performance._paused, "Unlock restores pre-existing pose pause")
+	_check(_scene.performance.is_paused(), "Unlock restores pre-existing pose pause")
 	_check(_scene.visual_layers._paused, "Unlock restores pre-existing global rain pause")
 
 

@@ -66,7 +66,150 @@ func _run() -> void:
 		"reset_scheme": _wardrobe.state.to_data()
 	}
 	_check(_same_image("baseline", "reset"), "Full reset returns exact baseline pixels")
+	_immediate_evaluation()
+	_pause_query_contract()
+	_diagnostic_target_contract()
 	_finish("WORKBENCH")
+
+
+func _diagnostic_target_contract() -> void:
+	var layers: Node = _wardrobe.visual_layers
+	var fresh: Node = layers.get_script().new()
+	_check(fresh.diagnostic_symbol_target(&"eyes") == null, "Uninitialized eye target is absent")
+	_check(fresh.diagnostic_symbol_target(&"mouth") == null, "Uninitialized mouth target is absent")
+	fresh.free()
+	_check(
+		layers.diagnostic_symbol_target(&"brows") == null, "Unknown diagnostic channel is absent"
+	)
+	var eyes: MeshInstance3D = layers.diagnostic_symbol_target(&"eyes")
+	var mouth: MeshInstance3D = layers.diagnostic_symbol_target(&"mouth")
+	_check(eyes == layers._face_rig.symbol_eyes, "Eye target is the actual face rig canvas")
+	_check(mouth == layers._face_rig.symbol_mouth, "Mouth target is the actual face rig canvas")
+	_check(eyes != mouth, "Diagnostic channels have distinct targets")
+	var saved: Dictionary = _wardrobe.state.to_data()
+	var workbench: Node = _wardrobe.framework
+	var driver: Node = _wardrobe.performance
+	var eye_request: int = driver.expressions.play(&"squeeze", 0.0, 80)
+	var mouth_request: int = driver.expressions.play(&"wave_mouth", 0.0, 80)
+	driver.evaluate_expression()
+	workbench.set_diagnostic(1)
+	driver.expressions.cancel(eye_request)
+	driver.evaluate_expression()
+	_check(eyes.visible and mouth.visible, "Diagnostic override keeps both targets visible")
+	_check(
+		layers.diagnostic_symbol_target(&"eyes") == eyes,
+		"Query retains target identity during override"
+	)
+	workbench.set_diagnostic(0)
+	_check(
+		not eyes.visible and mouth.visible, "Diagnostic exit restores independent latest eye owner"
+	)
+	workbench.set_diagnostic(1)
+	driver.expressions.cancel(mouth_request)
+	eye_request = driver.expressions.play(&"squeeze", 0.0, 80)
+	driver.evaluate_expression()
+	_check(eyes.visible and mouth.visible, "Reverse ownership preserves diagnostic override")
+	workbench.set_diagnostic(0)
+	_check(
+		eyes.visible and not mouth.visible,
+		"Diagnostic exit restores independent latest mouth owner"
+	)
+	driver.expressions.cancel(eye_request)
+	driver.evaluate_expression()
+	_check(
+		not eyes.visible and not mouth.visible,
+		"Cleared requests restore both original representations"
+	)
+	_check(_wardrobe.state.to_data() == saved, "Diagnostic targets never write the saved scheme")
+	var previous_ids := [eyes.get_instance_id(), mouth.get_instance_id()]
+	for cycle in 2:
+		var second := SCENE.instantiate()
+		second.save_path = _output.path_join("diagnostic_target_unused_%d.json" % cycle)
+		root.add_child(second)
+		var second_layers: Node = second.visual_layers
+		var next_eyes: MeshInstance3D = second_layers.diagnostic_symbol_target(&"eyes")
+		var next_mouth: MeshInstance3D = second_layers.diagnostic_symbol_target(&"mouth")
+		_check(
+			next_eyes != eyes and next_mouth != mouth,
+			"Fresh actor owns separate diagnostic targets"
+		)
+		_check(
+			(
+				next_eyes.get_instance_id() not in previous_ids
+				and next_mouth.get_instance_id() not in previous_ids
+			),
+			"Recreated actor never returns previous actor targets"
+		)
+		previous_ids = [next_eyes.get_instance_id(), next_mouth.get_instance_id()]
+		var weak_eyes: WeakRef = weakref(next_eyes)
+		var weak_mouth: WeakRef = weakref(next_mouth)
+		next_eyes.queue_free()
+		_check(
+			second_layers.diagnostic_symbol_target(&"eyes") == null,
+			"Queued target is no longer borrowed"
+		)
+		second_layers._face_rig.free()
+		_check(
+			second_layers.diagnostic_symbol_target(&"mouth") == null,
+			"Freed rig has no borrowed target"
+		)
+		second.free()
+		_check(
+			weak_eyes.get_ref() == null and weak_mouth.get_ref() == null,
+			"Actor disposal frees borrowed targets"
+		)
+	_check(
+		layers.diagnostic_symbol_target(&"eyes") == eyes,
+		"Other actor disposal preserves original targets"
+	)
+
+
+func _pause_query_contract() -> void:
+	var driver: Node = _wardrobe.performance
+	var workbench: Node = _wardrobe.framework
+	var original_paused: bool = driver.is_paused()
+	var original_automatic: bool = driver.automatic
+	var original_processing := driver.is_processing()
+	var original_visible: bool = _wardrobe.preview.visible
+	var saved: Dictionary = _wardrobe.state.to_data()
+	var clock: float = driver.clock
+	var palette: Array = driver._pose_palette.duplicate()
+	var fresh: Node = driver.get_script().new()
+	_check(not fresh.is_paused(), "Fresh driver query is false before setup")
+	fresh.set_paused(true)
+	_check(fresh.is_paused(), "Pause query works without rendering or setup")
+	driver.set_paused(false)
+	_check(not driver.is_paused(), "Pause query is instance-local")
+	fresh.free()
+	driver.automatic = false
+	driver.set_process(false)
+	for manual in [false, true]:
+		for visible in [false, true]:
+			driver.set_paused(manual)
+			_wardrobe.preview.visible = visible
+			var label := "manual=%s visible=%s" % [manual, visible]
+			_check(
+				driver.is_paused() == manual and driver.is_paused() == manual,
+				"Query excludes automatic, processing and visibility: " + label
+			)
+			workbench.set_locked(true)
+			_check(driver.is_paused(), "Observation lock explicitly pauses action: " + label)
+			workbench.set_locked(true)
+			workbench.set_locked(false)
+			_check(driver.is_paused() == manual, "Repeated lock preserves original pause: " + label)
+			workbench.set_locked(false)
+			_check(
+				driver.is_paused() == manual, "Repeated unlock preserves restored pause: " + label
+			)
+	_check(driver.clock == clock, "Pause queries and lock transitions do not advance action clock")
+	_check(
+		driver._pose_palette == palette, "Pause queries and lock transitions preserve bone palette"
+	)
+	_check(_wardrobe.state.to_data() == saved, "Pause query contract never writes saved scheme")
+	_wardrobe.preview.visible = original_visible
+	driver.automatic = original_automatic
+	driver.set_process(original_processing)
+	driver.set_paused(original_paused)
 
 
 func _diagnostics() -> void:
@@ -100,8 +243,8 @@ func _diagnostics() -> void:
 	_wardrobe.preview.light_yaw = yaw
 	_choose("DiagnosticMode", 1)
 	var token: int = _wardrobe.performance.expressions.play(&"squeeze", 0.1)
-	_wardrobe.performance._apply_face()
-	_wardrobe.performance._apply_face(0.2)
+	_wardrobe.performance.evaluate_expression()
+	_wardrobe.performance.evaluate_expression(0.2)
 	_check(
 		_wardrobe.visual_layers._symbol_eyes.visible, "Partition view survives expression expiry"
 	)

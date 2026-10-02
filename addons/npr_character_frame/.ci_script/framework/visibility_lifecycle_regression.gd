@@ -66,7 +66,7 @@ func _run() -> void:
 		_scene.reset_scheme()
 		_check(not target.visible, "Reset does not silently show the hidden node")
 		_check(not _scene.framework.locked, "Hidden reset releases A/B lock")
-		_check(not _scene.performance._paused, "Hidden reset releases pose pause")
+		_check(not _scene.performance.is_paused(), "Hidden reset releases pose pause")
 		_check(
 			_scene.performance.expressions.active_count() == 0, "Hidden reset clears expressions"
 		)
@@ -192,7 +192,7 @@ func _manual_pause(target: Node3D) -> void:
 	target.show()
 	await _frames(4, "manually_paused_shown")
 	_check(_pose_bytes() == pose, "Manual paused pose survives hide/show")
-	_check(_scene.performance._paused, "Showing does not release a manual pause")
+	_check(_scene.performance.is_paused(), "Showing does not release a manual pause")
 	_scene.performance.set_paused(false)
 
 

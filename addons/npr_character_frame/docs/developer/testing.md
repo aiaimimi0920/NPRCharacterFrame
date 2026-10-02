@@ -28,9 +28,11 @@ python ./addons/npr_character_frame/.ci_script/ai_model/prepare_review.py .temp/
 
 现存回归失败见 [开发计划](../design/optimization_plan.md)。套件保留失败退出码并继续收集其它用例结果。自动化运行后检查、清理本次 Godot 子进程。
 
-`run_suite.ps1` 当前执行导入、真实主场景启动及 22 个 GDScript 专项，包含确定性采集时钟、非悬停输入和综合视觉回归；衣装及综合采集后分别实际执行 `analyze_wardrobe.py`、`analyze_visual_directions.py`，任一分析器非零退出使 suite 失败，不能由功能断言通过覆盖。仍**不包含**跨运行历史图像逐字节比较、全部实时动态序列或完整 Release 包验收。不得仅凭 `NPR_CHARACTER_FRAME_SUITE_OK` 宣称全部视觉门禁通过。需要真实 `res://` 替代资源的专项应使用新的宿主 `.temp` 输出目录；运行时使用隔离 APPDATA，避免读取用户方案。
+`run_suite.ps1` 当前执行导入、真实主场景启动及 28 个 GDScript 专项，共 30 阶段，包含确定性采集时钟、非悬停输入和综合视觉回归；衣装及综合采集后分别实际执行 `analyze_wardrobe.py`、`analyze_visual_directions.py`，任一分析器非零退出使 suite 失败，不能由功能断言通过覆盖。仍**不包含**跨运行历史图像逐字节比较、全部实时动态序列或完整 Release 包验收。不得仅凭 `NPR_CHARACTER_FRAME_SUITE_OK` 宣称全部视觉门禁通过。完整套件的 `-OutputPath` 必须使用新的宿主 `.temp` 输出目录：眼部、软组织和头发等专项会在那里生成真实 `res://` 替代资源，项目外绝对路径不能通过角色输入校验；项目外可保存汇总日志与分析结果；运行时使用隔离 APPDATA，避免读取用户方案。
 
 suite 的 `-PythonPath` 默认为 `python`，所选 Python 必须能导入 NumPy 和 Pillow；依赖预检查在创建测试输出、启动 Godot 前执行。优先使用依赖完整的独立环境。Windows 的 APPDATA 隔离可能隐藏 per-user site-packages：如需复用已有用户安装，应在隔离前用同一个 Python 查询 `site.getusersitepackages()`，将返回目录加入本次进程的 `PYTHONPATH`，再设置 APPDATA；不要在项目中写死开发机包路径或修改用户持久环境。
+
+语音生命周期的自然结束以真实 `AudioStreamPlayer.finished` 信号为准，同时检查停止与口型清空。Dummy 驱动在独立休眠线程混音，不能用“片长＋0.3 秒墙钟”推断已播完；测试使用片长两倍＋0.3 秒作为有界挂起保护，不是产品延迟 SLA。暂停负对照必须仍持有 playback 且不得收到结束信号，恢复后必须收到恰好一次结束信号。报告保留片长、实际等待时间和音频驱动；不通过手动 stop、seek、改 pitch 或伪造信号使其通过，不据此宣称实际扬声器听感已验收。
 
 ```powershell
 # $python 由使用方设为已准备好 NumPy/Pillow 的 Python 可执行文件。

@@ -53,7 +53,11 @@ func setup(host: Control) -> void:
 	_baseline_style = STYLE.capture(host.preview)
 	host.preview.add_child(diagnostics)
 	diagnostics.setup(
-		host.preview, [host.visual_layers._symbol_eyes, host.visual_layers._symbol_mouth]
+		host.preview,
+		[
+			host.visual_layers.diagnostic_symbol_target(&"eyes"),
+			host.visual_layers.diagnostic_symbol_target(&"mouth")
+		]
 	)
 	host.performance.expression_evaluated.connect(_expression_evaluated)
 	host.preview.add_child(quality)
@@ -128,18 +132,22 @@ func play_comic(kind: String) -> void:
 func _pin_spawn(token: int) -> void:
 	if token == 0:
 		return
-	var mesh: MeshInstance3D = comics._effects.back().mesh
+	var geometry := comics.geometry_snapshot(token)
+	if geometry.is_empty():
+		return
+	var transform: Transform3D = geometry.transform
+	var size: Vector2 = geometry.size
 	var camera: Camera3D = _host.camera
 	var space := camera.get_camera_transform().orthonormalized()
 	var inverse := space.affine_inverse()
-	var point := inverse * mesh.global_position
+	var point := inverse * transform.origin
 	var dimensions := _anchor.global_basis.get_scale().abs()
 	var scale := maxf(dimensions.x, maxf(dimensions.y, dimensions.z))
 	var nearest := INF
 	# Sample the whole card at birth so a hair crest cannot clip the symbol's edges.
 	for x in [-0.5, 0.0, 0.5]:
 		for y in [-0.5, 0.0, 0.5]:
-			var sample := mesh.to_global(Vector3(x * mesh.mesh.size.x, y * mesh.mesh.size.y, 0.0))
+			var sample := transform * Vector3(x * size.x, y * size.y, 0.0)
 			var screen := camera.unproject_position(sample)
 			var origin := camera.project_ray_origin(screen)
 			var direction := camera.project_ray_normal(screen)
@@ -187,7 +195,7 @@ func clear_effects() -> void:
 	for token in _requests.values():
 		_host.performance.expressions.cancel(token)
 	_requests.clear()
-	_host.performance._apply_face()
+	_host.performance.evaluate_expression()
 
 
 func set_comic_hold(value: bool) -> void:
@@ -210,7 +218,7 @@ func play_sequence() -> void:
 	if _host.speech.playback_id != previous_playback:
 		_sequence_speech_token = _host.speech.playback_id if _host.speech.player.playing else 0
 	_requests.demo = _host.performance.expressions.play(&"surprised", 4.0, 50, &"demo")
-	_host.performance._apply_face()
+	_host.performance.evaluate_expression()
 	await get_tree().create_timer(0.65).timeout
 	if is_inside_tree() and serial == _sequence_serial:
 		play_behavior(&"squeeze")
@@ -220,7 +228,7 @@ func set_diagnostic(value: int) -> void:
 	_host._set_display_mode("render")
 	diagnostics.set_mode(0)
 	_host.visual_layers.invalidate_expression_frame()
-	_host.performance._apply_face()
+	_host.performance.evaluate_expression()
 	diagnostics.set_mode(value)
 	if is_instance_valid(diagnostic_label):
 		diagnostic_label.text = DIAGNOSTICS.LEGENDS[diagnostics.mode]
@@ -238,7 +246,7 @@ func set_locked(value: bool) -> void:
 	locked = value
 	if locked:
 		_lock = {
-			"pose_paused": _host.performance._paused,
+			"pose_paused": _host.performance.is_paused(),
 			"water_paused": _host.visual_layers._paused,
 			"speech_paused": _host.speech.player.stream_paused,
 			"comic_paused": comics.paused,
@@ -342,8 +350,12 @@ func _sync_controls() -> void:
 
 
 func _expression_evaluated(frame: Dictionary) -> void:
-	diagnostics.set_canvas_visibility(_host.visual_layers._symbol_eyes, frame.eye_symbol != 0)
-	diagnostics.set_canvas_visibility(_host.visual_layers._symbol_mouth, frame.mouth_symbol != 0)
+	diagnostics.set_canvas_visibility(
+		_host.visual_layers.diagnostic_symbol_target(&"eyes"), frame.eye_symbol != 0
+	)
+	diagnostics.set_canvas_visibility(
+		_host.visual_layers.diagnostic_symbol_target(&"mouth"), frame.mouth_symbol != 0
+	)
 
 
 func set_auto_quality(value: bool) -> void:
@@ -448,5 +460,5 @@ func _preview_peak() -> void:
 		comics.paused = false
 		comics.advance(0.08)
 		comics.paused = true
-	_host.performance._apply_face(0.08 if locked else 0.0)
+	_host.performance.evaluate_expression(0.08 if locked else 0.0)
 	refresh()

@@ -49,6 +49,7 @@ $tests = @(
     "framework_workbench_regression",
     "framework_quality_comic_regression",
     "comic_spawn_pin_regression",
+    "comic_pinned_occlusion_regression", # Same-token PINNED depth, real hair and edge negative control.
     "comic_profile_regression", # Authored placement, instance isolation and physical role queries.
     "module_regression",
     "render_regression"

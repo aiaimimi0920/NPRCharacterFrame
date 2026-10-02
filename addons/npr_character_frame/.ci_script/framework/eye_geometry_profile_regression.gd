@@ -324,7 +324,7 @@ func _alternate_eye() -> void:
 	actor.add_child(rebuilt)
 	rebuilt.setup(actor, driver)
 	rebuilt.presentation.request_eye_geometry(true)
-	driver._apply_face()
+	driver.evaluate_expression()
 	_check(
 		rebuilt.eye_layer.visible and rebuilt.symbol_eyes.name == "SymbolEyeCanvas",
 		"Fresh rig recreates clean representation on surviving actor"

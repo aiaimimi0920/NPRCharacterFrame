@@ -92,6 +92,24 @@ func play(
 	return _serial
 
 
+## 返回最近一次更新的值类型快照；不推进效果，不暴露节点或材质。
+func geometry_snapshot(token: int) -> Dictionary:
+	if not is_inside_tree():
+		return {}
+	for effect in _effects:
+		if effect.token != token:
+			continue
+		var mesh: MeshInstance3D = effect.mesh
+		if (
+			not is_instance_valid(mesh)
+			or not mesh.is_inside_tree()
+			or mesh.is_queued_for_deletion()
+		):
+			return {}
+		return {"transform": mesh.global_transform, "size": mesh.mesh.size}
+	return {}
+
+
 func pin(token: int, world_position: Vector3) -> void:
 	# Capture only once at birth. Later camera changes must never rewrite this offset.
 	var view := camera if is_instance_valid(camera) else get_viewport().get_camera_3d()

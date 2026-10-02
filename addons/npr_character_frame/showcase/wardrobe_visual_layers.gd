@@ -64,6 +64,21 @@ func setup(character: NPRCharacter, performance_driver: Node) -> void:
 	RenderingServer.frame_pre_draw.connect(_sync_fitted_hosiery)
 
 
+## 借用当前角色的诊断符号曲面，不转移节点所有权，不改变可见性。
+func diagnostic_symbol_target(channel: StringName) -> MeshInstance3D:
+	if not is_instance_valid(_face_rig) or _face_rig.is_queued_for_deletion():
+		return null
+	var target: MeshInstance3D
+	match channel:
+		&"eyes":
+			target = _face_rig.symbol_eyes
+		&"mouth":
+			target = _face_rig.symbol_mouth
+	if not is_instance_valid(target) or target.is_queued_for_deletion():
+		return null
+	return target
+
+
 func _process(delta: float) -> void:
 	if not _enabled or _paused or _preview_paused:
 		return
@@ -103,7 +118,7 @@ func apply_state(state: RefCounted) -> void:
 	performance.base_eye_symbol = state.eye_symbol
 	performance.base_mouth_symbol = state.mouth_symbol
 	# Apply even while the animation preview is paused.
-	performance._apply_face()
+	performance.evaluate_expression()
 	_sync_eye_pose()
 	_hosiery.set_surface_state(
 		1.0 - float(state.stocking_transparency),

@@ -11,12 +11,80 @@ func _run() -> void:
 	_contract_profile()
 	_spawn()
 	_wardrobe.select_section(8)
+	_geometry_queries()
 	var saved: Dictionary = _wardrobe.state.to_data()
 	await _actual_profiles()
 	_role_queries()
 	_check(_wardrobe.state.to_data() == saved, "Calibration and role queries preserve saved scheme")
 	await _gui_targets()
 	_finish("COMIC_PROFILE")
+
+
+func _geometry_queries() -> void:
+	var layer := NPRComicLayer.new()
+	_check(layer.geometry_snapshot(1).is_empty(), "Detached layer has no geometry snapshot")
+	root.add_child(layer)
+	layer.camera = _wardrobe.camera
+	layer.set_process(false)
+	var anchor := Node3D.new()
+	root.add_child(anchor)
+	anchor.position = Vector3(0.1, 0.4, -0.2)
+	anchor.rotation.y = 0.2
+	anchor.scale = Vector3.ONE * 1.3
+	for token in [0, -1, 9999]:
+		_check(
+			layer.geometry_snapshot(token).is_empty(), "Unknown token has no geometry: %d" % token
+		)
+	var first := layer.play("anger", anchor, 1.0, Vector3(0.2, 0, 0), Vector2(0.13, 0.17))
+	var second := layer.play(
+		"emphasis",
+		anchor,
+		1.0,
+		Vector3(-0.2, 0, 0),
+		Vector2(0.21, 0.23),
+		NPRComicLayer.Occlusion.SCENE,
+		&"replace"
+	)
+	var snapshot := layer.geometry_snapshot(first)
+	_check(first != 0 and second != 0, "Two effects coexist for token query")
+	_check(snapshot.size == Vector2(0.13, 0.17), "Query selects requested token, not last effect")
+	_check(layer.geometry_snapshot(second).size == Vector2(0.21, 0.23), "Second token has own size")
+	var expected: Transform3D = layer._effects[0].mesh.global_transform
+	_check(snapshot.transform == expected, "Snapshot equals actual rendered mesh transform")
+	_check(snapshot.keys().size() == 2, "Snapshot exposes only transform and size")
+	snapshot.transform = Transform3D.IDENTITY
+	snapshot.size = Vector2.ZERO
+	_check(
+		layer.geometry_snapshot(first).transform == expected, "Caller cannot mutate mesh transform"
+	)
+	_check(
+		layer.geometry_snapshot(first).size == Vector2(0.13, 0.17), "Caller cannot mutate quad size"
+	)
+	var saved := layer.geometry_snapshot(first)
+	anchor.position.x += 0.3
+	_check(layer.geometry_snapshot(first) == saved, "Query does not advance or synchronize effects")
+	layer.advance(0.0)
+	_check(
+		layer.geometry_snapshot(first).transform != saved.transform,
+		"Explicit update refreshes geometry"
+	)
+	_check(saved.transform == expected, "Retained snapshot does not track later updates")
+	var replacement := layer.play(
+		"anger", anchor, 1.0, Vector3.ZERO, Vector2.ONE, NPRComicLayer.Occlusion.SCENE, &"replace"
+	)
+	_check(layer.geometry_snapshot(second).is_empty(), "Replaced token disappears immediately")
+	_check(not layer.geometry_snapshot(replacement).is_empty(), "Replacement has a fresh token")
+	layer.cancel(first)
+	_check(
+		layer.geometry_snapshot(first).is_empty(), "Cancelled token disappears before queued free"
+	)
+	layer.advance(2.0)
+	_check(layer.geometry_snapshot(replacement).is_empty(), "Expired token has no geometry")
+	var cleared := layer.play("anger", anchor)
+	layer.clear()
+	_check(layer.geometry_snapshot(cleared).is_empty(), "Clear retires queryable geometry")
+	layer.free()
+	anchor.free()
 
 
 func _contract_profile() -> void:

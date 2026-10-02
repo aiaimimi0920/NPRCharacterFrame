@@ -452,6 +452,11 @@ func set_paused(value: bool) -> void:
 	_paused = value
 
 
+## 仅查询显式动作暂停，不合并可见性、automatic 或节点处理开关。
+func is_paused() -> bool:
+	return _paused
+
+
 func set_visual_quality(value: int) -> void:
 	var next_quality := clampi(value, 0, 2)
 	if visual_quality == next_quality:
@@ -503,6 +508,12 @@ func _apply_soft_tissue_shape() -> void:
 	for binding in _authored_skins:
 		if binding.corrective >= 0 and is_instance_valid(binding.mesh):
 			binding.mesh.set_blend_shape_value(binding.corrective, value)
+
+
+## setup 完成后同步求值最新面部输入；即使动作暂停也生效。
+## delta 仅推进表情请求和过渡，不推进动作、眨眼时钟或头发模拟。
+func evaluate_expression(delta := 0.0) -> void:
+	_apply_face(delta)
 
 
 func _apply_face(delta := 0.0) -> void:

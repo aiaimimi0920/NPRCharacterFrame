@@ -4,7 +4,7 @@
 
 插件根的 `NPRCharacter`、`NPRCharacterDefinition`、材质/表情/风格 Resource 是公开入口；`runtime/` 包含渲染、深度、阴影、几何与效果实现；`shaders/`、`materials/`、`presets/` 按职责组织；`showcase/` 为完整交互场景；`samples/` 为附带测试模型；`.ci_script/` 为长期自动化。
 
-动作驱动、头发动态和表面接触已归入 `runtime/animation/`；面部装配、控制与表示位于 `runtime/face/`；装备装配位于 `runtime/equipment/`；Body 私有网格构建与拟合丝袜位于 `runtime/hosiery/`；持续面雨模拟与 GPU 场位于 `runtime/rain/`，输入来自角色定义。展示层负责组合运行时模块、UI 与保存状态；旧隐藏点滴渲染路径已删除，近景锚点仅保留在测试 fixture。完整框架的合同审计、生成器迁移与新角色验收仍未完成。后续工作见 [计划 P05](../design/optimization_plan.md)。
+动作驱动、头发动态和表面接触已归入 `runtime/animation/`；面部装配、控制与表示位于 `runtime/face/`；装备装配位于 `runtime/equipment/`；Body 私有网格构建与拟合丝袜位于 `runtime/hosiery/`；持续面雨模拟与 GPU 场位于 `runtime/rain/`，输入来自角色定义。展示层负责组合运行时模块、UI 与保存状态；旧隐藏点滴渲染路径已删除，近景锚点仅保留在测试 fixture。P05 固定输入合同核对与样例生成器迁移已完成；当前框架和 Windows Release 可按明确边界交付，BT 已接受为已知限制，现场听感接收方式待确认。第二标准角色与外部 AI 实际验收仍属 P06。入口与当前接收状态见 [交付说明](release_handoff.md)，后续范围见 [开发计划](../design/optimization_plan.md)。
 
 ## 使用入口
 
@@ -50,11 +50,19 @@
 
 完整公开声明索引见 [API 索引](api_reference.md)，从源码生成；下划线方法为内部实现，不承诺外部接口稳定性。
 
+`NPRComicLayer.geometry_snapshot(token)` 返回该层仍持有的指定效果最近一次更新后的几何快照：`transform: Transform3D` 为世界变换，`size: Vector2` 为 QuadMesh 局部尺寸。字典只包含值类型，调用者修改它不改变内部效果；不返回节点、材质或可变 Resource，不推进时间或重新同步锚点。未知、已取消、已替换、由 `advance()` 退场或已清空的 token 返回空字典；层未入树、网格无效或正在释放时也返回空。快照不证明效果当前可见，不执行深度/遮挡判断。展示生成定位使用此接口取得整卡采样点，再调用既有 `pin()`；不会根据相机后续移动重新定位。
+
 ## Face atlas 校准
 
 `NPRFaceAtlasProfile` 提供 Face 纹理采样坐标，`definition.face_atlas_profile` 基础可选、组合面部及完整展示必需。初始化仅绑定私有 Face 材质，原眼睑/符号曲面沿用该材质；不覆盖动态表情/眼动。未配置时 atlas 操作默认关闭。数值、坐标域及验收边界见 [作者规则](../model_authoring/face_atlas.md)。
 
 ## 动作运行时
+
+动作驱动的 `set_paused(value)` / `is_paused()` 写入和查询实例的显式动作暂停状态；读取无副作用，不合并可见性、自动时钟或节点处理开关。工作台锁定前保存查询结果，解锁恢复原值。详细边界见 [实时生命周期合同](realtime_lifecycle.md#模块时间与暂停合同)。
+
+动作驱动的 `evaluate_expression(delta := 0.0)` 是面部立即求值公开入口，要求驱动已完成 `setup(actor)` 且角色仍有效。它读取最新 expression、base eye/mouth symbol、blink_weight、visemes 和眼部强调输入，更新表情所有权、源脸 blend shapes 与材质，然后同步发出一次 `expression_evaluated(frame)`；已连接的 face rig 同步表示和眼睑。即使 `set_paused(true)` 也可以显式求值，不会改写暂停状态、动作/眨眼时钟或推进头发模拟，也不发出 `pose_applied`。
+
+默认 delta 为零，不消耗表情请求寿命；显式正 delta 只推进表情请求和过渡，负数/非有限数沿用 expression controller 的零步长处理。零步长不保证完成有时长的平滑过渡，工作台锁定预览仍显式传入 `0.08`。不要把此入口替换成 `apply_pose()`，也不要在正常动作求值后再无意传入同一帧 delta，避免重复推进表情计时。私有 `_apply_face()` 仍由运行时内部复用；展示和持久测试统一调用公开入口。独立宿主若接入自有信号观察器，需自行管理连接顺序和生命周期，不假定任意观察器都晚于 face rig。
 
 [`runtime/animation/npr_performance.gd`](../../runtime/animation/npr_performance.gd) 负责骨骼调色板、表情/口型、眼动和压力形变，并组合 [`npr_hair_dynamics.gd`](../../runtime/animation/npr_hair_dynamics.gd) 与 [`npr_surface_contact.gd`](../../runtime/animation/npr_surface_contact.gd)。这些模块不读取 showcase 或 samples 路径；展示场景负责创建驱动、连接 UI 和保存选择。
 
@@ -83,6 +91,7 @@
 持续面雨接入见 [雨水运行时](rain_runtime.md)，通过显式启用、到达率、种子、表面湿润与丝袜参数配置；调用方负责帧调度，运行时不读取展示状态对象。
 
 - [测试与外部 AI 协作](testing.md)
+- [实际 Release 工作台桌面门禁](release_desktop_testing.md)
 - [构建与版本](build.md)
 - [模型制作规范](../model_authoring/README.md)
 - [样例雨水资产重建](../model_authoring/rain_baking.md)

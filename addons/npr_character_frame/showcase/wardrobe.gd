@@ -695,7 +695,7 @@ func _store_eye_controls() -> void:
 func _set_debug_eye_expression(value: float) -> void:
 	_debug_eye_expression = value
 	performance.eye_emphasis_override = value
-	performance._apply_face()
+	performance.evaluate_expression()
 
 
 func _set_wetness_region(value: float, index: int) -> void:
