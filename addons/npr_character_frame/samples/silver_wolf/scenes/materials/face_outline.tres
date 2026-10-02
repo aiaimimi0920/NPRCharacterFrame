@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3]
+
+[ext_resource type="Shader" path="res://addons/npr_character_frame/shaders/face/face_outline_pixels.gdshader" id="1_shader"]
+
+[resource]
+render_priority = 1
+shader = ExtResource("1_shader")
+shader_parameter/outline_width_pixels = 1.2
+shader_parameter/outline_color = Color(0.22, 0.09, 0.13, 1)

@@ -1,0 +1,8 @@
+{
+  "schema": 1,
+  "files": {
+    "probe": {"path": "soft_tissue_input_probe.json", "sha256": "5510eb176b9af55527424312fabba253ddbe2e14012f9c36ef1830500e9b0859"},
+    "layout": {"path": "../assets/authoring/silver_wolf/wardrobe/rig_layout.json", "sha256": "c323f83bddf367038b9beb157d07596791259d28d1fedcc2bb995cfc18ad03b1"}
+  },
+  "note": "Fixed sample rig, actions, expressions and sliding lids. Outputs go to scratch; compare all runtime fields before promotion. The eyelid authoring probe hash uses canonical JSON, separately from the input file SHA256."
+}

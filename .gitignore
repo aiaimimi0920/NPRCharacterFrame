@@ -1,0 +1,7 @@
+.godot/
+*.tmp
+__pycache__/
+.pytest_cache/
+build/
+.temp/
+.export/

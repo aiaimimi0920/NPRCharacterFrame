@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "coordinate_system": "Godot actor-local, Y-up; shared with the Blender rest-rig generator",
+  "bones": [
+    {"name": "root", "parent": null, "head": [0, 0, 0], "tail": [0, 0.25, 0]},
+    {"name": "hips", "parent": "root", "head": [0, 1.32, 0], "tail": [0, 1.65, 0]},
+    {"name": "spine", "parent": "hips", "head": [0, 1.65, 0], "tail": [-0.035, 1.95, 0]},
+    {"name": "chest", "parent": "spine", "head": [-0.035, 1.95, 0], "tail": [-0.075, 2.24, 0]},
+    {"name": "neck", "parent": "chest", "head": [-0.075, 2.24, 0], "tail": [-0.105, 2.39, 0.01]},
+    {"name": "head", "parent": "neck", "head": [-0.105, 2.39, 0.01], "tail": [-0.105, 2.75, 0.01]},
+    {"name": "arm.L", "parent": "chest", "head": [-0.27, 2.16, 0], "tail": [-0.34, 1.82, 0.03]},
+    {"name": "forearm.L", "parent": "arm.L", "head": [-0.34, 1.82, 0.03], "tail": [-0.45, 1.39, 0.09]},
+    {"name": "arm.R", "parent": "chest", "head": [0.17, 2.19, 0], "tail": [0.31, 1.84, 0.02]},
+    {"name": "forearm.R", "parent": "arm.R", "head": [0.31, 1.84, 0.02], "tail": [0.54, 1.49, 0.06]},
+    {"name": "thigh.L", "parent": "hips", "head": [-0.13, 1.36, 0], "tail": [-0.14, 0.76, 0.08]},
+    {"name": "shin.L", "parent": "thigh.L", "head": [-0.14, 0.76, 0.08], "tail": [-0.17, 0.15, 0.02]},
+    {"name": "thigh.R", "parent": "hips", "head": [0.15, 1.36, 0], "tail": [0.25, 0.75, 0.08]},
+    {"name": "shin.R", "parent": "thigh.R", "head": [0.25, 0.75, 0.08], "tail": [0.32, 0.15, 0.03]},
+    {"name": "secondary.L", "parent": "chest", "head": [-0.14, 2.10, 0.095], "tail": [-0.14, 2.10, 0.19]},
+    {"name": "secondary.R", "parent": "chest", "head": [0.06, 2.10, 0.095], "tail": [0.06, 2.10, 0.19]}
+  ]
+}

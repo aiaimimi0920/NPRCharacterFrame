@@ -1,0 +1,217 @@
+{
+  "schema": 1,
+  "name": "material_authored_v1",
+  "blender": "5.2.1 LTS",
+  "source_input": "samples/silver_wolf/assets/authoring/silver_wolf/wardrobe/sources/equipment.blend",
+  "source_input_sha256": "cc7bc4225f0b15d91136349ccfe4c38a026cb924c23cd8895fb54cabc74f10a5",
+  "source": "samples/silver_wolf/assets/authoring/silver_wolf/wardrobe/sources/equipment_materials_v1.blend",
+  "glb": "samples/silver_wolf/assets/runtime/equipment_materials_v1.glb",
+  "generator_sha256": "562a48f6265130124faf74abac0dd4afbf7ee2a2842f20011355579663daecb6",
+  "backup_manifest_sha256": "7b3a5ef434ab8968221d0e6b22a6fbe4e469042d09b120d24550cd221eaafc4c",
+  "surfaces": {
+    "dark": {
+      "role": "matte polymer",
+      "roughness": [
+        0.58,
+        0.7
+      ],
+      "metallic": 0.0,
+      "coat": 0.0
+    },
+    "silver": {
+      "role": "brushed metal coating",
+      "roughness": [
+        0.24,
+        0.34
+      ],
+      "metallic": 0.72,
+      "coat": 0.0
+    },
+    "violet": {
+      "role": "polished crystal coating",
+      "roughness": [
+        0.16,
+        0.22
+      ],
+      "metallic": 0.0,
+      "coat": 0.65
+    },
+    "Material": {
+      "role": "satin trim",
+      "roughness": [
+        0.4,
+        0.48
+      ],
+      "metallic": 0.0,
+      "coat": 0.0
+    }
+  },
+  "provenance": {
+    "asset_owner": "RoleNPR project authoring",
+    "generation": "scripts/build_wardrobe_materials.py; deterministic procedural samples",
+    "third_party_source": false,
+    "review_required_before_release": true,
+    "license_status": "internal-authored-pending-review",
+    "redistribution": "not-approved"
+  },
+  "textures": {
+    "dark": {
+      "path": "samples/silver_wolf/assets/authoring/silver_wolf/wardrobe/textures/materials_v1/equipment_dark.png",
+      "sha256": "7bf23cc208c12d1a2a28871a45124015702eaa545bb4bec209d445d1533136e6",
+      "size": [
+        64,
+        64
+      ],
+      "color_space": "sRGB base color",
+      "roughness": {
+        "path": "samples/silver_wolf/assets/authoring/silver_wolf/wardrobe/textures/materials_v1/equipment_dark_roughness.png",
+        "sha256": "29a5bf864c865803f30fe8637b3960650daad12482fc907f735daf533022ce06",
+        "color_space": "linear",
+        "channel": "R absolute roughness",
+        "size": [
+          64,
+          64
+        ]
+      }
+    },
+    "silver": {
+      "path": "samples/silver_wolf/assets/authoring/silver_wolf/wardrobe/textures/materials_v1/equipment_silver.png",
+      "sha256": "fa206ed56a3cfd1cc78aaa6efcc303f48f0488c54b73fc2d78a689c480f7dabb",
+      "size": [
+        64,
+        64
+      ],
+      "color_space": "sRGB base color",
+      "roughness": {
+        "path": "samples/silver_wolf/assets/authoring/silver_wolf/wardrobe/textures/materials_v1/equipment_silver_roughness.png",
+        "sha256": "370a4940bfe5e50025ab0f8f2f388dcadc0d90a0908a054ad3e5c68f7200c112",
+        "color_space": "linear",
+        "channel": "R absolute roughness",
+        "size": [
+          64,
+          64
+        ]
+      }
+    },
+    "violet": {
+      "path": "samples/silver_wolf/assets/authoring/silver_wolf/wardrobe/textures/materials_v1/equipment_violet.png",
+      "sha256": "c4b6406b27d3cd3d14fe5f7c0a6d1550f00a107a52e32361fea7df40b608c178",
+      "size": [
+        64,
+        64
+      ],
+      "color_space": "sRGB base color",
+      "roughness": {
+        "path": "samples/silver_wolf/assets/authoring/silver_wolf/wardrobe/textures/materials_v1/equipment_violet_roughness.png",
+        "sha256": "358f710843c0515464497ce60806a785cc3a9bc8f5c1c5d445f9b7d3cc6a85dc",
+        "color_space": "linear",
+        "channel": "R absolute roughness",
+        "size": [
+          64,
+          64
+        ]
+      }
+    },
+    "Material": {
+      "path": "samples/silver_wolf/assets/authoring/silver_wolf/wardrobe/textures/materials_v1/equipment_Material.png",
+      "sha256": "c57c3a75b5ae2492f7338e70aca127a82c0ed3566c8c77d32d15d1afa0bb58d2",
+      "size": [
+        64,
+        64
+      ],
+      "color_space": "sRGB base color",
+      "roughness": {
+        "path": "samples/silver_wolf/assets/authoring/silver_wolf/wardrobe/textures/materials_v1/equipment_Material_roughness.png",
+        "sha256": "7172d629a9d07844d2872c5ebd438bf0793df128715d0464b641d11178abc937",
+        "color_space": "linear",
+        "channel": "R absolute roughness",
+        "size": [
+          64,
+          64
+        ]
+      }
+    }
+  },
+  "objects": [
+    {
+      "name": "Signal hairclip rail",
+      "material_id": "equipment_dark"
+    },
+    {
+      "name": "Signal crystal A",
+      "material_id": "equipment_violet"
+    },
+    {
+      "name": "Signal crystal B",
+      "material_id": "equipment_silver"
+    },
+    {
+      "name": "Brooch backing",
+      "material_id": "equipment_dark"
+    },
+    {
+      "name": "Prism brooch",
+      "material_id": "equipment_violet"
+    },
+    {
+      "name": "Brooch ribbon L",
+      "material_id": "equipment_silver"
+    },
+    {
+      "name": "Brooch ribbon R",
+      "material_id": "equipment_violet"
+    },
+    {
+      "name": "Drone mount",
+      "material_id": "equipment_dark"
+    },
+    {
+      "name": "Drone stabilizer",
+      "material_id": "equipment_silver"
+    },
+    {
+      "name": "Drone wing",
+      "material_id": "equipment_violet"
+    },
+    {
+      "name": "Drone reactor",
+      "material_id": "equipment_violet"
+    },
+    {
+      "name": "Drone stabilizer.001",
+      "material_id": "equipment_silver"
+    },
+    {
+      "name": "Drone wing.001",
+      "material_id": "equipment_violet"
+    },
+    {
+      "name": "Drone reactor.001",
+      "material_id": "equipment_violet"
+    },
+    {
+      "name": "Photon blade grip",
+      "material_id": "equipment_dark"
+    },
+    {
+      "name": "Photon blade guard",
+      "material_id": "equipment_silver"
+    },
+    {
+      "name": "Photon blade spine",
+      "material_id": "equipment_dark"
+    },
+    {
+      "name": "Photon blade crystal",
+      "material_id": "equipment_violet"
+    },
+    {
+      "name": "Photon blade pommel",
+      "material_id": "equipment_silver"
+    }
+  ],
+  "default_disabled": true,
+  "coordinate_system": "Godot Y-up authored positions, Blender Z-up export",
+  "source_sha256": "4c806544762576e3c2829965c7680d69b2f992ad5e12c0ca0ae5ea8d845425e6",
+  "glb_sha256": "f27ac1f6b7e705f64c07fac9acac65e8670861bd6b0faba47749892bd6d1d1b0"
+}

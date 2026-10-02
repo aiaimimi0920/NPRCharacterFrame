@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "cases": [
+    {
+      "id": "model.showcase_camera",
+      "without_ai": "check_model.gd",
+      "with_ai": "../../docs/model_authoring/tests/showcase_camera_review.md",
+      "result_kind": "compliance_and_visual_suggestion",
+      "limits": "Checks provided camera profile numeric validity; base rendering permits omission. Full showcase requires calibration. Does not prove framing, UI visibility, motion coverage or second-character acceptance."
+    },
+    {
+      "id": "model.face_atlas",
+      "without_ai": "check_model.gd",
+      "with_ai": "../../docs/model_authoring/tests/face_atlas_review.md",
+      "result_kind": "compliance_and_visual_suggestion",
+      "limits": "Checks normalized finite atlas coordinates and positive/increasing intervals. Does not prove texture semantics, fitted regions, restoration or second-character quality; use fixed GPU evidence."
+    },
+    {
+      "id": "model.comic",
+      "without_ai": "check_model.gd",
+      "with_ai": "../../docs/model_authoring/tests/comic_review.md",
+      "result_kind": "compliance_and_visual_suggestion",
+      "limits": "Checks finite comic calibration, canonical anchor bone and three ordered card dimensions. Authored placement, animation, birth pinning, skin fit and real hair occlusion require runtime evidence; passing the definition is not visual acceptance."
+    },
+    {
+      "id": "model.rain",
+      "without_ai": "check_model.gd",
+      "with_ai": "../../docs/model_authoring/tests/rain_review.md",
+      "result_kind": "compliance_and_visual_suggestion",
+      "limits": "Checks configured rain profile structure, indices and binary lengths; does not prove binary semantics, atlas quality, reciprocal adjacency or actual Body correspondence."
+    },
+    {
+      "id": "model.wetness",
+      "without_ai": "check_model.gd",
+      "with_ai": "../../docs/model_authoring/tests/wetness_review.md",
+      "result_kind": "compliance_and_visual_suggestion",
+      "limits": "Checks four nonempty wetness Texture2D resources and finite tear UV upper bounds within [0,1]; does not prove channel semantics, UV alignment, baked eye-region compatibility or rain simulation data."
+    },
+    {
+      "id": "model.equipment",
+      "without_ai": "check_model.gd",
+      "with_ai": "../../docs/model_authoring/tests/equipment_review.md",
+      "result_kind": "compliance_and_visual_suggestion",
+      "limits": "Validates four-slot inputs, geometry arrays and indices, swatches, performance bone names, material scene nodes and StandardMaterial3D inputs. Does not prove attachment fit or visual quality."
+    },
+    {
+      "id": "model.hosiery",
+      "without_ai": "check_model.gd",
+      "with_ai": "../../docs/model_authoring/tests/hosiery_review.md",
+      "result_kind": "compliance_and_visual_suggestion",
+      "limits": "Checks textures, Body domain, cuff and textile scale values, leg AO calibration bounds, and optional normal correction structure/count/source positions. Does not prove baked repeat counts, full triangle topology, texture semantics, seam placement, domain alignment or visual fit."
+    },
+    {
+      "id": "model.eye_geometry",
+      "without_ai": "check_model.gd",
+      "with_ai": "../../docs/model_authoring/tests/eye_geometry_review.md",
+      "result_kind": "compliance_and_visual_suggestion",
+      "limits": "Checks configured eye scene root, direct surface names/materials, finite landmark centers, optical parameter ranges and 65-column uniform lid sampling. Does not prove optical fit or lid closure quality."
+    },
+    {
+      "id": "model.symbol_surfaces",
+      "without_ai": "check_model.gd",
+      "with_ai": "../../docs/model_authoring/tests/symbol_surface_review.md",
+      "result_kind": "compliance_and_visual_suggestion",
+      "limits": "Checks profile centers, radii, scales and finite values. Face-domain coverage, fitted geometry and visual masking require runtime evidence."
+    },
+    {
+      "id": "model.hair_dynamics",
+      "without_ai": "check_model.gd",
+      "with_ai": "../../docs/model_authoring/tests/hair_dynamics_review.md",
+      "result_kind": "compliance_and_visual_suggestion",
+      "limits": "Validates dynamic palette, chain, skin weights, contact samples and source counts. Does not prove triangle collision coverage, visual continuity or model-specific motion quality."
+    },
+    {
+      "id": "model.soft_tissue",
+      "without_ai": "check_model.gd",
+      "with_ai": "../../docs/model_authoring/tests/soft_tissue_review.md",
+      "result_kind": "compliance_and_visual_suggestion",
+      "limits": "Validates sparse corrective indices, finite deltas, pressure range and Body vertex count. Collision safety and semantic deformation region require model-specific evidence."
+    },
+    {
+      "id": "model.rig_layout",
+      "without_ai": "check_model.gd",
+      "with_ai": "../../docs/model_authoring/tests/performance_review.md",
+      "result_kind": "compliance_and_visual_suggestion",
+      "limits": "Validates ordered canonical bones, acyclic parent references and finite nonzero actor-rest endpoints. Does not prove anatomical fit or animation quality."
+    },
+    {
+      "id": "model.performance",
+      "without_ai": "check_model.gd",
+      "with_ai": "../../docs/model_authoring/tests/performance_review.md",
+      "result_kind": "compliance_and_visual_suggestion",
+      "limits": "Validates schema 1 actions, skin influences, face deltas and source topology. Does not establish deformation aesthetics or validate separate hair/soft-tissue assets."
+    },
+    {
+      "id": "model.face_motion",
+      "without_ai": "check_model.gd",
+      "with_ai": "../../docs/model_authoring/tests/face_motion_review.md",
+      "result_kind": "compliance_and_visual_suggestion",
+      "limits": "Checks authored profile and lid structure/index validity. UV-region topology fit is additionally checked during eye-shape generation; visual closure needs captures."
+    },
+    {
+      "id": "model.contract",
+      "without_ai": "check_model.gd",
+      "with_ai": "../../docs/model_authoring/tests/contract_review.md",
+      "result_kind": "compliance",
+      "limits": "Production definition and geometry validation only; texture semantics and full-feature datasets remain explicit unassessed items."
+    },
+    {
+      "id": "appearance.face_softness",
+      "shared_capture": "capture_views.gd",
+      "without_ai": "../../docs/model_authoring/tests/face_softness_programmatic.md",
+      "with_ai": "../ai_model/prepare_review.py",
+      "result_kind": "visual_suggestion",
+      "limits": "No universal numerical softness threshold is defined. The non-AI route supplies evidence and requires manual interpretation."
+    }
+  ]
+}

@@ -1,0 +1,343 @@
+{
+  "contract": "npr-character-frame",
+  "version": "1.1.0",
+  "engine": {
+    "family": "RoleNPR custom Godot",
+    "renderer": "forward_plus",
+    "stock_godot_supported": false,
+    "required_extensions": ["stencil_mode", "post_light", "UNJITTERED_PROJECTION_MATRIX", "TriangleMesh.update_from_indexed_surfaces", "RenderingServer.mesh_surface_get_geometry_arrays"]
+  },
+  "module_path": "res://addons/npr_character_frame",
+  "entry_script": "npr_character.gd",
+  "install_script": "install.gd",
+  "definition": {
+    "resource_class": "NPRCharacterDefinition",
+    "showcase_height_profile": {
+      "type": "NPRShowcaseHeightProfile",
+      "required_when": "complete showcase",
+      "optional_when": "base rendering only",
+      "fields": [
+        "min_height/max_height: finite strictly increasing float64 inclusive bounds",
+        "default_height: finite float64 inside bounds",
+        "step: finite positive float64 UI step only"
+      ],
+      "binding": "Deep-copied at showcase entry and per state; initial/reset/path reload share entry calibration",
+      "saved_contract": "schema 10 actual height remains authoritative; no step quantization; schema 1-5 historical missing height is 1.34; out-of-range legacy fill rejected atomically",
+      "coordinate": "actor-rest Y, distinct from hosiery geometry candidate domain"
+    },
+    "showcase_palette_profile": {
+      "type": "NPRShowcasePaletteProfile",
+      "required_when": "complete showcase",
+      "optional_when": "base rendering only",
+      "fields": [
+        "labels: nonempty PackedStringArray, nonblank labels",
+        "rgb: PackedStringArray with three six-digit hex RGB values per slot",
+        "default_index: valid slot index"
+      ],
+      "slot_contract": "0 disables garment dye; -1 is user custom color, not an authored slot; same-identity slot order is persistent",
+      "binding": "Deep-copied at showcase entry; UI and initial/reset/path-reload state use the same snapshot",
+      "save_contract": "Schema 10 unchanged; saved RGB is authoritative; historical migration defaults are not author overrides",
+      "guide": "docs/model_authoring/showcase_palette.md"
+    },
+    "showcase_camera_profile": {
+      "type": "NPRShowcaseCameraProfile",
+      "required_when": "complete showcase",
+      "optional_when": "base rendering only",
+      "coordinate_space": "display-height-aligned actor space, Y up, default camera at target +Z",
+      "view_order": [
+        "full",
+        "half",
+        "face"
+      ],
+      "arrays": [
+        "view_heights: PackedFloat64Array(3)",
+        "view_distances: PackedFloat64Array(3)"
+      ],
+      "validation": "Finite heights and offsets; finite positive distances; finite FOV within 1..179; finite pressure_target",
+      "binding": "Deep-copied per showcase instance before camera creation; not serialized in schema 10",
+      "guide": "docs/model_authoring/showcase_camera.md",
+      "scope": "Numeric validity does not prove framing, motion coverage or second-character acceptance"
+    },
+    "face_atlas_profile": {
+      "type": "NPRFaceAtlasProfile",
+      "required_when": "painted-eye accent/round-eye, diagnostic replacement, symbolic skin cleanup or complete showcase",
+      "optional_when": "base rendering only; atlas operations disabled without explicit calibration",
+      "coordinate_space": "(UV.x, 1 - UV.y) normalized Face fragment texture coordinates; no fixed 512px layout",
+      "fields": [
+        "accent_uv_min",
+        "accent_uv_max",
+        "accent_plate_uv",
+        "skin_sample_v",
+        "replacement_eye_a_max_uv",
+        "replacement_eye_b_min_u",
+        "replacement_eye_b_v_range",
+        "round_eye_center_uv",
+        "round_eye_aspect",
+        "round_eye_pupil_radii",
+        "round_eye_disc_radii"
+      ],
+      "replacement_domains": "A: U < max_u && V < max_v; B: U > min_u && low_v < V < high_v; open half-spaces, no extra bounds; intersect with 0.1 < ILM.R < 0.8",
+      "validation": "Finite UV/scalars in [0,1], increasing crop and B V interval, positive finite aspect, increasing positive radii with outer <= 1",
+      "binding": "Private Face main material at actor setup; static fields only; invalid apply_material returns false atomically",
+      "guide": "docs/model_authoring/face_atlas.md",
+      "scope": "No CPU classification/pivot/tag, skin coverage, ILM/SDF, wetness, shape algorithm or sample offline generator change; numeric checks do not prove semantic texture fit"
+    },
+    "comic_profile": {
+      "type": "NPRComicProfile",
+      "required_when": "authored comic placement or complete showcase",
+      "optional_when": "base rendering only",
+      "coordinate_space": "actor rest space after display-height alignment; card offsets relative to the animated anchor and birth view plane",
+      "anchor": ["anchor_bone", "anchor_origin"],
+      "cards_in_order": ["sweat", "anger", "emphasis"],
+      "arrays": ["card_offsets: PackedVector3Array(3)", "card_sizes: PackedVector2Array(3)"],
+      "face_regions": ["tear_left", "tear_right", "hatching_left", "hatching_right"],
+      "validation": "Canonical performance bone; finite origins/offsets, positive finite card sizes and Vector4 XY centers/ZW sizes",
+      "binding": "Read-only authored resource; caller applies static uniforms and owns animated anchor/lifecycle. Showcase preserves birth pinning and face SURFACE attachment",
+      "guide": "docs/model_authoring/comic.md",
+      "scope": "Does not prove semantic fit, actual hair occlusion or second-character acceptance; shader front-domain threshold and shape algorithms remain unchanged"
+    },
+    "rain_profile": {
+      "type": "NPRRainProfile",
+      "required_when": "continuous surface rain or complete showcase",
+      "optional_when": "base rendering only",
+      "paths": ["surface_path", "chart_path", "vertex_uv_path"],
+      "surface_schema": 1,
+      "chart_encoding": "raw RGBA8, size.x * size.y * 4 bytes; chart ID R + G * 256",
+      "vertex_encoding": "raw little-endian RGBA float32, width 256, RG atlas UV, 16 bytes per pixel",
+      "validation": "Existing res:// files, finite rows, array counts, index bounds, positive candidate area and binary lengths",
+      "runtime": "runtime/rain/npr_surface_rain.gd",
+      "configure": "Explicit enabled, candidate arrivals per simulation second, seed, Vector3 skin/hosiery/clothing wetness, hosiery height and opacity; caller supplies valid values",
+      "scope": "Does not prove binary semantics, reciprocal adjacency or correspondence to actual Body; sample camera anchors are test-only fixtures, legacy hidden bead assets removed",
+      "guide": "docs/model_authoring/rain.md"
+    },
+    "wetness_profile": {
+      "type": "NPRWetnessProfile",
+      "required_when": "using wetness or complete showcase",
+      "optional_when": "base rendering only",
+      "textures": ["body_mask", "material_regions", "eye_tear_mask", "hair_mask"],
+      "channels": "Body/eye/hair use R; material_regions RGBA = textile, coated/leather, polymer, metal",
+      "eye_tear_uv_limit": "Finite Vector2 components in [0,1]; strict frag_uv upper bounds; profile default (1,1), sample (0.26,0.32); zero disables standard nonnegative UV region",
+      "validation": "Nonempty Texture2D inputs with positive dimensions and valid eye_tear_uv_limit",
+      "guide": "docs/model_authoring/wetness.md",
+      "scope": "Material textures and tear UV upper bounds; baked eye classification, closure gate and rain simulation data remain separate"
+    },
+    "equipment_profile": {
+      "type": "NPREquipmentProfile",
+      "required_when": "using equipment or complete showcase",
+      "optional_when": "base rendering only",
+      "slots": ["head", "chest", "back", "weapon"],
+      "binding": "Geometry JSON, material PackedScene, labels, performance bone names, swatch UVs and direct material mesh groups",
+      "guide": "docs/model_authoring/equipment.md",
+      "scope": "Input validation and runtime/equipment assembly; semantic bone fit and visual quality require model-specific evidence"
+    },
+    "hosiery_profile": {
+      "type": "NPRHosieryProfile",
+      "leg_ao_repair": "Optional, disabled by default; UV min/max within [0,1], increasing finite actor-rest heights and G floor within [0,1]; existing left-side/domain/garment-alpha gates remain",
+      "runtime": "runtime/hosiery/npr_fitted_hosiery.gd",
+      "body_preparation": "runtime/hosiery/npr_garment_geometry.gd: install original single-surface unskinned Body before equipment/animation; unused CUSTOM0 and no blend shapes required",
+      "shader": "shaders/body/hosiery_fitted_shell.gdshader",
+      "required_when": "using the dynamic fitted hosiery layer or complete showcase",
+      "optional_when": "base rendering only",
+      "textures": ["weave_texture", "roughness_texture", "normal_texture", "garment_mask", "tulle_mask", "stitch_mask"],
+      "mask_channels": "garment RGB: Body primary/secondary/trim dye weights; A: shared hosiery coverage and current AO mask; tulle/stitch R: Body authored layers, metric seams replace texture stitch output",
+      "domain": ["domain_height_range", "domain_half_width", "domain_full_width_below"],
+      "cuff": "cuff_band_width and cuff_stitch_width: finite positive metres; cuff_stitch_offset: finite nonnegative metres below selected height; bind both Body and fitted shell",
+      "textile_scale": "textile_period_m: finite positive actor-rest period; textile_repeats: positive integer repeats per texture tile; shell_offset_m: finite nonnegative world offset under positive uniform scaling",
+      "normal_correction": "Optional res:// JSON: schema 1, positive integer vertex_count, unique finite [index, source_xyz, normal_xyz] rows; validate original mesh-local positions within 0.00001 and nonzero normals before applying",
+      "validation": "Six positive-size Texture2D inputs; finite increasing domain heights, finite positive half width and finite full-width threshold; semantic content requires visual evidence",
+      "guide": "docs/model_authoring/hosiery.md",
+      "scope": "Textures, Body domain, sparse normal correction, cuff shape and textile scale; no full triangle topology proof or independent leg centers; nonuniform shell scaling is not supported by the offset formula"
+    },
+    "eye_geometry_profile": {
+      "type": "NPREyeGeometryProfile",
+      "required_when": "using diagnostic ocular geometry or complete showcase visual layers",
+      "optional_when": "base rendering only",
+      "landmarks_schema": 2,
+      "binding": "PackedScene and EyeL/EyeR actor-space landmark centers",
+      "guide": "docs/model_authoring/eye_geometry.md",
+      "scope": "Asset, landmark, gaze, shading, shell and tear optics configuration; runtime/face/npr_face_rig.gd owns assembly, control, presentation and lifecycle; saved/UI state adapter remains in showcase",
+      "lid_sampling": "face_motion_profile required; 65 uniformly spaced shared upper/lower X columns per side"
+    },
+    "symbol_surface_profile": {
+      "type": "NPRSymbolSurfaceProfile",
+      "required_when": "using symbolic replacement surfaces or the complete showcase visual layers",
+      "optional_when": "base rendering only",
+      "coordinate_space": "actor space after display-height alignment",
+      "binding": "replacement mesh centers/radii, glyph scales and face/outline shader masks",
+      "guide": "docs/model_authoring/symbol_surfaces.md",
+      "scope": "Procedurally fitted symbolic replacement surfaces; authored closure and visual fit need independent review"
+    },
+    "hair_dynamics_data_path": {
+      "type": "res:// JSON path",
+      "required_when": "using the showcase dynamic palette",
+      "optional_when": "base rendering only",
+      "schema": 3,
+      "roles": [0, 2],
+      "canonical_bone_count": 16,
+      "guide": "docs/model_authoring/hair_dynamics.md",
+      "scope": "Dynamic chain, skin and contact input structure; physical/style quality needs model-specific evidence"
+    },
+    "soft_tissue_data_path": {
+      "type": "res:// JSON path",
+      "required_when": "using the authored pressure corrective in showcase performance",
+      "optional_when": "base rendering only",
+      "schema": 1,
+      "shape_name": "soft_tissue_pressure",
+      "role": "body",
+      "coordinate_space": "actor space after display-height alignment",
+      "guide": "docs/model_authoring/soft_tissue.md",
+      "scope": "Sparse authored corrective; collision and domain metadata are not general collision validation"
+    },
+    "rig_layout_data_path": {
+      "type": "res:// JSON path",
+      "required_when": "using authored skeleton diagnostics in showcase",
+      "optional_when": "base rendering only",
+      "schema": 1,
+      "coordinate_space": "actor rest space after display-height alignment",
+      "canonical_bones": 16,
+      "fields": ["name", "parent", "head", "tail"],
+      "guide": "docs/model_authoring/performance.md#骨骼诊断端点",
+      "scope": "Ordered standard bones, acyclic parent references and finite nonzero endpoints; does not prove anatomical fit or animation quality"
+    },
+    "performance_data_path": {
+      "type": "res:// JSON path",
+      "required_when": "using authored performance",
+      "optional_when": "base rendering only",
+      "schema": 1,
+      "canonical_bones": 16,
+      "fps": 30,
+      "roles": ["body", "face", "hair"],
+      "guide": "docs/model_authoring/performance.md",
+      "scope": "Skin palettes, sampled actions and face deltas; dynamic hair, soft tissue and symbolic surfaces remain separate datasets"
+    },
+    "face_motion_profile": {
+      "type": "NPRFaceMotionProfile",
+      "required_when": "using procedural eye motion and sliding lid features",
+      "optional_when": "base rendering only",
+      "schema_version": 1,
+      "coordinate_space": "actor space after display-height alignment",
+      "lid_data_schema": 2,
+      "binding": "character-authored expression resource, UV/component calibration and lid JSON",
+      "guide": "docs/model_authoring/face_motion.md",
+      "scope": "P05-A eye/lid calibration only; full speech, rig and symbolic-surface data are not yet generalized"
+    },
+    "model_scene": {"type": "PackedScene", "required": true, "root_type": "Node3D"},
+    "body_path": {"type": "NodePath", "default": "Body"},
+    "face_path": {"type": "NodePath", "default": "Face"},
+    "hair_path": {"type": "NodePath", "default": "Hair"},
+    "material_set": {"type": "NPRCharacterMaterials", "required_when": "use_source_materials == false", "optional_when": "use_source_materials == true", "source_mode_purpose": "optional extension textures, local axes and outline smooth-normal sources only"},
+    "use_source_materials": {"type": "bool", "default": false},
+    "display_height": {"type": "float", "default": 3.0, "minimum": 0, "zero_means": "preserve authored pivot and dimensions"},
+    "material_profile": {
+      "type": "NPRMaterialProfile",
+      "specular_exponents": {"length": 8, "minimum": 0.01, "maximum": 4096, "default": [24,24,24,24,24,24,24,24]},
+      "capture_verified": false,
+      "source_note": "Artist-authored; not recovered capture constants.",
+      "all_region_arrays": {"length": 8, "finite": true},
+      "optional_features_default": "disabled or zero-strength; exact legacy-look no-op"
+    }
+  },
+  "geometry": {
+    "roles": ["body", "face", "hair"],
+    "meshes_per_role": 1,
+    "surface_count_per_mesh": 1,
+    "mesh_type": "ArrayMesh",
+    "primitive": "triangles",
+    "required_attributes": ["POSITION", "NORMAL", "TEXCOORD_0"],
+    "conditional_attributes": {
+      "TEXCOORD_1": "face when sdf_on_uv2 is true; any role when outline smooth-normal source is UV2 oct",
+      "TANGENT": "hair anisotropy/flow, or any role when outline smooth-normal source is tangent"
+    },
+    "unbound_meshes": "reject",
+    "equipment": "merge disconnected islands into body surface and atlas",
+    "coordinates_after_import": {"up": [0,1,0], "forward": [0,0,1], "right": [1,0,0]},
+    "skin": {"weights_per_vertex": [4,8], "requires": ["Skin", "resolvable Skeleton3D NodePath"]},
+    "custom_vertex_displacement": "unsupported by depth, shadow and picking synchronization",
+    "vertex_color_neutral": [1,1,1,1],
+    "part_masking_default": "disabled"
+  },
+  "material_set": {
+    "sdf_on_uv2": {"type": "bool", "default": false},
+    "face_forward": {"type": "Vector3", "default": [0,0,1], "unit": true, "space": "imported face mesh local"},
+    "face_right": {"type": "Vector3", "default": [1,0,0], "unit": true, "orthogonal_to": "face_forward"},
+    "hair_sheen_axis": {"type": "Vector3", "default": [0,0,1], "unit": true, "space": "imported hair mesh local", "purpose": "eye-reveal alpha, not highlight ribbon"},
+    "hair_side_axis": {"type": "Vector3", "default": [1,0,0], "unit": true, "space": "imported hair mesh local", "purpose": "side-selective fade only"},
+    "outline_smooth_normal_source": {
+      "per_role": true,
+      "enum": {"0": "vertex NORMAL", "1": "smooth normal stored in TANGENT.xyz", "2": "octahedral smooth normal stored in UV2"},
+      "default": 0,
+      "conflict": "anisotropic hair needs the authored strand tangent; use UV2 for smooth outline normals when both features are enabled"
+    },
+    "textures": {
+      "body_base": {"required": true, "space": "sRGB RGB, raw A", "sampler": "u_texture_base_map"},
+      "body_ilm": {"required": true, "space": "raw", "sampler": "u_texture_light_map", "channels": {"R": "unused by current body ILM math", "G": "occlusion and shading", "B": "specular threshold input", "A": "8-slot index"}},
+      "body_lut": {"required": true, "size": [8,8], "space": "raw; RGB color rows explicitly decoded by shader", "sampler": "u_material_values_pack_lut", "filter": "nearest, no repeat, no mipmap sampling"},
+      "body_ramp": {"required": true, "min_width": 2, "height": 16, "space": "sRGB", "sampler": "u_texture_diffuse_ramp"},
+      "body_cool_ramp": {"required": true, "min_width": 2, "height": 16, "space": "sRGB", "sampler": "u_texture_diffuse_cool_ramp"},
+      "face_base": {"required": true, "space": "sRGB", "sampler": "u_texture_base_map"},
+      "face_ilm": {"required": true, "space": "raw", "sampler": "u_texture_ilm_map", "eye_sampler": "u_texture_ilm", "channels": {"R": "eye region when 0.1 < R < 0.8", "G": "eye stencil when G > 0.5", "B": "nose-line mask", "A": "angular SDF threshold"}},
+      "face_map": {"required": true, "space": "raw", "sampler": "u_texture_face", "neutral_rgb": [0,0,0], "channels": {"R": "makeup/blush", "G": "lip", "B": "gradient"}},
+      "face_ramp": {"required": true, "space": "sRGB", "sampler": "u_texture_diffuse_ramp", "purpose": "distance/plane grading LUT"},
+      "hair_base": {"required": true, "space": "sRGB RGB, raw A", "sampler": "u_texture_base_map", "alpha": "eye-area hair reveal blend"},
+      "hair_ilm": {"required": true, "space": "raw", "sampler": "u_texture_ilm_map", "channels": {"R": "ribbon mask", "G": "shading", "B": "highlight shape", "A": "8-slot index"}},
+      "hair_ramp": {"required": true, "min_width": 2, "height": 16, "space": "sRGB", "sampler": "u_texture_diffuse_ramp"},
+      "hair_cool_ramp": {"required": true, "min_width": 2, "height": 16, "space": "sRGB", "sampler": "u_texture_diffuse_cool_ramp"},
+      "body_effects": {"required": false, "space": "raw linear RGBA", "sampler": "u_npr_surface_effects", "channels": {"R": "stocking/translucent-body coverage", "G": "MatCap coverage", "B": "secondary emission coverage", "A": "dissolve protection"}},
+      "face_expression": {"required": false, "space": "raw linear RGBA", "sampler": "u_npr_surface_effects", "channels": {"R": "expression shadow", "G": "expression highlight", "B": "expression blush", "A": "dissolve protection"}},
+      "face_outline_control": {"required": false, "space": "raw linear RGBA", "sampler": "u_npr_outline_control", "channels": {"R": "lip outline core", "G": "lip width feather", "B": "face outline holdout", "A": "reserved one"}, "legacy_fallback": "face_map.G with multiplicative width scale"},
+      "hair_effects": {"required": false, "space": "raw linear RGBA", "sampler": "u_npr_surface_effects", "channels": {"R": "anisotropy strength", "G": "side fade and silhouette coverage", "B": "secondary emission coverage", "A": "dissolve protection"}},
+      "matcap_texture": {"required": false, "space": "sRGB", "sampler": "u_npr_matcap_texture", "wrap": "clamp", "uv": "view-space normal XY mapped to 0..1"},
+      "hair_flow_map": {"required": false, "space": "raw linear RG", "sampler": "u_npr_hair_flow_map", "channels": {"R": "signed tangent-axis component encoded 0..1", "G": "signed binormal-axis component encoded 0..1"}, "default_tangent_direction_encoded": [1.0,0.5], "zero_vector_encoding_not_neutral": [0.5,0.5], "degenerate_runtime_fallback": "authored TANGENT"},
+      "dissolve_noise": {"required": false, "space": "raw linear R", "sampler": "u_npr_dissolve_noise", "wrap": "repeat", "purpose": "shared color, eye-stencil, outline, auxiliary-depth and shadow-caster visibility"}
+    }
+  },
+  "atlas_rules": {
+    "slot_decode": "fract(floor(A * 8) / 8) * 8",
+    "slot_encode_recommended": "(slot + 0.5) / 8",
+    "alpha_one_decodes_to": 0,
+    "ramp_y": "(2 * slot + 1) / 16",
+    "ramp_rows_per_slot": 2,
+    "base_and_regular_mask_uv": "(UV.x, 1 - UV.y)",
+    "face_sdf_uv": "UV1 or UV2 without fragment Y flip; mirror X for negative local light angle",
+    "eye_stencil_uv": "UV1 with fragment Y flip, independent of SDF UV2",
+    "sdf_light_test": "A greater than normalized absolute horizontal light angle is lit",
+    "texture_compression": "lossless for ILM/LUT; preserve alpha"
+  },
+  "body_lut_rows": {
+    "0": "RGB specular color, manual sRGB decode",
+    "1": "R legacy exponent, G feather, B intensity; explicit float profile overrides exponent",
+    "2": "reserved zero",
+    "3": "reserved zero",
+    "4": "reserved zero",
+    "5": "RGB rim-shadow color, manual sRGB decode",
+    "6": "R rim width, G feather, B bloom intensity",
+    "7": "RGB bloom color, manual sRGB decode"
+  },
+  "source_material_mode": {
+    "base_inputs_owner": "authored source material chain",
+    "optional_binding": "NPRCharacterMaterials.apply_optional_to()",
+    "binding_order": "duplicate source Body, Face/eye and Hair/eye-hair chains, then bind optional uniforms to the private copies",
+    "bound_fields": ["body_effects", "matcap_texture", "face_expression", "face_outline_control", "hair_effects", "hair_flow_map", "dissolve_noise", "hair_side_axis"],
+    "must_not_modify": ["imported source materials", "shared source textures"]
+  },
+  "optional_features": {
+    "dissolve": {
+      "default_enabled": false,
+      "default_amount": 0,
+      "signed_distance": "noise.r - clamp(amount - effects.A, 0, 1)",
+      "cross_passes": ["body color", "face color", "eye stencil", "hair color", "outline", "character depth", "shadow caster", "normal/material auxiliary"]
+    },
+    "scalar_visibility": {"default_alpha": 1, "default_dither": false, "dither_matrix": "stable 2x2", "continuous_alpha_passes": ["body color", "face color", "hair color"], "dither_coverage_passes": ["color", "eye stencil", "face shadow overlay", "outline", "character depth", "shadow caster", "normal/material auxiliary"]},
+    "face_expression": {"weights": ["shadow", "highlight", "blush"], "range": [0,1], "default": [0,0,0]},
+    "hair_anisotropy": {"region_arrays": ["strength", "roughness", "shift"], "uses": ["TANGENT", "BINORMAL", "optional hair_flow_map"]},
+    "region_controls": {"slot_count": 8, "body_slot_source": "body_ilm.A", "hair_slot_source": "hair_ilm.A", "face_slot": 0},
+    "auxiliary_buffer": {"default_enabled": false, "transparent_background_required": true, "background_alpha": 0, "channels": {"R,G": "octahedral world normal", "B": "centered (role * 8 + material slot) / 24", "A": "coverage"}},
+    "motion_vectors": {"source": "custom Godot RD mesh-instance double-buffered deformed vertices", "covers": ["object transform", "skeleton", "blend shape"], "first_frame": "current equals previous", "deformation_history": "validated with consecutive adjacent-frame pose changes", "isolated_pose_jump_after_long_idle": "may be treated as teleport/no continuous previous deformation"}
+  },
+  "scope": {
+    "generic_capture_fog": "disabled; host owns environment fog",
+    "example": "original procedural integration mannequin; diagnostic atlases, not finished character art",
+    "silver_wolf_acceptance_assets": "samples/silver_wolf/assets/authoring/silver_wolf/optional is high-contrast diagnostic input; samples/silver_wolf/assets/authoring/silver_wolf/final is the current NPR 1.1 showcase control set; neither is canonical or recovered original-game art",
+    "artist_acceptance": ["front, side and back", "left and right key lights", "face SDF", "eye-area hair", "contact shadow", "outline", "animation and expressions"]
+  }
+}

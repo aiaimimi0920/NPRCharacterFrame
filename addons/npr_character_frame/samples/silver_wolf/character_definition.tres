@@ -1,0 +1,48 @@
+[gd_resource type="Resource" script_class="NPRCharacterDefinition" load_steps=17 format=3]
+
+[ext_resource type="Script" path="res://addons/npr_character_frame/npr_character_definition.gd" id="1"]
+[ext_resource type="PackedScene" path="res://addons/npr_character_frame/samples/silver_wolf/scenes/silver_wolf.tscn" id="2"]
+[ext_resource type="Resource" path="res://addons/npr_character_frame/samples/silver_wolf/profiles/silver_wolf_npr11_materials.tres" id="3"]
+[ext_resource type="Resource" path="res://addons/npr_character_frame/samples/silver_wolf/profiles/silver_wolf_npr11_profile.tres" id="4"]
+
+[ext_resource type="Resource" path="res://addons/npr_character_frame/samples/silver_wolf/profiles/face_motion.tres" id="5"]
+[ext_resource type="Resource" path="res://addons/npr_character_frame/samples/silver_wolf/profiles/symbol_surfaces.tres" id="6"]
+[ext_resource type="Resource" path="res://addons/npr_character_frame/samples/silver_wolf/profiles/eye_geometry.tres" id="7"]
+[ext_resource type="Resource" path="res://addons/npr_character_frame/samples/silver_wolf/profiles/hosiery.tres" id="8"]
+[ext_resource type="Resource" path="res://addons/npr_character_frame/samples/silver_wolf/profiles/equipment.tres" id="9"]
+
+[ext_resource type="Resource" path="res://addons/npr_character_frame/samples/silver_wolf/profiles/wetness.tres" id="10"]
+[ext_resource type="Resource" path="res://addons/npr_character_frame/samples/silver_wolf/profiles/rain.tres" id="11"]
+[ext_resource type="Resource" path="res://addons/npr_character_frame/samples/silver_wolf/profiles/comic.tres" id="12"]
+[ext_resource type="Resource" path="res://addons/npr_character_frame/samples/silver_wolf/profiles/face_atlas.tres" id="13"]
+[ext_resource type="Resource" path="res://addons/npr_character_frame/samples/silver_wolf/profiles/showcase_camera.tres" id="14"]
+
+[ext_resource type="Resource" path="res://addons/npr_character_frame/samples/silver_wolf/profiles/showcase_palette.tres" id="15"]
+
+[ext_resource type="Resource" path="res://addons/npr_character_frame/samples/silver_wolf/profiles/showcase_height.tres" id="16"]
+
+[resource]
+script = ExtResource("1")
+showcase_height_profile = ExtResource("16")
+model_scene = ExtResource("2")
+body_path = NodePath("Body/模型")
+face_path = NodePath("Head/Face/脸部模型")
+hair_path = NodePath("Head/Hair/头发模型")
+material_set = ExtResource("3")
+use_source_materials = true
+material_profile = ExtResource("4")
+face_motion_profile = ExtResource("5")
+face_atlas_profile = ExtResource("13")
+symbol_surface_profile = ExtResource("6")
+eye_geometry_profile = ExtResource("7")
+hosiery_profile = ExtResource("8")
+equipment_profile = ExtResource("9")
+wetness_profile = ExtResource("10")
+rain_profile = ExtResource("11")
+comic_profile = ExtResource("12")
+showcase_camera_profile = ExtResource("14")
+showcase_palette_profile = ExtResource("15")
+performance_data_path = "res://addons/npr_character_frame/samples/silver_wolf/assets/authoring/silver_wolf/wardrobe/performance.json"
+soft_tissue_data_path = "res://addons/npr_character_frame/samples/silver_wolf/assets/authoring/silver_wolf/wardrobe/soft_tissue_v1.json"
+hair_dynamics_data_path = "res://addons/npr_character_frame/samples/silver_wolf/assets/authoring/silver_wolf/wardrobe/hair_dynamic_v1.json"
+rig_layout_data_path = "res://addons/npr_character_frame/samples/silver_wolf/assets/authoring/silver_wolf/wardrobe/rig_layout.json"

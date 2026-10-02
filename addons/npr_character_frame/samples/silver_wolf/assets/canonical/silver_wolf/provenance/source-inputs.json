@@ -1,0 +1,569 @@
+{
+  "imported_assets": [
+    {
+      "artifacts": [
+        {
+          "bytes": 524340,
+          "path": "res://.godot/imported/ilm.png-1999c47195885c43fc2390beb576bd79.s3tc.ctex",
+          "sha256": "7804a5eff149ea6add5acfc0f44d80caa86a34e248f82d13fc5a64f8d5a53588"
+        }
+      ],
+      "importer": "texture",
+      "source": "res://银狼/模型/hair/texture/ilm.png"
+    },
+    {
+      "artifacts": [
+        {
+          "bytes": 3120,
+          "path": "res://.godot/imported/ramp.png-2721a45ab8793791533f503063d81730.ctex",
+          "sha256": "dd5f2162c2f0c3ebad31f806d70f327fa62486673a387eaf0e3395393965884a"
+        }
+      ],
+      "importer": "texture",
+      "source": "res://银狼/模型/hair/texture/ramp.png"
+    },
+    {
+      "artifacts": [
+        {
+          "bytes": 1084,
+          "path": "res://.godot/imported/ramp_cool.png-586e3993e60a3eb1255fc84b011c1e28.s3tc.ctex",
+          "sha256": "25e61e135a576c8c8c5ce53960c68bd54b16783bf1969b7cc1b4964d3f12423f"
+        }
+      ],
+      "importer": "texture",
+      "source": "res://银狼/模型/hair/texture/ramp_cool.png"
+    },
+    {
+      "artifacts": [
+        {
+          "bytes": 1048628,
+          "path": "res://.godot/imported/base.png-f7fd7b8d15cd0a815fef340e6ef61a6f.ctex",
+          "sha256": "e9fb090b5bb228bfc687e662acaf0b130c9a653f5006b7e327b060246b028a2b"
+        }
+      ],
+      "importer": "texture",
+      "source": "res://银狼/模型/hair/texture/base.png"
+    },
+    {
+      "artifacts": [
+        {
+          "bytes": 56,
+          "path": "res://.godot/imported/fog.png-5805ca83acaf03eb971a1f30eda2f97e.ctex3d",
+          "sha256": "879ae1c9e5326ee7b09a7b66d760a02855733c47735031d2c73fb429c29e67ad"
+        }
+      ],
+      "importer": "3d_texture",
+      "source": "res://role/empty_texture/fog.png"
+    },
+    {
+      "artifacts": [
+        {
+          "bytes": 1398180,
+          "path": "res://.godot/imported/ilm.png-9b7b73a7eb327fb91838e4ede66b1aed.s3tc.ctex",
+          "sha256": "008b73c812f79ec8fb57c67885969f764fd14b22c4fca225291f191e60b6875e"
+        }
+      ],
+      "importer": "texture",
+      "source": "res://银狼/模型/face/texture/ilm.png"
+    },
+    {
+      "artifacts": [
+        {
+          "bytes": 699116,
+          "path": "res://.godot/imported/face.png-87a7cc5fe278950d818958f5c964b844.s3tc.ctex",
+          "sha256": "d84f9d81a77d8ab8979a5baae764ddf971c1cce86f869f82283929d0f24354a6"
+        }
+      ],
+      "importer": "texture",
+      "source": "res://银狼/模型/face/texture/face.png"
+    },
+    {
+      "artifacts": [
+        {
+          "bytes": 22064,
+          "path": "res://.godot/imported/ramp.png-6559318ecd84f0c45519207e840b9753.ctex",
+          "sha256": "9cd4ee20fd31344f29bc45f4e50dc7bbd343832f62e861fefc2df20a70a11da9"
+        }
+      ],
+      "importer": "texture",
+      "source": "res://银狼/模型/face/texture/ramp.png"
+    },
+    {
+      "artifacts": [
+        {
+          "bytes": 1048628,
+          "path": "res://.godot/imported/base.png-737a10dde1066d01e5738aaeb8270dca.ctex",
+          "sha256": "96da9f188891e122c17cea241e9885d82f0bf255b5e3a7e66cb57a2fc03594ec"
+        }
+      ],
+      "importer": "texture",
+      "source": "res://银狼/模型/face/texture/base.png"
+    },
+    {
+      "artifacts": [
+        {
+          "bytes": 237335,
+          "path": "res://.godot/imported/hair.glb-758da2318f01ba34c07a8345688e7256.scn",
+          "sha256": "97e1896c1be22fa00b2c7b74237bc03ee9689efc32f44aa264383f66bfa7edad"
+        }
+      ],
+      "importer": "scene",
+      "source": "res://银狼/模型/hair/model/hair.glb"
+    },
+    {
+      "artifacts": [
+        {
+          "bytes": 191242,
+          "path": "res://.godot/imported/face.fbx-3e907417ee747f8991281c52c835fafd.scn",
+          "sha256": "e4a6c6a6ec5bba9450dfdc82c4c894409199650d34b1a854ea6740a34e18ff3a"
+        }
+      ],
+      "importer": "scene",
+      "source": "res://银狼/模型/face/model/face.fbx"
+    },
+    {
+      "artifacts": [
+        {
+          "bytes": 2796256,
+          "path": "res://.godot/imported/ilm.png-56731d791d7ea9ff8aa0c3a08b706f4b.ctex",
+          "sha256": "177c167ca5e679630229b2cafa8e40efaeab17083f21b514f35c6bef5925159a"
+        }
+      ],
+      "importer": "texture",
+      "source": "res://银狼/模型/body/texture/ilm.png"
+    },
+    {
+      "artifacts": [
+        {
+          "bytes": 3132,
+          "path": "res://.godot/imported/effect.png-97e6abb2003fdbb8f689171c7782dc25.s3tc.ctex",
+          "sha256": "f1d99387b4c95a0226a51cdd90b9b3515ed170e4ccb18ccc32049e60c9e5bc35"
+        }
+      ],
+      "importer": "texture",
+      "source": "res://银狼/模型/face/texture/effect.png"
+    },
+    {
+      "artifacts": [
+        {
+          "bytes": 2097204,
+          "path": "res://.godot/imported/base.png-8662505371f9b318a427f7a38039a092.ctex",
+          "sha256": "81a37b79cccc0621b0fbce6a8d25f18ed4d9193ed313883967e02d177337db87"
+        }
+      ],
+      "importer": "texture",
+      "source": "res://银狼/模型/body/texture/base.png"
+    },
+    {
+      "artifacts": [
+        {
+          "bytes": 16436,
+          "path": "res://.godot/imported/ramp.png-77b0d0dfc27e760c714d99013d7d2c95.ctex",
+          "sha256": "6b9c0bd9ec74cfa2cc182b1f82f69e4db472f4e2726a6bc87e4261380c2919a3"
+        }
+      ],
+      "importer": "texture",
+      "source": "res://银狼/模型/body/texture/ramp.png"
+    },
+    {
+      "artifacts": [
+        {
+          "bytes": 16436,
+          "path": "res://.godot/imported/cool_ramp.png-3f4fe5864043394a1c488ae9ce4f8a8c.ctex",
+          "sha256": "c95f27d3d6e0dd2733d7ee76d530e8308a6211fb30af8dabbe2270adf2b8fe31"
+        }
+      ],
+      "importer": "texture",
+      "source": "res://银狼/模型/body/texture/cool_ramp.png"
+    },
+    {
+      "artifacts": [
+        {
+          "bytes": 308,
+          "path": "res://.godot/imported/lut.png-c7c885157bd0961c04e9130d44070e73.ctex",
+          "sha256": "840613d0f79c037c96a5a824cc69923d36c97e0f52c90129e70005b081d956f9"
+        }
+      ],
+      "importer": "texture",
+      "source": "res://银狼/模型/body/texture/lut.png"
+    },
+    {
+      "artifacts": [
+        {
+          "bytes": 984199,
+          "path": "res://.godot/imported/模型.glb-80d44e3d921da4cb5aae73b03a4ee8db.scn",
+          "sha256": "70191e319097524a0e73f8219df6447bbd77c18fe71bff4e2791a1957ac4cbe2"
+        }
+      ],
+      "importer": "scene",
+      "source": "res://银狼/模型/gltf/模型.glb"
+    }
+  ],
+  "inputs": [
+    {
+      "path": "res://role/model_shader/hair/hair_base_common.gdshaderinc",
+      "sha256": "6f1dcdf6dbb1d59e31a51b96f0a73222be3687d93c7202dd50f562361399b99a"
+    },
+    {
+      "path": "res://role/model_shader/common/npr_lighting.gdshaderinc",
+      "sha256": "8683f589bca90a56608436686f76584ffd042842d62c0ef6bfa6793740cb6777"
+    },
+    {
+      "path": "res://role/model_shader/common/npr_style.gdshaderinc",
+      "sha256": "afbe0b1f57e0f78c7c13384897585a13e35d648748fca878f63d6969220bb294"
+    },
+    {
+      "path": "res://role/model_shader/common/npr_screen_depth.gdshaderinc",
+      "sha256": "2eee11cea4fef3b4d21ff6a154ff924ec30c6a6ceee2d3ea0a2b68de95eb01be"
+    },
+    {
+      "path": "res://role/model_shader/common/npr_vertex.gdshaderinc",
+      "sha256": "3b96fcf161c5ca8efa87923f65a24192671e8dc7baa3b8631b6767f34043cc07"
+    },
+    {
+      "path": "res://role/model_shader/common/npr_math.gdshaderinc",
+      "sha256": "0b352f52f4f7ade0e45c23780666529f65a7348e858afb7f722e8bfd6f7fb4ca"
+    },
+    {
+      "path": "res://role/model_shader/common/npr_shadow_caster.gdshader",
+      "sha256": "36d0cd5298c6b16152fccbb2190215da2f4c46d3e46a254838da70e7041452cc"
+    },
+    {
+      "path": "res://role/model_shader/character_shadow.gdshader",
+      "sha256": "b91ba8a9afc0e6559120919e1eaa6ae2709921b5f40e33288d085acd3c61310e"
+    },
+    {
+      "path": "res://role/model_shader/common/npr_depth_encode.gdshader",
+      "sha256": "e3b83fa77e3ae9d256124a5299a28a15832eff85d88c886879371d0a33fc2062"
+    },
+    {
+      "path": "res://role/model_gd/npr_key_light_pool.gd",
+      "sha256": "03c18d85ef43695782900b902b2a100567d9e566c9d46a5e59407f2a3efda88e"
+    },
+    {
+      "path": "res://role/model_gd/npr_actor_layers.gd",
+      "sha256": "4114d1041710c80de526da7743d0143b64c554cfcc84ff2d9fd67c7848f30477"
+    },
+    {
+      "path": "res://role/model_gd/npr_geometry_state.gd",
+      "sha256": "7e68bc0ab285484eb264cd71d4a9e2b92cea3563d27eaf8c5f8b5a4a9fb9d9cd"
+    },
+    {
+      "path": "res://银狼/模型/face/shader/face_outline_pixels.gdshader",
+      "sha256": "e03391afba23c6f5d213e8c4d6ef505a1e3966465c818f4de9ad523252242680"
+    },
+    {
+      "path": "res://role/model_gd/npr_depth_array_binding.gd",
+      "sha256": "fd1bddf484288870af6d1cd9733ae72f2e95fb7f42cb6e3d7c9482b75f480911"
+    },
+    {
+      "path": "res://role/model_gd/npr_depth_array_update.gd",
+      "sha256": "a227c97b55dcf5e81190c9f2c619756627cff248e420b721f2b6ce927be84562"
+    },
+    {
+      "path": "res://role/model_gd/npr_depth_array.gd",
+      "sha256": "4a4834d397fa59256aec56ec8d6387648020a101301ba37dbcdf8a4ed8540dd3"
+    },
+    {
+      "path": "res://role/model_gd/npr_depth_decode.gd",
+      "sha256": "15d600e2d730e30e5a9dc5a0a94a27b8920aca4c42cdac53c53a8b644ba412e5"
+    },
+    {
+      "path": "res://role/model_gd/npr_depth_view_flags.gd",
+      "sha256": "ea8770d6f57633ebc4d20ba009d9bb59deb8e49b21fc28a910b91d8d203a40d8"
+    },
+    {
+      "path": "res://role/model_gd/npr_depth_view_table.gd",
+      "sha256": "da2cddf5afc4956541a09ae1c001d45f3cc927986256c9eee32d2154a817c45c"
+    },
+    {
+      "path": "res://role/model_gd/npr_depth_view_update.gd",
+      "sha256": "6073d674f1f56086ffc58e616e0cafee3e354121fc3e150f5f63e77ef85f69d5"
+    },
+    {
+      "path": "res://role/model_gd/npr_taa_history_reset.gd",
+      "sha256": "61ce7ae8e8066bb1f884491482031afceb589ccc56684d8d606fd29da259fef9"
+    },
+    {
+      "path": "res://role/model_gd/npr_multiview_transport.gd",
+      "sha256": "66a36b7bbc5916f39a061d99313bc83bc8536a4c1327983e5dd093e104ac6251"
+    },
+    {
+      "path": "res://role/model_gd/character_depth.gd",
+      "sha256": "3b48ea38673e7647dc5864be515458e9df04c5e1e4bfcfab763848bdd686b02f"
+    },
+    {
+      "path": "res://银狼/银狼.tscn",
+      "sha256": "6fd7b01c1aa29b00d71aa3a47fa1922836a4023694de5ec926f850ec5f5c0481"
+    },
+    {
+      "path": "res://role/model_gd/character_shadow.gd",
+      "sha256": "985d7bf40a9686786ae7fda2cda3c3a418dbdf75ea6facb6654565a1517135d6"
+    },
+    {
+      "path": "res://银狼/模型/hair/material/hair_base_without_eye.tres",
+      "sha256": "1f6993ddf658854df8d4a21d1bd14f2ed66ae1793847ed095cfa57a0a55f0c79"
+    },
+    {
+      "path": "res://银狼/模型/hair/texture/ilm.png",
+      "sha256": "8a7475b7573f96de2bbbedcfa348e07ecbfe5d8c852c700af823e9f8f2b4c4b5"
+    },
+    {
+      "path": "res://银狼/模型/hair/texture/ilm.png.import",
+      "sha256": "607680dd17b5f8415f929b6164034b9a646a871cad4f6c7c0563146a806807de"
+    },
+    {
+      "path": "res://银狼/模型/hair/texture/ramp.png",
+      "sha256": "bac147c87dbce143484635d24de458304de04357e198e993d8b1e16db27cd6e6"
+    },
+    {
+      "path": "res://银狼/模型/hair/texture/ramp.png.import",
+      "sha256": "e487de7bcdcfd84916b579e4977073859b04a648992bc41695f0bdc4b58a4d6c"
+    },
+    {
+      "path": "res://银狼/模型/hair/texture/ramp_cool.png",
+      "sha256": "95f0e079e586b0516e3a406c527ed5846b25eaeb0d25341b822cc4d83c305061"
+    },
+    {
+      "path": "res://银狼/模型/hair/texture/ramp_cool.png.import",
+      "sha256": "6b74b52da4bb35d4893b940591a41d3ecd8fa975eb8a5047781cb4933e0a4fd4"
+    },
+    {
+      "path": "res://银狼/模型/hair/texture/base.png",
+      "sha256": "f0f56f7e4cc6374f409e93bfa09b3c9372aded26b99b878fd0866b079ff7c05d"
+    },
+    {
+      "path": "res://银狼/模型/hair/texture/base.png.import",
+      "sha256": "bf80ac424e6b15076d693bfbf37f3519456e65046134795289212fad3a601266"
+    },
+    {
+      "path": "res://role/model_shader/hair/hair_base_without_eye.gdshader",
+      "sha256": "9337e2a28a2f200227a41f3b1759979f72c009bae37e7e2eb47537d16631d6bc"
+    },
+    {
+      "path": "res://银狼/模型/hair/material/hair_base_with_eye.tres",
+      "sha256": "f846d3b5594798daea943e46816f996726cd879227f742fe3712bac808fdb059"
+    },
+    {
+      "path": "res://银狼/模型/hair/material/hair_outline.tres",
+      "sha256": "343866f513d6ed5c570d75a13a5d1ef7d745d4b2d6a146e5542c7b01eb2c3553"
+    },
+    {
+      "path": "res://role/empty_texture/fog.png",
+      "sha256": "043167cee23b1f66fe8bb089b18e0a3141a4be59dc784ab7bc72642af257aa90"
+    },
+    {
+      "path": "res://role/empty_texture/fog.png.import",
+      "sha256": "ad1faac2821fa4f1574c1b89f61fd04fa2f8c7c923305c8498d03629a31757ad"
+    },
+    {
+      "path": "res://role/model_shader/hair/hair_outline.gdshader",
+      "sha256": "4af7bf58fb9608bd4cee4a20fd5f108e2bad4e225ebcc1b687a5abe1dc6ee986"
+    },
+    {
+      "path": "res://role/model_shader/hair/hair_base_with_eye.gdshader",
+      "sha256": "7440d87d9be02411df8c74e2420ee8d08a6de1ab5b1383070d3dd322fb6d78f8"
+    },
+    {
+      "path": "res://银狼/模型/face/material/face_base.tres",
+      "sha256": "0e65224ac97efd564daeb86234504ec6577463c6724158dc54c2cecdbb89f6a5"
+    },
+    {
+      "path": "res://银狼/模型/face/texture/ilm.png",
+      "sha256": "03b6726a57c98bc8568eaf943e47604864ec3f8b9f82925f6cbd66e144abe499"
+    },
+    {
+      "path": "res://银狼/模型/face/texture/ilm.png.import",
+      "sha256": "9eedea6f9558c443985cb08cf77c0a451015336b133cc3d224023a783388901c"
+    },
+    {
+      "path": "res://银狼/模型/face/texture/face.png",
+      "sha256": "2794b136c4a0c32cbd0b7e0143894de38c472c2bb826e2bbd984fa7314230d93"
+    },
+    {
+      "path": "res://银狼/模型/face/texture/face.png.import",
+      "sha256": "b825d01e13e9eb5d38763b4ce623200830e6060841c99bf18ab9d15465624dda"
+    },
+    {
+      "path": "res://银狼/模型/face/texture/ramp.png",
+      "sha256": "50d2988e5ada9d5019f283b9db3f4a216a0c1d2ec4243c73dd37b853b536f83e"
+    },
+    {
+      "path": "res://银狼/模型/face/texture/ramp.png.import",
+      "sha256": "7a7638af1c76fbf1f520f2ba37ffc5d2a012f2ab5f3f9f19bb24784643dccd2d"
+    },
+    {
+      "path": "res://银狼/模型/face/texture/base.png",
+      "sha256": "2151ef56d1a46998e6924fdf041fddcdbbb185442ea3d490af2dd1661a005fe7"
+    },
+    {
+      "path": "res://银狼/模型/face/texture/base.png.import",
+      "sha256": "73b50cc367850643553f954dc55d9704eb6303509ed7afadff93c6012d4a2029"
+    },
+    {
+      "path": "res://role/model_shader/face/face_base.gdshader",
+      "sha256": "160f7466a5518252df783894d173cd6d6f7b7afb4f1556dde5df04c25fbb616f"
+    },
+    {
+      "path": "res://银狼/模型/face/material/face_eye_stencil.tres",
+      "sha256": "ef91e12845fee7c2247c9fb73133dae3c2f8f4b6057dc644b89750a9b3414f9d"
+    },
+    {
+      "path": "res://银狼/模型/face/material/face_outline.tres",
+      "sha256": "fe4b195db981fd775723843c044c5324f12453d4fd6efc53925cb46a9dc5ffd0"
+    },
+    {
+      "path": "res://role/model_shader/face/face_eye_stencil.gdshader",
+      "sha256": "d215a8207b71eb4ba42d4be97d0f4e12f052380f07806ae5a62757d1803e273b"
+    },
+    {
+      "path": "res://银狼/模型/hair/model/hair.glb",
+      "sha256": "c6e5cbd98d5f5ecbab8cce7c705a4cf591f9444cff8aea500cb1bb2db7ed0bb3"
+    },
+    {
+      "path": "res://银狼/模型/hair/model/hair.glb.import",
+      "sha256": "051b08a645da91d81903b92a0a937143b69633a34b113b68f2373dadcf3eddee"
+    },
+    {
+      "path": "res://银狼/模型/face/model/face.fbx",
+      "sha256": "fb1d91b67c0d4032a111dc82fed881d7ae1477f8ba8ed63bcf879c7afda71b83"
+    },
+    {
+      "path": "res://银狼/模型/face/model/face.fbx.import",
+      "sha256": "e97cb4c9ef9d06105029ce12a795f09334e585708b6113847d3721ce93b912f0"
+    },
+    {
+      "path": "res://银狼/模型/body/test/body.tscn",
+      "sha256": "9d302c79f03485152fa973eeb2a7206e4f4147fd3534ce3fc3cfda4ea262e209"
+    },
+    {
+      "path": "res://role/model_gd/outline_light.gd",
+      "sha256": "f52029a89d46e95dc06f553d222a01b43aa54f3847e527931f04662830c42a9f"
+    },
+    {
+      "path": "res://role/model_gd/role_light.gd",
+      "sha256": "b1b6341b087f67dc73f26e648dfa8cca58ee629084c8eed382d590e4228fc864"
+    },
+    {
+      "path": "res://银狼/模型/body/texture/ilm.png",
+      "sha256": "419ab5a41bad39bf8def5cbb86a58a8506cc8ecf24cacbcc444f81e51d0b7d10"
+    },
+    {
+      "path": "res://银狼/模型/body/texture/ilm.png.import",
+      "sha256": "79b071db50e0cc4cd8d4faefbce751e136c1ad3b3f34a8349475d8b668b028be"
+    },
+    {
+      "path": "res://银狼/模型/face/texture/effect.png",
+      "sha256": "6731341569e29acf2888f7d374504b26c96fcc7d01b09e5d62d8d3a4da0624e7"
+    },
+    {
+      "path": "res://银狼/模型/face/texture/effect.png.import",
+      "sha256": "795695cb21da0bf4678b5e681d5c6c6ad626933b49c3270c11e7cf52af468d86"
+    },
+    {
+      "path": "res://role/empty_texture/white.tres",
+      "sha256": "3c960dc25ad50aa335e2505af094ad9d481c2b0068753d3f56dfaa07534fc62c"
+    },
+    {
+      "path": "res://银狼/模型/body/texture/base.png",
+      "sha256": "cb078b49f18395c41f264e89305558342f63c6b2097d289217d55867d08bb60d"
+    },
+    {
+      "path": "res://银狼/模型/body/texture/base.png.import",
+      "sha256": "6a6e04be9f373a17bf0fce5b91ab0a568f63d1bd5ef21f1771241233cd0b80e5"
+    },
+    {
+      "path": "res://银狼/模型/body/texture/ramp.png",
+      "sha256": "5b655dc69eecd9ee02dc9bdf1b864a18a3a16def984d05f6d033debec714df3e"
+    },
+    {
+      "path": "res://银狼/模型/body/texture/ramp.png.import",
+      "sha256": "3094cc243b1992c937325f12b7d584aa779bfac13117a0414794ed76239e05c5"
+    },
+    {
+      "path": "res://银狼/模型/body/texture/cool_ramp.png",
+      "sha256": "fbe8d8c85018c585be0ec4e5035355806df323f8c1523066be57c134377c3fa8"
+    },
+    {
+      "path": "res://银狼/模型/body/texture/cool_ramp.png.import",
+      "sha256": "7f03bc355bc531e8668e5330fcc6e2790caf9a547324a21706f5bcbe250e46ef"
+    },
+    {
+      "path": "res://银狼/模型/body/texture/lut.png",
+      "sha256": "881f1e3ce2694b68e00f58775a85c5342ebf76024925bf500d86c7ce601c8698"
+    },
+    {
+      "path": "res://银狼/模型/body/texture/lut.png.import",
+      "sha256": "d95e6da7e6b7cba2773a5f2a293750f9a4b991d78fcf32f6baa1caa2f4ce2c3c"
+    },
+    {
+      "path": "res://银狼/模型/body/material/body_outline.tres",
+      "sha256": "9ac5d3598beecefc7a256751ffbc6424051c8c00295eef746bf33cf4fca23971"
+    },
+    {
+      "path": "res://role/model_shader/body/body_outline.gdshader",
+      "sha256": "88597c8f4e8736e5d73714bb517b92f5fc13d596f4a1f853aa3e6718da2a9b00"
+    },
+    {
+      "path": "res://银狼/模型/body/shader/body_npr.gdshader",
+      "sha256": "3281cbb1df5883667ddf1aed63facbfd81914e005cb96d053462fb123985ebb5"
+    },
+    {
+      "path": "res://银狼/模型/gltf/模型.glb",
+      "sha256": "8c27031931b56f7ae6c840a1003be83ddbcba18b2c4f93aa01a712462bb9d153"
+    },
+    {
+      "path": "res://银狼/模型/gltf/模型.glb.import",
+      "sha256": "43ce227a5b619edcfe0cda4c58525c14e9f70cb775e3e78b09f7c41dbd17e86b"
+    },
+    {
+      "path": "res://showcase/silver_wolf_material_profile.tres",
+      "sha256": "aa09db83eeaa10811ab8b1a9fd27f14dffc87416eb5cb1bba47d52f7d7dc5d0e"
+    },
+    {
+      "path": "res://role/model_gd/npr_material_profile.gd",
+      "sha256": "754b212d6e4316c5d83593c389bd368dc15c6cd64687cc267e374cc42e980b29"
+    },
+    {
+      "path": "res://showcase/shaders/npr_output.gdshader",
+      "sha256": "29d33f8519a0148d4498677ccd9a8c8f7f47ec737e2de19e96f83a38272d5106"
+    },
+    {
+      "path": "res://showcase/npr_character_preview.gd",
+      "sha256": "ec3ec9971954fad72a96a017b09a64e90fdba4ededd423dc399a860b6ac4d21a"
+    },
+    {
+      "path": "res://showcase/npr_multiview_lab.tscn",
+      "sha256": "cde7ea7413e6be4b94096ec26a2d6f67fc8d9b59d5a1b33ecd7afe01ee3c6d65"
+    },
+    {
+      "path": "res://showcase/npr_multiview_lab.gd",
+      "sha256": "98e23be4727f322c6ac9ac91476515d3fe19105d88fcb69ee2bc113a69d8530c"
+    },
+    {
+      "path": "res://showcase/npr_lab.gd",
+      "sha256": "d777092ac90ed7b56904a33069cdaeb59e233cbefd0489483ce5dba5b4d752bb"
+    },
+    {
+      "path": "res://showcase/npr_lab.tscn",
+      "sha256": "0490874d7ce88d9658c172706871d7d887ba84b97ee164612f0cf495785a7e91"
+    },
+    {
+      "path": "res://showcase/npr_standalone.tscn",
+      "sha256": "54c224016a04b064d7b394c8177ab3619ca19ec9eefa65ef43166c238ad6e8da"
+    },
+    {
+      "path": "res://showcase/npr_standalone.gd",
+      "sha256": "21b15c7ae9e4cb379377e295a1ead5c7f6b36736807a19b7edf6b3f8efe49dbf"
+    },
+    {
+      "path": "res://project.godot",
+      "sha256": "685b6a98b4728865ea4fe83b70f514d9cd1223f9b9379b1c4cd0dc41ff499570"
+    },
+    {
+      "path": "res://export_presets.cfg",
+      "sha256": "a34b59944d20f0d1bd5192610753151a2631cd69d90b2005d9db2d5aa77f23c1"
+    }
+  ],
+  "missing_roots": []
+}

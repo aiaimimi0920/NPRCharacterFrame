@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="NPRStylePreset" load_steps=2 format=3]
+[ext_resource type="Script" path="res://addons/npr_character_frame/npr_style_preset.gd" id="1"]
+[resource]
+script = ExtResource("1")
+display_name = "体积插画"
+character_values = {"ramp_mix": 0.55, "sdf_feather": 0.015, "outline_width": 0.85, "hair_highlight": 0.25, "rim_strength": 0.16, "face_light_weight": 0.25}
+lighting_values = {"yaw": 70.0, "elevation": 30.0, "fill_strength": 0.04, "shadow_strength": 0.50}

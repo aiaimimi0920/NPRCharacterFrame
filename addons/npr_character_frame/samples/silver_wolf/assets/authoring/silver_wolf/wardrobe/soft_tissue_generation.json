@@ -1,0 +1,23 @@
+{
+  "schema": 1,
+  "created_utc": "2026-09-22T12:32:10.374102+00:00",
+  "author": "Project-authored by Codex",
+  "generator": "scripts/build_wardrobe_soft_tissue.py",
+  "generator_sha256": "684c359ab1fe43e25fa579d22e5633228681560c3332521fe4a54c6f04bad8e7",
+  "blender_version": "5.2.1 LTS",
+  "blender_commit": "9e2066aef7ef",
+  "backup": "C:\\Users\\Public\\rolenpr_asset_backups\\visual_production_20260922",
+  "backup_manifest_sha256": "3e9a48f3c654e33741559db6eabb0eeacebec571e7c43690da6abb89374a5512",
+  "input_manifest": "samples/silver_wolf/assets/authoring/silver_wolf/wardrobe/sources/soft_tissue_input_manifest.json",
+  "input_probe": "samples/silver_wolf/assets/authoring/silver_wolf/wardrobe/sources/soft_tissue_input_probe.json",
+  "backup_created_utc": "2026-09-22T11:34:08.414995+00:00",
+  "source_blend": "samples/silver_wolf/assets/authoring/silver_wolf/wardrobe/sources/soft_tissue_v1.blend",
+  "source_blend_sha256": "dc27a0b65c56bc13f813c973162aac2229d9fb0f9999fc2c8aa24eb5b9b1e50d",
+  "bridge": "samples/silver_wolf/assets/authoring/silver_wolf/wardrobe/soft_tissue_v1.json",
+  "bridge_sha256": "7dac5eee86ab3638bf0a1e7c908aa275039cb598f6847eb951c17df76d4af326",
+  "changed_vertices": 170,
+  "topology_preserved": true,
+  "rest_probe_max_error": 0.0,
+  "license": "New corrective/generator authored for this project; original model rights unchanged",
+  "rebuild": "Use the same verified backup with --output <scratch>; compare bridge SHA-256"
+}

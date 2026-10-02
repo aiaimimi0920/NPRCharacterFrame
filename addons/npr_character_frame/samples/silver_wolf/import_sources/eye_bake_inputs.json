@@ -1,0 +1,8 @@
+{
+  "schema": 1,
+  "files": {
+    "rig": {"path": "character_rig.blend", "sha256": "c26b3afd371ab118a01f9772adae1d07c9d11b7adbb22ef6395ef19417ab2dbd"},
+    "lids": {"path": "../assets/authoring/silver_wolf/wardrobe/lid_surface_v2.json", "sha256": "2c4604a41336608bcb45e30dce5a64f7afa7512ec97b8a22e1a3ed6269807d8f"}
+  },
+  "note": "Both files match the inputs recorded in the current eye asset. Only raw rest Face geometry and lid profiles are consumed; outputs remain in scratch. No external backup snapshot is required."
+}

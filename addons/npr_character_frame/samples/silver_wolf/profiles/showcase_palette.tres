@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="NPRShowcasePaletteProfile" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://addons/npr_character_frame/npr_showcase_palette_profile.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+labels = PackedStringArray("原色", "霜蓝", "绯红", "薄荷", "暮金", "夜紫", "樱雪")
+rgb = PackedStringArray("7772c9", "303041", "e6e8ee", "638aa6", "28394d", "e8eff3", "9d4759", "302633", "e9dce1", "54958e", "283e43", "e6eee8", "a98d50", "34323e", "eae3d2", "7861aa", "262437", "dcd9ec", "c588a7", "514151", "f0e5eb")

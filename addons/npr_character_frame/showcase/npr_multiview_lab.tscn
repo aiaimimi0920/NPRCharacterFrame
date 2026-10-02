@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="PackedScene" path="res://addons/npr_character_frame/showcase/npr_lab.tscn" id="1_lab"]
+[ext_resource type="Script" path="res://addons/npr_character_frame/showcase/npr_multiview_lab.gd" id="2_multiview"]
+
+[node name="NPRMultiviewLab" instance=ExtResource("1_lab") unique_id=2101677861]
+script = ExtResource("2_multiview")

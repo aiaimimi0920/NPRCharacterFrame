@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="NPRSymbolSurfaceProfile" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://addons/npr_character_frame/npr_symbol_surface_profile.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+eye_centers = PackedVector2Array(-0.188, 2.522, -0.034, 2.534)
+eye_radius = Vector2(0.061, 0.043)
+eye_ink_scale = Vector2(0.025, 0.014)
+mouth_center = Vector2(-0.104, 2.4305)
+mouth_radius = Vector2(0.042, 0.027)
+mouth_ink_scale = Vector2(0.02235, 0.0147)
+outline_eye_centers = PackedVector2Array(-0.188, 2.525, -0.034, 2.537)
+outline_eye_radius = Vector2(0.061, 0.04)
+skin_front_min = 0.005

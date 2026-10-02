@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://addons/npr_character_frame/.ci_script/framework/surface_contact_regression.gd" id="1_test"]
+
+[node name="SurfaceContactRegression" type="Node"]
+script = ExtResource("1_test")

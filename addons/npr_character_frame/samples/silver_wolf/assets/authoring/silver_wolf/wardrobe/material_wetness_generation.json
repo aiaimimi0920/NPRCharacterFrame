@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "source_mesh_sha256": "2bb1a9cbdb3acdb16405dee1dc7bf7becbfec561df8c1382366212ce1860ce19",
+  "probe_sha256": "1afd0727b5db2dacdec69ecfc8e2001bb024427691a8791036a0a173f23d17b3",
+  "regions_sha256": "1f8ec6f670eed88aef8452f59aa4a8c89a711ecc5bad7c8a329375fa84ed1b63",
+  "generator_sha256": "f661dbacc4ae8bdfb924954244f591d60fe7642b35936f6407e786187fa99adb",
+  "output_sha256": "50240d0471e483734ce5c19affb85912654ece555f2e8045f3a013ec048556fd",
+  "channels": {
+    "R": "absorbent textile / fur",
+    "G": "coated fabric / leather",
+    "B": "hard polymer",
+    "A": "metal hardware"
+  },
+  "colorspace": "linear",
+  "conflicting_texels_excluded": 0,
+  "texels": [
+    207791,
+    32736,
+    15751,
+    23292
+  ]
+}

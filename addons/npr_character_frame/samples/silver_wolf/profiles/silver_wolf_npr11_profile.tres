@@ -1,0 +1,52 @@
+[gd_resource type="Resource" script_class="NPRMaterialProfile" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://addons/npr_character_frame/runtime/npr_material_profile.gd" id="1_profile"]
+
+[resource]
+script = ExtResource("1_profile")
+source_note = "Silver Wolf NPR 1.1 authored showcase profile. Values are project art direction, not recovered game constants."
+capture_verified = false
+specular_exponents = PackedFloat32Array(24, 24, 28, 32, 24, 36, 28, 24)
+region_outline_enabled = true
+outline_colors = PackedColorArray(0.18, 0.08, 0.16, 1, 0.12, 0.16, 0.32, 1, 0.20, 0.10, 0.28, 1, 0.10, 0.22, 0.32, 1, 0.28, 0.10, 0.22, 1, 0.14, 0.10, 0.24, 1, 0.12, 0.20, 0.28, 1, 0.24, 0.12, 0.18, 1)
+lip_outline_fix_enabled = true
+lip_outline_width_scale = 0.42
+lip_outline_width_pixels = 0.65
+stocking_enabled = true
+stocking_strengths = PackedFloat32Array(0.72, 0.78, 0.68, 0.82, 0.76, 0.70, 0.84, 0.74)
+stocking_color = Color(0.24, 0.27, 0.42, 1)
+stocking_shadow_color = Color(0.055, 0.065, 0.13, 1)
+stocking_sheen_color = Color(0.58, 0.68, 1, 1)
+stocking_edge_power = 3.4
+stocking_opacity = 0.58
+stocking_global_strength = 0.28
+matcap_enabled = true
+matcap_strengths = PackedFloat32Array(0.42, 0.36, 0.48, 0.38, 0.44, 0.34, 0.46, 0.40)
+matcap_tint = Color(0.86, 0.91, 1, 1)
+matcap_shadow_strength = 0.28
+matcap_global_strength = 0.24
+emission_hue_enabled = true
+emission_hues = PackedFloat32Array(0.00, 0.04, 0.08, -0.04, 0.12, -0.08, 0.16, 0.02)
+secondary_emission_strengths = PackedFloat32Array(0.55, 0.70, 0.62, 0.80, 0.66, 0.58, 0.76, 0.64)
+emission_hue_speed = 0.0
+expression_shadow_color = Color(0.46, 0.25, 0.38, 1)
+expression_highlight_color = Color(1, 0.72, 0.82, 1)
+expression_blush_color = Color(1, 0.28, 0.46, 1)
+face_distance_lut_distance_scale = 0.05
+hair_anisotropy_enabled = true
+hair_anisotropy_strengths = PackedFloat32Array(0.82, 0.94, 0.76, 1.00, 0.88, 0.72, 0.96, 0.84)
+hair_anisotropy_roughness = PackedFloat32Array(0.28, 0.34, 0.24, 0.38, 0.30, 0.42, 0.26, 0.36)
+hair_anisotropy_shifts = PackedFloat32Array(-0.08, -0.04, 0.00, 0.04, 0.08, -0.06, 0.06, 0.02)
+hair_anisotropy_color = Color(0.72, 0.84, 1, 1)
+hair_anisotropy_global_strength = 0.18
+hair_side_fade_strength = 0.0
+hair_side_fade_range = Vector2(0.42, 0.88)
+hair_side_choose = 0
+hair_silhouette_strength = 0.22
+hair_silhouette_power = 2.2
+hair_silhouette_tint = Color(0.66, 0.70, 1, 1)
+dissolve_edge_width = 0.045
+dissolve_edge_color = Color(0.30, 0.76, 1, 1)
+dissolve_world_space = false
+dissolve_world_scale = Vector2(0.85, 0.85)
+dissolve_world_offset = Vector2(0, 0)

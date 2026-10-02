@@ -1,0 +1,64 @@
+[gd_scene load_steps=8 format=3]
+
+[ext_resource type="PackedScene" path="res://addons/npr_character_frame/samples/silver_wolf/scenes/body.tscn" id="1_body"]
+[ext_resource type="PackedScene" path="res://addons/npr_character_frame/samples/silver_wolf/assets/canonical/silver_wolf/face/mesh.scn" id="2_face"]
+[ext_resource type="PackedScene" path="res://addons/npr_character_frame/samples/silver_wolf/assets/canonical/silver_wolf/hair/mesh.scn" id="3_hair"]
+[ext_resource type="Material" path="res://addons/npr_character_frame/samples/silver_wolf/scenes/materials/face_base.tres" id="4_face_base"]
+[ext_resource type="Material" path="res://addons/npr_character_frame/samples/silver_wolf/scenes/materials/hair_base_without_eye.tres" id="5_hair_base"]
+[ext_resource type="Script" path="res://addons/npr_character_frame/runtime/character_shadow.gd" id="6_shadow"]
+
+[sub_resource type="Environment" id="Environment_silver_wolf"]
+background_mode = 1
+background_color = Color(0.08, 0.085, 0.1, 1)
+ambient_light_source = 3
+ambient_light_color = Color(0.35, 0.38, 0.45, 1)
+ambient_light_energy = 0.8
+
+[node name="SilverWolf" type="Node3D" unique_id=1263789858]
+script = ExtResource("6_shadow")
+mesh_paths = Array[NodePath]([NodePath("Body/模型"), NodePath("Head/Face/脸部模型"), NodePath("Head/Hair/头发模型")])
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1760502958]
+environment = SubResource("Environment_silver_wolf")
+
+[node name="Body" parent="." instance=ExtResource("1_body") unique_id=2021732497]
+
+[node name="Camera3D" parent="Body" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 45)
+fov = 40.0
+current = true
+
+[node name="MainLightDir" parent="Body" index="2"]
+transform = Transform3D(-0.8749568, 0.3188397, 0.3644062, 0, 0.7525928, -0.6584862, -0.4842011, -0.5761469, -0.6584862, 0, 18, 7)
+
+[node name="CustomMainLightDir" parent="Body" index="3"]
+transform = Transform3D(-0.8749568, 0.3188397, 0.3644062, 0, 0.7525928, -0.6584862, -0.4842011, -0.5761469, -0.6584862, 0, 18, 7)
+
+[node name="Head" type="Node3D" parent="." unique_id=2119449845]
+position = Vector3(-0.6077970353, 7.9859847134, -1.0033447132)
+rotation = Vector3(-0.0904957805, 0.0030821345, 0.0793283113)
+
+[node name="Face" parent="Head" instance=ExtResource("2_face") unique_id=1958832459]
+transform = Transform3D(0, 0, 20, 20, 0, 0, 0, 20, 0, 0, 0, 0)
+
+[node name="Light" parent="Head/Face" index="0"]
+visible = false
+
+[node name="Camera" parent="Head/Face" index="1"]
+visible = false
+current = false
+
+[node name="脸部模型" parent="Head/Face" index="2"]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
+surface_material_override/0 = ExtResource("4_face_base")
+
+[node name="Hair" parent="Head" instance=ExtResource("3_hair") unique_id=1598145708]
+transform = Transform3D(0, 20, 0, 20, 0, 0, 0, 0, -20, 0, 0, 0)
+
+[node name="头发模型" parent="Head/Hair" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+surface_material_override/0 = ExtResource("5_hair_base")
+
+[editable path="Body"]
+[editable path="Head/Face"]
+[editable path="Head/Hair"]

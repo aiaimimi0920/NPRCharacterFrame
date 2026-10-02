@@ -1,0 +1,16 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3]
+
+[ext_resource type="Shader" path="res://addons/npr_character_frame/shaders/face/face_eye_stencil.gdshader" id="1_wovhg"]
+[ext_resource type="Texture2D" path="res://addons/npr_character_frame/samples/silver_wolf/assets/canonical/silver_wolf/face/textures/ilm.res" id="2_gkch8"]
+[ext_resource type="Material" path="res://addons/npr_character_frame/samples/silver_wolf/scenes/materials/face_outline.tres" id="3_outline"]
+
+[resource]
+render_priority = 2
+next_pass = ExtResource("3_outline")
+shader = ExtResource("1_wovhg")
+shader_parameter/u_uv1_scale = Vector3(1, 1, 1)
+shader_parameter/u_uv1_offset = Vector3(0, 0, 0)
+shader_parameter/u_sdf_on_uv2 = true
+shader_parameter/u_texture_ilm = ExtResource("2_gkch8")
+shader_parameter/u_dither_mask = 0
+shader_parameter/u_eye_threshold = 0.5

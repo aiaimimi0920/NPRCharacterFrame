@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="NPREquipmentProfile" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://addons/npr_character_frame/npr_equipment_profile.gd" id="1"]
+[ext_resource type="PackedScene" path="res://addons/npr_character_frame/samples/silver_wolf/assets/runtime/equipment_materials_v1.glb" id="2"]
+
+[resource]
+script = ExtResource("1")
+geometry_path = "res://addons/npr_character_frame/samples/silver_wolf/assets/authoring/silver_wolf/wardrobe/equipment.json"
+material_scene = ExtResource("2")
+slot_labels = PackedStringArray("讯号晶簇发夹", "棱晶胸针", "双翼侦察单元", "光子短刃")
+attachment_bones = PackedStringArray("head", "chest", "chest", "forearm.R")
+swatch_uvs = {
+"violet": Vector2(0.304688, 0.767578),
+"dark": Vector2(0.472656, 0.708984),
+"silver": Vector2(0.148438, 0.527344)
+}
+material_slots = {
+"head": PackedStringArray("Signal hairclip rail", "Signal crystal A", "Signal crystal B"),
+"chest": PackedStringArray("Brooch backing", "Prism brooch", "Brooch ribbon L", "Brooch ribbon R"),
+"back": PackedStringArray("Drone mount", "Drone stabilizer", "Drone stabilizer_001", "Drone wing", "Drone wing_001", "Drone reactor", "Drone reactor_001"),
+"weapon": PackedStringArray("Photon blade grip", "Photon blade guard", "Photon blade spine", "Photon blade crystal", "Photon blade pommel")
+}

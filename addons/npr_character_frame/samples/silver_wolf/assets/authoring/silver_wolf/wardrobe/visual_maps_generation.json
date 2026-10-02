@@ -1,0 +1,55 @@
+{
+  "schema": 1,
+  "source": {
+    "path": "samples/silver_wolf/assets/authoring/silver_wolf/wardrobe/sources/visual_maps_garment_v1.png",
+    "sha256": "6c9cad2c6e4882b0ba784593a9ca316a954123e9b4584e5d6dc597397571fc8b"
+  },
+  "maps": {
+    "tulle_mask": {
+      "path": "samples/silver_wolf/assets/authoring/silver_wolf/wardrobe/tulle_mask.png",
+      "colorspace": "linear",
+      "channel": "R",
+      "sha256": "6de8cf6aa98c199b0a835d3f6390d836678546c7c0293fd34aaef2a5283f48ca"
+    },
+    "stitch_mask": {
+      "path": "samples/silver_wolf/assets/authoring/silver_wolf/wardrobe/stitch_mask.png",
+      "colorspace": "linear",
+      "channel": "R",
+      "sha256": "baf07b1ed20195621bc0f36de3707bff8e574189e08ac81f6c0d2366e57733d2"
+    },
+    "wetness_map": {
+      "path": "samples/silver_wolf/assets/authoring/silver_wolf/wardrobe/wetness_map.png",
+      "colorspace": "linear",
+      "channel": "R",
+      "sha256": "65afa7ebe6be1764e413855955fdfd65d80e13bafa48d1a1adf71101096af963"
+    },
+    "eye_tear_mask": {
+      "path": "samples/silver_wolf/assets/authoring/silver_wolf/wardrobe/eye_tear_mask.png",
+      "colorspace": "linear",
+      "channel": "R",
+      "sha256": "fbd6892436d765663a6e6491be134fb5967d275b3ec3d7b169b8ed8a00605aa6"
+    },
+    "hair_wetness_map": {
+      "path": "samples/silver_wolf/assets/authoring/silver_wolf/wardrobe/hair_wetness_map.png",
+      "colorspace": "linear",
+      "channel": "R",
+      "sha256": "7c2e744e51ee4599de5c57e54fb33a939a8f21b17283fc0790af455c15d3f132"
+    }
+  },
+  "defaults": {
+    "wetness": 0.0,
+    "eye_wetness": 0.0,
+    "wind_strength": 0.0,
+    "soft_tissue_pressure": 0.0
+  },
+  "notes": "Authored lookdev maps; source generation is deterministic and reversible.",
+  "eye_sheen_mapping": {
+    "uv": "face shader (UV.x, 1-UV.y)",
+    "center": [
+      0.13,
+      0.075
+    ],
+    "scope": "lower original iris",
+    "generator_sha256": "da35e4a9665a0ceb1e09bd4b1e10e5cbb9baed72a6482a51bd736cccfff89fa9"
+  }
+}

@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://addons/npr_character_frame/showcase/wardrobe.gd" id="1"]
+[ext_resource type="Resource" path="res://addons/npr_character_frame/samples/silver_wolf/character_definition.tres" id="2"]
+
+[node name="Wardrobe" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1")
+character_definition = ExtResource("2")
+character_id = "silver_wolf"
+character_display_name = "银狼"
+demo_speech_path = "res://addons/npr_character_frame/samples/silver_wolf/assets/authoring/silver_wolf/wardrobe/demo.json"

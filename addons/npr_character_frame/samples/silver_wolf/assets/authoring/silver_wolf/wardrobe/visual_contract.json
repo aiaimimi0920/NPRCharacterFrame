@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "units": {"scalar": "normalized 0..1", "wind": "normalized direction and m/s-equivalent strength", "length": "metres"},
+  "maps": {
+    "garment_mask": {"channels": {"R": "cool fabric", "G": "dark fabric", "B": "light trim", "A": "vertex-gated hosiery domain"}, "colorspace": "sRGB for RGB dye, linear for A", "uv": "body UV1 with V flipped by shader"},
+    "tulle_mask": {"channels": {"R": "thin tulle coverage"}, "colorspace": "linear", "uv": "body UV1"},
+    "stitch_mask": {"channels": {"R": "sock opening and seam ring"}, "colorspace": "linear", "uv": "body UV1"},
+    "wetness_map": {"channels": {"R": "local wetness"}, "colorspace": "linear", "uv": "body UV1"},
+    "eye_tear_mask": {"channels": {"R": "lower iris tear-film coverage"}, "colorspace": "linear", "uv": "face UV1"},
+    "hair_wetness_map": {"channels": {"R": "local hair wetness"}, "colorspace": "linear", "uv": "hair UV1"}
+  },
+  "runtime": {
+    "wetness": {"default": 0.0, "scope": ["skin", "hosiery", "hair", "equipment"], "response": ["roughness", "specular", "thin-film tint"]},
+    "eye_wetness": {"default": 0.0, "scope": ["original iris UV island", "ILM eyeball area", "lower iris tear mask"], "response": ["bounded color-preserving sheen", "light and view modulation"], "geometry": "original model eyes; existing eyelids provide occlusion", "refraction": false},
+    "hosiery_style": {"values": ["stocking", "tulle", "seam"], "default": "stocking"},
+    "soft_tissue_pressure": {"default": 0.0, "range": [0.0, 1.0], "scope": ["Body left stocking contact"], "source": "soft_tissue_v1.json", "units": "Blender-authored position deltas in metres", "collision": "baked inner capsule, 1 mm margin", "lod": "full/balanced preserve shape; performance returns neutral"},
+    "wind_strength": {"default": 0.0, "range": [0.0, 1.0], "scope": ["secondary.L", "secondary.R", "hair contact"]},
+    "droplets": {"enabled_default": false, "count_range": [0, 12], "count_semantics": "candidate arrivals per simulation second = count * 5", "speed_range": [0.0, 1.0], "gravity": [0.0, -1.0, 0.0], "pause": "freeze continuous surface simulation", "rendering": "Body shader samples GPU rain heads and trails; no separate bead geometry", "inputs": "NPRCharacterDefinition.rain_profile", "quality": "bounded particle update budget"},
+    "independent_geometry": {"default": false, "layers": ["tulle_shell", "stitch_ring"], "retired_eye_comparison_assets": ["eye_sclera_iris", "tear_film"], "eye_policy": "not exposed or persisted; legacy true loads as false"}
+  },
+  "default_policy": "All new visual effects are disabled at zero and must restore the baseline when reset."
+}

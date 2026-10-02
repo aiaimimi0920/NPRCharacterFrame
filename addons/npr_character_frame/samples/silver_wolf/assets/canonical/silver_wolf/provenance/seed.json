@@ -1,0 +1,1448 @@
+{
+  "assets": [
+    {
+      "after": {
+        "bytes": 524288,
+        "data_sha256": "f2aa5b6a4d62a90b5249d07aa9396b3ebdb0b60aa0f43e71deae6691afca2168",
+        "format": 17,
+        "height": 1024,
+        "mipmaps": 0,
+        "width": 1024
+      },
+      "before": {
+        "bytes": 524288,
+        "data_sha256": "f2aa5b6a4d62a90b5249d07aa9396b3ebdb0b60aa0f43e71deae6691afca2168",
+        "format": 17,
+        "height": 1024,
+        "mipmaps": 0,
+        "width": 1024
+      },
+      "dependencies": [],
+      "filename": "c7d3552d6fb5d2d0.res",
+      "import_config_sha256": "607680dd17b5f8415f929b6164034b9a646a871cad4f6c7c0563146a806807de",
+      "original_imported_artifacts": [
+        {
+          "bytes": 524340.0,
+          "path": "res://.godot/imported/ilm.png-1999c47195885c43fc2390beb576bd79.s3tc.ctex",
+          "sha256": "7804a5eff149ea6add5acfc0f44d80caa86a34e248f82d13fc5a64f8d5a53588"
+        }
+      ],
+      "resource_class": "ImageTexture",
+      "sha256": "bcc2304f82e0fef72e51220f9d4870e898df1968addccc18b4fd7372a0d75f9b",
+      "source": "res://银狼/模型/hair/texture/ilm.png",
+      "source_sha256": "8a7475b7573f96de2bbbedcfa348e07ecbfe5d8c852c700af823e9f8f2b4c4b5"
+    },
+    {
+      "after": {
+        "bytes": 3068,
+        "data_sha256": "7124fe05e4f66676f31be6f2ae857b464845de3978b9adcc0a150a6e684ad2eb",
+        "format": 5,
+        "height": 2,
+        "mipmaps": 8,
+        "width": 256
+      },
+      "before": {
+        "bytes": 3068,
+        "data_sha256": "7124fe05e4f66676f31be6f2ae857b464845de3978b9adcc0a150a6e684ad2eb",
+        "format": 5,
+        "height": 2,
+        "mipmaps": 8,
+        "width": 256
+      },
+      "dependencies": [],
+      "filename": "d006903991c6c13b.res",
+      "import_config_sha256": "e487de7bcdcfd84916b579e4977073859b04a648992bc41695f0bdc4b58a4d6c",
+      "original_imported_artifacts": [
+        {
+          "bytes": 3120.0,
+          "path": "res://.godot/imported/ramp.png-2721a45ab8793791533f503063d81730.ctex",
+          "sha256": "dd5f2162c2f0c3ebad31f806d70f327fa62486673a387eaf0e3395393965884a"
+        }
+      ],
+      "resource_class": "ImageTexture",
+      "sha256": "344ffdd30aa65d9e08777f8a2bd27ab2608bd6aaf72f023d266a75d06f78a8f2",
+      "source": "res://银狼/模型/hair/texture/ramp.png",
+      "source_sha256": "bac147c87dbce143484635d24de458304de04357e198e993d8b1e16db27cd6e6"
+    },
+    {
+      "after": {
+        "bytes": 1032,
+        "data_sha256": "e08b494f5d6eaedb9f285758e42f143e1a963df548141a55b4fb6f501dc0a424",
+        "format": 17,
+        "height": 2,
+        "mipmaps": 8,
+        "width": 256
+      },
+      "before": {
+        "bytes": 1032,
+        "data_sha256": "e08b494f5d6eaedb9f285758e42f143e1a963df548141a55b4fb6f501dc0a424",
+        "format": 17,
+        "height": 2,
+        "mipmaps": 8,
+        "width": 256
+      },
+      "dependencies": [],
+      "filename": "334d1c06d5e37d66.res",
+      "import_config_sha256": "6b74b52da4bb35d4893b940591a41d3ecd8fa975eb8a5047781cb4933e0a4fd4",
+      "original_imported_artifacts": [
+        {
+          "bytes": 1084.0,
+          "path": "res://.godot/imported/ramp_cool.png-586e3993e60a3eb1255fc84b011c1e28.s3tc.ctex",
+          "sha256": "25e61e135a576c8c8c5ce53960c68bd54b16783bf1969b7cc1b4964d3f12423f"
+        }
+      ],
+      "resource_class": "ImageTexture",
+      "sha256": "f8e3437a4267f4951495d6b1b9ad02b0b2786807c8671823efae73e81344246f",
+      "source": "res://银狼/模型/hair/texture/ramp_cool.png",
+      "source_sha256": "95f0e079e586b0516e3a406c527ed5846b25eaeb0d25341b822cc4d83c305061"
+    },
+    {
+      "after": {
+        "bytes": 1048576,
+        "data_sha256": "af107b51fc52974e031300c051d50c3cadce771e05ee5aceed42325962a93dfe",
+        "format": 5,
+        "height": 512,
+        "mipmaps": 0,
+        "width": 512
+      },
+      "before": {
+        "bytes": 1048576,
+        "data_sha256": "af107b51fc52974e031300c051d50c3cadce771e05ee5aceed42325962a93dfe",
+        "format": 5,
+        "height": 512,
+        "mipmaps": 0,
+        "width": 512
+      },
+      "dependencies": [],
+      "filename": "982d36ae33e550b3.res",
+      "import_config_sha256": "bf80ac424e6b15076d693bfbf37f3519456e65046134795289212fad3a601266",
+      "original_imported_artifacts": [
+        {
+          "bytes": 1048628.0,
+          "path": "res://.godot/imported/base.png-f7fd7b8d15cd0a815fef340e6ef61a6f.ctex",
+          "sha256": "e9fb090b5bb228bfc687e662acaf0b130c9a653f5006b7e327b060246b028a2b"
+        }
+      ],
+      "resource_class": "ImageTexture",
+      "sha256": "4f6a2e3aef4d944ab136351757e7a41ed49fc42ff11510a2080d4a951dd1e37f",
+      "source": "res://银狼/模型/hair/texture/base.png",
+      "source_sha256": "f0f56f7e4cc6374f409e93bfa09b3c9372aded26b99b878fd0866b079ff7c05d"
+    },
+    {
+      "after": {
+        "depth": 1,
+        "format": 5,
+        "height": 1,
+        "mipmaps": false,
+        "slices": [
+          {
+            "bytes": 4,
+            "data_sha256": "d1bd8198f4406c8509bb1552ee0f0b19898b725eab2586af38544321b8638bb5",
+            "format": 5,
+            "height": 1,
+            "mipmaps": 0,
+            "width": 1
+          }
+        ],
+        "width": 1
+      },
+      "before": {
+        "depth": 1,
+        "format": 5,
+        "height": 1,
+        "mipmaps": false,
+        "slices": [
+          {
+            "bytes": 4,
+            "data_sha256": "d1bd8198f4406c8509bb1552ee0f0b19898b725eab2586af38544321b8638bb5",
+            "format": 5,
+            "height": 1,
+            "mipmaps": 0,
+            "width": 1
+          }
+        ],
+        "width": 1
+      },
+      "dependencies": [],
+      "filename": "c8289070e9e5c804.res",
+      "import_config_sha256": "ad1faac2821fa4f1574c1b89f61fd04fa2f8c7c923305c8498d03629a31757ad",
+      "original_imported_artifacts": [
+        {
+          "bytes": 56.0,
+          "path": "res://.godot/imported/fog.png-5805ca83acaf03eb971a1f30eda2f97e.ctex3d",
+          "sha256": "879ae1c9e5326ee7b09a7b66d760a02855733c47735031d2c73fb429c29e67ad"
+        }
+      ],
+      "resource_class": "ImageTexture3D",
+      "sha256": "3c6e3f6c9b27b915071da177874dfa4dd8e98e0153709ef8e81e23f9ada0591c",
+      "source": "res://role/empty_texture/fog.png",
+      "source_sha256": "043167cee23b1f66fe8bb089b18e0a3141a4be59dc784ab7bc72642af257aa90"
+    },
+    {
+      "after": {
+        "bytes": 1398128,
+        "data_sha256": "0f0891c41fb60ed9b7dd164b5b97ec05878c7f8be17c7baafb3540dc9a018b51",
+        "format": 19,
+        "height": 1024,
+        "mipmaps": 10,
+        "width": 1024
+      },
+      "before": {
+        "bytes": 1398128,
+        "data_sha256": "0f0891c41fb60ed9b7dd164b5b97ec05878c7f8be17c7baafb3540dc9a018b51",
+        "format": 19,
+        "height": 1024,
+        "mipmaps": 10,
+        "width": 1024
+      },
+      "dependencies": [],
+      "filename": "855ca2233e6e099f.res",
+      "import_config_sha256": "9eedea6f9558c443985cb08cf77c0a451015336b133cc3d224023a783388901c",
+      "original_imported_artifacts": [
+        {
+          "bytes": 1398180.0,
+          "path": "res://.godot/imported/ilm.png-9b7b73a7eb327fb91838e4ede66b1aed.s3tc.ctex",
+          "sha256": "008b73c812f79ec8fb57c67885969f764fd14b22c4fca225291f191e60b6875e"
+        }
+      ],
+      "resource_class": "ImageTexture",
+      "sha256": "5eda7234dc4c06eab5fb2a7ca4672fb454ebb555cb06f6a843c25da8daa56167",
+      "source": "res://银狼/模型/face/texture/ilm.png",
+      "source_sha256": "03b6726a57c98bc8568eaf943e47604864ec3f8b9f82925f6cbd66e144abe499"
+    },
+    {
+      "after": {
+        "bytes": 699064,
+        "data_sha256": "a20bf3f75241d0e4edd219bd3401ddeee3524879bffab9a612d183fec5ade68c",
+        "format": 17,
+        "height": 1024,
+        "mipmaps": 10,
+        "width": 1024
+      },
+      "before": {
+        "bytes": 699064,
+        "data_sha256": "a20bf3f75241d0e4edd219bd3401ddeee3524879bffab9a612d183fec5ade68c",
+        "format": 17,
+        "height": 1024,
+        "mipmaps": 10,
+        "width": 1024
+      },
+      "dependencies": [],
+      "filename": "8c33fdc39ce13bea.res",
+      "import_config_sha256": "b825d01e13e9eb5d38763b4ce623200830e6060841c99bf18ab9d15465624dda",
+      "original_imported_artifacts": [
+        {
+          "bytes": 699116.0,
+          "path": "res://.godot/imported/face.png-87a7cc5fe278950d818958f5c964b844.s3tc.ctex",
+          "sha256": "d84f9d81a77d8ab8979a5baae764ddf971c1cce86f869f82283929d0f24354a6"
+        }
+      ],
+      "resource_class": "ImageTexture",
+      "sha256": "e9abe79e743b05845d1fec2c386038fcd40395a8304d27c2cee32fc9492d9039",
+      "source": "res://银狼/模型/face/texture/face.png",
+      "source_sha256": "2794b136c4a0c32cbd0b7e0143894de38c472c2bb826e2bbd984fa7314230d93"
+    },
+    {
+      "after": {
+        "bytes": 22012,
+        "data_sha256": "c8a87f9fe2511ee472a8bbf2fb6377351b00ae5bb5753edffb365d9ff9517bac",
+        "format": 5,
+        "height": 8,
+        "mipmaps": 9,
+        "width": 512
+      },
+      "before": {
+        "bytes": 22012,
+        "data_sha256": "c8a87f9fe2511ee472a8bbf2fb6377351b00ae5bb5753edffb365d9ff9517bac",
+        "format": 5,
+        "height": 8,
+        "mipmaps": 9,
+        "width": 512
+      },
+      "dependencies": [],
+      "filename": "20e25fd6bd52d6c7.res",
+      "import_config_sha256": "7a7638af1c76fbf1f520f2ba37ffc5d2a012f2ab5f3f9f19bb24784643dccd2d",
+      "original_imported_artifacts": [
+        {
+          "bytes": 22064.0,
+          "path": "res://.godot/imported/ramp.png-6559318ecd84f0c45519207e840b9753.ctex",
+          "sha256": "9cd4ee20fd31344f29bc45f4e50dc7bbd343832f62e861fefc2df20a70a11da9"
+        }
+      ],
+      "resource_class": "ImageTexture",
+      "sha256": "17b71878bb6c1ea9c12dc75f5f1990d4e802a98b491ca4655f106bfc81f514da",
+      "source": "res://银狼/模型/face/texture/ramp.png",
+      "source_sha256": "50d2988e5ada9d5019f283b9db3f4a216a0c1d2ec4243c73dd37b853b536f83e"
+    },
+    {
+      "after": {
+        "bytes": 1048576,
+        "data_sha256": "fd904499e963643e130d9f77e7531dfb8efa5978f6bec2e205de0dfd9cd158f9",
+        "format": 5,
+        "height": 512,
+        "mipmaps": 0,
+        "width": 512
+      },
+      "before": {
+        "bytes": 1048576,
+        "data_sha256": "fd904499e963643e130d9f77e7531dfb8efa5978f6bec2e205de0dfd9cd158f9",
+        "format": 5,
+        "height": 512,
+        "mipmaps": 0,
+        "width": 512
+      },
+      "dependencies": [],
+      "filename": "f643df455ba221fe.res",
+      "import_config_sha256": "73b50cc367850643553f954dc55d9704eb6303509ed7afadff93c6012d4a2029",
+      "original_imported_artifacts": [
+        {
+          "bytes": 1048628.0,
+          "path": "res://.godot/imported/base.png-737a10dde1066d01e5738aaeb8270dca.ctex",
+          "sha256": "96da9f188891e122c17cea241e9885d82f0bf255b5e3a7e66cb57a2fc03594ec"
+        }
+      ],
+      "resource_class": "ImageTexture",
+      "sha256": "b5b789b5c13fe812e1ad3e21d477c4cd84d75ae7559b45dce1c919082abb3a93",
+      "source": "res://银狼/模型/face/texture/base.png",
+      "source_sha256": "2151ef56d1a46998e6924fdf041fddcdbbb185442ea3d490af2dd1661a005fe7"
+    },
+    {
+      "after": [
+        {
+          "arrays": [
+            "55493172a360fd12f371fc4b4dcaf61e1e6110e7cf4c06764841d836d9f9ce8f",
+            "94e0fa7cf7d418dbecd05b0c49a11e2e58184083db6d3abbe5039899eebb34b7",
+            "26a6c9d1fc6aae9bc6cf6558cf96aca0641e4d20b8cd4a3f2f2873d04ffd4bd8",
+            "67826bd8b287ab67bff0960cf8a730c97fe53200723b827793870cbd4d08599c",
+            "49850d7aa2635bf7da9b2b3a668e43c46990b266f26ea6836044a0a9ffa59527",
+            "49850d7aa2635bf7da9b2b3a668e43c46990b266f26ea6836044a0a9ffa59527",
+            "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+            "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+            "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+            "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+            "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+            "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+            "65faa433b509315232998b51247a3306d24c88d52599281525badea50d470e1e"
+          ],
+          "geometry": {
+            "attributes": "90eee3ddf5c9ff74c28c8b3152db1212c99f4eb41b2ddda9c2904a25cefa315f",
+            "indices": 16329,
+            "lods": [
+              {
+                "attributes": "81986812f7d8924c395d92433063c26b78e338167ac8f0b39ab20b9452776f26",
+                "edge_length": 0.00248703500255942,
+                "indices": 9897,
+                "positions": "20abfc4dcea2734adb3ec11ef7d1875a1872f0d184edc38e504a7bd30b6e13eb"
+              },
+              {
+                "attributes": "3a937796eabc5c599016bfdb38de0a54052cfab9f06bdc3a632b3d8e77e49e22",
+                "edge_length": 0.00818713940680027,
+                "indices": 4947,
+                "positions": "1cd22c569494fd6ac2f6bf24ed2c2b71f2d2e25fe0baf01cc8425236cc08579e"
+              },
+              {
+                "attributes": "730ca986f8be0b9bcdc96592e7fef790dd045ea8a06910a119fca7447f978ebd",
+                "edge_length": 0.296152204275131,
+                "indices": 2475,
+                "positions": "4672bc6a9787f367935eb2c261ff3d2019c58abbfa484d98044175ddb065a5a8"
+              }
+            ],
+            "positions": "6dc6478477da274d22d9ea733b1c428f70412cae15bec4c2bba59d3a6db0f31f",
+            "vertices": 4151
+          },
+          "import_id": "",
+          "mesh_name": "hair_Scene",
+          "native": {
+            "aabb": "af73d41afa156b166477de436926b0299d79fecf894a9a8f5f0a4f38c002ee1a",
+            "attribute_data": "2027d48d0b3f6b1207ccd421642c98353ab88084aa9af300ba187b90ec97da91",
+            "format": "60a9e08c4b7685ccd2e1411a545878b567a890ab846000e73e67f53c048ee5b4",
+            "index_count": "271df337852de631cfc4ba0a3cf63dafaaaf67e34432fe568fc6e8495a23b0e3",
+            "index_data": "5667f89ce4a6288315568a69b258d06c699182000f8a23636d35a8c9deb5b795",
+            "lods": "8c97987f1a4d3ae4993fa30db92270fae7342702f4ea881a254be640e54a47cb",
+            "primitive": "0c40fc912bea3d01b4dbad07de4c8cf177ac0c424bc11d622d2239c0e5988986",
+            "uv_scale": "57b495fdff979e705ef969a81cfee6c51aa20bf514a557e2415ee073d98fb580",
+            "vertex_count": "b5a1c2b6b80944e557b8cb015bcbacda271351daa2fc014ef915ae529e0c4b08",
+            "vertex_data": "a6c4def03ec9090d8591cba661cb94c75e211e1fa5295b7e92d18c03f6ab973d"
+          },
+          "node": "头发模型",
+          "root_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+          "surface": 0,
+          "transform": "[X: (0.01, 0.0, 0.0), Y: (0.0, 0.0, 0.01), Z: (0.0, -0.01, 0.0), O: (0.0, 0.0, 0.0)]"
+        }
+      ],
+      "before": [
+        {
+          "arrays": [
+            "55493172a360fd12f371fc4b4dcaf61e1e6110e7cf4c06764841d836d9f9ce8f",
+            "94e0fa7cf7d418dbecd05b0c49a11e2e58184083db6d3abbe5039899eebb34b7",
+            "26a6c9d1fc6aae9bc6cf6558cf96aca0641e4d20b8cd4a3f2f2873d04ffd4bd8",
+            "67826bd8b287ab67bff0960cf8a730c97fe53200723b827793870cbd4d08599c",
+            "49850d7aa2635bf7da9b2b3a668e43c46990b266f26ea6836044a0a9ffa59527",
+            "49850d7aa2635bf7da9b2b3a668e43c46990b266f26ea6836044a0a9ffa59527",
+            "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+            "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+            "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+            "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+            "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+            "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+            "65faa433b509315232998b51247a3306d24c88d52599281525badea50d470e1e"
+          ],
+          "geometry": {
+            "attributes": "90eee3ddf5c9ff74c28c8b3152db1212c99f4eb41b2ddda9c2904a25cefa315f",
+            "indices": 16329,
+            "lods": [
+              {
+                "attributes": "81986812f7d8924c395d92433063c26b78e338167ac8f0b39ab20b9452776f26",
+                "edge_length": 0.00248703500255942,
+                "indices": 9897,
+                "positions": "20abfc4dcea2734adb3ec11ef7d1875a1872f0d184edc38e504a7bd30b6e13eb"
+              },
+              {
+                "attributes": "3a937796eabc5c599016bfdb38de0a54052cfab9f06bdc3a632b3d8e77e49e22",
+                "edge_length": 0.00818713940680027,
+                "indices": 4947,
+                "positions": "1cd22c569494fd6ac2f6bf24ed2c2b71f2d2e25fe0baf01cc8425236cc08579e"
+              },
+              {
+                "attributes": "730ca986f8be0b9bcdc96592e7fef790dd045ea8a06910a119fca7447f978ebd",
+                "edge_length": 0.296152204275131,
+                "indices": 2475,
+                "positions": "4672bc6a9787f367935eb2c261ff3d2019c58abbfa484d98044175ddb065a5a8"
+              }
+            ],
+            "positions": "6dc6478477da274d22d9ea733b1c428f70412cae15bec4c2bba59d3a6db0f31f",
+            "vertices": 4151
+          },
+          "import_id": "",
+          "mesh_name": "hair_Scene",
+          "native": {
+            "aabb": "af73d41afa156b166477de436926b0299d79fecf894a9a8f5f0a4f38c002ee1a",
+            "attribute_data": "2027d48d0b3f6b1207ccd421642c98353ab88084aa9af300ba187b90ec97da91",
+            "format": "60a9e08c4b7685ccd2e1411a545878b567a890ab846000e73e67f53c048ee5b4",
+            "index_count": "271df337852de631cfc4ba0a3cf63dafaaaf67e34432fe568fc6e8495a23b0e3",
+            "index_data": "5667f89ce4a6288315568a69b258d06c699182000f8a23636d35a8c9deb5b795",
+            "lods": "8c97987f1a4d3ae4993fa30db92270fae7342702f4ea881a254be640e54a47cb",
+            "primitive": "0c40fc912bea3d01b4dbad07de4c8cf177ac0c424bc11d622d2239c0e5988986",
+            "uv_scale": "57b495fdff979e705ef969a81cfee6c51aa20bf514a557e2415ee073d98fb580",
+            "vertex_count": "b5a1c2b6b80944e557b8cb015bcbacda271351daa2fc014ef915ae529e0c4b08",
+            "vertex_data": "a6c4def03ec9090d8591cba661cb94c75e211e1fa5295b7e92d18c03f6ab973d"
+          },
+          "node": "头发模型",
+          "root_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+          "surface": 0,
+          "transform": "[X: (0.01, 0.0, 0.0), Y: (0.0, 0.0, 0.01), Z: (0.0, -0.01, 0.0), O: (0.0, 0.0, 0.0)]"
+        }
+      ],
+      "dependencies": [],
+      "filename": "092478ca23b46394.scn",
+      "import_config_sha256": "051b08a645da91d81903b92a0a937143b69633a34b113b68f2373dadcf3eddee",
+      "original_imported_artifacts": [
+        {
+          "bytes": 237335.0,
+          "path": "res://.godot/imported/hair.glb-758da2318f01ba34c07a8345688e7256.scn",
+          "sha256": "97e1896c1be22fa00b2c7b74237bc03ee9689efc32f44aa264383f66bfa7edad"
+        }
+      ],
+      "resource_class": "PackedScene",
+      "sha256": "d663eab838cc2ae139543f143f72241131f98d0de7c38178373fb5303109825f",
+      "source": "res://银狼/模型/hair/model/hair.glb",
+      "source_sha256": "c6e5cbd98d5f5ecbab8cce7c705a4cf591f9444cff8aea500cb1bb2db7ed0bb3"
+    },
+    {
+      "after": [
+        {
+          "arrays": [
+            "baa1318f137ef196fc0d295b60d20f20cce56759f9f24108deaf11573959d338",
+            "332ab481797a0405abab0b9f69dde7437f5f3e0342d7ca9413c0489b2fcf76a2",
+            "f2a618c1c8149792bc443b77be7d2186f91df12e5d8c39d53e8133c4fad99928",
+            "1c1d2a9fc3ec72e86e13b0cb2b97102977359d906e914d990173c9e4574c6475",
+            "c4cba4b817c889419b1a822d1c4eef27814e65d07f934b579a89514b61c7db78",
+            "c4cba4b817c889419b1a822d1c4eef27814e65d07f934b579a89514b61c7db78",
+            "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+            "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+            "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+            "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+            "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+            "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+            "770348240ddfa864ed12c52b8f3f476f46f395a4b83e69c70fd9510fb8975e20"
+          ],
+          "geometry": {
+            "attributes": "ca82294eb5b24a36e9d75e7145ac8360003aa791e0495b81d7dad78531e752a6",
+            "indices": 12630,
+            "lods": [
+              {
+                "attributes": "c192d7f285325b5f0cff3f4022edd6244fbc63069954a3979e562bd88793551b",
+                "edge_length": 0.00000759092836233322,
+                "indices": 8520,
+                "positions": "b287970805489923224e26f350b4276001c7a331e394f8d9c08886cda604f0e2"
+              },
+              {
+                "attributes": "fe49336d308657447fef4eb717b4ccc755fe739cd4460a2882f1f9dcc5a0a045",
+                "edge_length": 0.0000325501096085645,
+                "indices": 4260,
+                "positions": "02c72113b13b87bc37860e700107ed9732302a485cb76287ed9d0756fc3566d3"
+              },
+              {
+                "attributes": "5afb10de90f8a3dabed889cade181a79b288905bbc31a6a6ca87a9b32bbf8be8",
+                "edge_length": 0.000331808143528178,
+                "indices": 2130,
+                "positions": "e883e0e042a023d1ff2d1d81a8c09472c0fb075c42e02c32667554ba5747b520"
+              }
+            ],
+            "positions": "9d94c6a46bfb418c2afd3e721cc22fa3e66931c21b2ac861cccbb9277e2e53b5",
+            "vertices": 3748
+          },
+          "import_id": "",
+          "mesh_name": "Scene",
+          "native": {
+            "aabb": "5cc0b4489d42a6353d88a6b51936d82b7e41ba3abe1abce411562c8463670cc8",
+            "attribute_data": "32746d6b8dcdfc92d95d298a9d79f0f9c5ea96e7a7b68d53c714c938b66aa75f",
+            "format": "60a9e08c4b7685ccd2e1411a545878b567a890ab846000e73e67f53c048ee5b4",
+            "index_count": "abcff149c40075fd1a89bd8a435e6fdb21b41d4996de55ab1dc5f1f306fc4dec",
+            "index_data": "27a27dbff73bb17a2d3d1755b46928bdb6b0090ebc1cc8ad5211093abd25fe8a",
+            "lods": "742080956fc133021dd65942c5f28ee7dd90d1a7ae7e9214c8147037042df2fb",
+            "primitive": "0c40fc912bea3d01b4dbad07de4c8cf177ac0c424bc11d622d2239c0e5988986",
+            "uv_scale": "57b495fdff979e705ef969a81cfee6c51aa20bf514a557e2415ee073d98fb580",
+            "vertex_count": "1d2bee164c6ff7cc7539cc418fef8dc8e57348cea3288e4c09c80dd36cae8662",
+            "vertex_data": "5d1d6df918e351cbf711001cd4299c965579cd6a87be6da0828c85a5d5a24462"
+          },
+          "node": "脸部模型",
+          "root_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+          "surface": 0,
+          "transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, -0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]"
+        }
+      ],
+      "before": [
+        {
+          "arrays": [
+            "baa1318f137ef196fc0d295b60d20f20cce56759f9f24108deaf11573959d338",
+            "332ab481797a0405abab0b9f69dde7437f5f3e0342d7ca9413c0489b2fcf76a2",
+            "f2a618c1c8149792bc443b77be7d2186f91df12e5d8c39d53e8133c4fad99928",
+            "1c1d2a9fc3ec72e86e13b0cb2b97102977359d906e914d990173c9e4574c6475",
+            "c4cba4b817c889419b1a822d1c4eef27814e65d07f934b579a89514b61c7db78",
+            "c4cba4b817c889419b1a822d1c4eef27814e65d07f934b579a89514b61c7db78",
+            "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+            "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+            "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+            "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+            "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+            "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+            "770348240ddfa864ed12c52b8f3f476f46f395a4b83e69c70fd9510fb8975e20"
+          ],
+          "geometry": {
+            "attributes": "ca82294eb5b24a36e9d75e7145ac8360003aa791e0495b81d7dad78531e752a6",
+            "indices": 12630,
+            "lods": [
+              {
+                "attributes": "c192d7f285325b5f0cff3f4022edd6244fbc63069954a3979e562bd88793551b",
+                "edge_length": 0.00000759092836233322,
+                "indices": 8520,
+                "positions": "b287970805489923224e26f350b4276001c7a331e394f8d9c08886cda604f0e2"
+              },
+              {
+                "attributes": "fe49336d308657447fef4eb717b4ccc755fe739cd4460a2882f1f9dcc5a0a045",
+                "edge_length": 0.0000325501096085645,
+                "indices": 4260,
+                "positions": "02c72113b13b87bc37860e700107ed9732302a485cb76287ed9d0756fc3566d3"
+              },
+              {
+                "attributes": "5afb10de90f8a3dabed889cade181a79b288905bbc31a6a6ca87a9b32bbf8be8",
+                "edge_length": 0.000331808143528178,
+                "indices": 2130,
+                "positions": "e883e0e042a023d1ff2d1d81a8c09472c0fb075c42e02c32667554ba5747b520"
+              }
+            ],
+            "positions": "9d94c6a46bfb418c2afd3e721cc22fa3e66931c21b2ac861cccbb9277e2e53b5",
+            "vertices": 3748
+          },
+          "import_id": "",
+          "mesh_name": "Scene",
+          "native": {
+            "aabb": "5cc0b4489d42a6353d88a6b51936d82b7e41ba3abe1abce411562c8463670cc8",
+            "attribute_data": "32746d6b8dcdfc92d95d298a9d79f0f9c5ea96e7a7b68d53c714c938b66aa75f",
+            "format": "60a9e08c4b7685ccd2e1411a545878b567a890ab846000e73e67f53c048ee5b4",
+            "index_count": "abcff149c40075fd1a89bd8a435e6fdb21b41d4996de55ab1dc5f1f306fc4dec",
+            "index_data": "27a27dbff73bb17a2d3d1755b46928bdb6b0090ebc1cc8ad5211093abd25fe8a",
+            "lods": "742080956fc133021dd65942c5f28ee7dd90d1a7ae7e9214c8147037042df2fb",
+            "primitive": "0c40fc912bea3d01b4dbad07de4c8cf177ac0c424bc11d622d2239c0e5988986",
+            "uv_scale": "57b495fdff979e705ef969a81cfee6c51aa20bf514a557e2415ee073d98fb580",
+            "vertex_count": "1d2bee164c6ff7cc7539cc418fef8dc8e57348cea3288e4c09c80dd36cae8662",
+            "vertex_data": "5d1d6df918e351cbf711001cd4299c965579cd6a87be6da0828c85a5d5a24462"
+          },
+          "node": "脸部模型",
+          "root_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+          "surface": 0,
+          "transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, -0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]"
+        }
+      ],
+      "dependencies": [],
+      "filename": "7b8b76058240b987.scn",
+      "import_config_sha256": "e97cb4c9ef9d06105029ce12a795f09334e585708b6113847d3721ce93b912f0",
+      "original_imported_artifacts": [
+        {
+          "bytes": 191242.0,
+          "path": "res://.godot/imported/face.fbx-3e907417ee747f8991281c52c835fafd.scn",
+          "sha256": "e4a6c6a6ec5bba9450dfdc82c4c894409199650d34b1a854ea6740a34e18ff3a"
+        }
+      ],
+      "resource_class": "PackedScene",
+      "sha256": "f61098f40bb3538a9fc77ac758b4e9aa26f796363ac35c803a343ce3cee91778",
+      "source": "res://银狼/模型/face/model/face.fbx",
+      "source_sha256": "fb1d91b67c0d4032a111dc82fed881d7ae1477f8ba8ed63bcf879c7afda71b83"
+    },
+    {
+      "after": {
+        "bytes": 2796204,
+        "data_sha256": "c30eff855ca1d90c01c5dc890ca32eb2f3cf63d462ba6adbf8fca039b1a1b14e",
+        "format": 5,
+        "height": 512,
+        "mipmaps": 10,
+        "width": 1024
+      },
+      "before": {
+        "bytes": 2796204,
+        "data_sha256": "c30eff855ca1d90c01c5dc890ca32eb2f3cf63d462ba6adbf8fca039b1a1b14e",
+        "format": 5,
+        "height": 512,
+        "mipmaps": 10,
+        "width": 1024
+      },
+      "dependencies": [],
+      "filename": "8c6e40828798e457.res",
+      "import_config_sha256": "79b071db50e0cc4cd8d4faefbce751e136c1ad3b3f34a8349475d8b668b028be",
+      "original_imported_artifacts": [
+        {
+          "bytes": 2796256.0,
+          "path": "res://.godot/imported/ilm.png-56731d791d7ea9ff8aa0c3a08b706f4b.ctex",
+          "sha256": "177c167ca5e679630229b2cafa8e40efaeab17083f21b514f35c6bef5925159a"
+        }
+      ],
+      "resource_class": "ImageTexture",
+      "sha256": "0b1832723074b859ea9a7bec8b63973659464614ddc82bb77ba00edb883347d3",
+      "source": "res://银狼/模型/body/texture/ilm.png",
+      "source_sha256": "419ab5a41bad39bf8def5cbb86a58a8506cc8ecf24cacbcc444f81e51d0b7d10"
+    },
+    {
+      "after": {
+        "bytes": 3080,
+        "data_sha256": "d5c4b51f6e74b22a9dd32ed71457e44e05ccefa4061293f596961cb4c30fd22b",
+        "format": 17,
+        "height": 8,
+        "mipmaps": 9,
+        "width": 512
+      },
+      "before": {
+        "bytes": 3080,
+        "data_sha256": "d5c4b51f6e74b22a9dd32ed71457e44e05ccefa4061293f596961cb4c30fd22b",
+        "format": 17,
+        "height": 8,
+        "mipmaps": 9,
+        "width": 512
+      },
+      "dependencies": [],
+      "filename": "5a9b32e31448ef10.res",
+      "import_config_sha256": "795695cb21da0bf4678b5e681d5c6c6ad626933b49c3270c11e7cf52af468d86",
+      "original_imported_artifacts": [
+        {
+          "bytes": 3132.0,
+          "path": "res://.godot/imported/effect.png-97e6abb2003fdbb8f689171c7782dc25.s3tc.ctex",
+          "sha256": "f1d99387b4c95a0226a51cdd90b9b3515ed170e4ccb18ccc32049e60c9e5bc35"
+        }
+      ],
+      "resource_class": "ImageTexture",
+      "sha256": "75238f9244cd1beb3542aae5d8d5d301f89344656ebe0570a8fd246d264c4a32",
+      "source": "res://银狼/模型/face/texture/effect.png",
+      "source_sha256": "6731341569e29acf2888f7d374504b26c96fcc7d01b09e5d62d8d3a4da0624e7"
+    },
+    {
+      "after": {
+        "bytes": 2097152,
+        "data_sha256": "9362a3d732c27ed6a6fd12bc144f753539caea40ebebee6795ba7cc7341bfcd8",
+        "format": 5,
+        "height": 512,
+        "mipmaps": 0,
+        "width": 1024
+      },
+      "before": {
+        "bytes": 2097152,
+        "data_sha256": "9362a3d732c27ed6a6fd12bc144f753539caea40ebebee6795ba7cc7341bfcd8",
+        "format": 5,
+        "height": 512,
+        "mipmaps": 0,
+        "width": 1024
+      },
+      "dependencies": [],
+      "filename": "3076bb511fc083ee.res",
+      "import_config_sha256": "6a6e04be9f373a17bf0fce5b91ab0a568f63d1bd5ef21f1771241233cd0b80e5",
+      "original_imported_artifacts": [
+        {
+          "bytes": 2097204.0,
+          "path": "res://.godot/imported/base.png-8662505371f9b318a427f7a38039a092.ctex",
+          "sha256": "81a37b79cccc0621b0fbce6a8d25f18ed4d9193ed313883967e02d177337db87"
+        }
+      ],
+      "resource_class": "ImageTexture",
+      "sha256": "0c6cf48c515b22a922588c9a420f11143f369bf7a6901c7f4e36d4e8c0b3536f",
+      "source": "res://银狼/模型/body/texture/base.png",
+      "source_sha256": "cb078b49f18395c41f264e89305558342f63c6b2097d289217d55867d08bb60d"
+    },
+    {
+      "after": {
+        "bytes": 16384,
+        "data_sha256": "de9245025e0b913d7d57b90cda0bd0bbbb3a84ae90fda836d4779f4c8fd72b71",
+        "format": 5,
+        "height": 16,
+        "mipmaps": 0,
+        "width": 256
+      },
+      "before": {
+        "bytes": 16384,
+        "data_sha256": "de9245025e0b913d7d57b90cda0bd0bbbb3a84ae90fda836d4779f4c8fd72b71",
+        "format": 5,
+        "height": 16,
+        "mipmaps": 0,
+        "width": 256
+      },
+      "dependencies": [],
+      "filename": "b22231b489d1e1bc.res",
+      "import_config_sha256": "3094cc243b1992c937325f12b7d584aa779bfac13117a0414794ed76239e05c5",
+      "original_imported_artifacts": [
+        {
+          "bytes": 16436.0,
+          "path": "res://.godot/imported/ramp.png-77b0d0dfc27e760c714d99013d7d2c95.ctex",
+          "sha256": "6b9c0bd9ec74cfa2cc182b1f82f69e4db472f4e2726a6bc87e4261380c2919a3"
+        }
+      ],
+      "resource_class": "ImageTexture",
+      "sha256": "5b1bc8d77f2c72460d7d7825acd49c081fa95a9a5e93719ffead3cab01141c15",
+      "source": "res://银狼/模型/body/texture/ramp.png",
+      "source_sha256": "5b655dc69eecd9ee02dc9bdf1b864a18a3a16def984d05f6d033debec714df3e"
+    },
+    {
+      "after": {
+        "bytes": 16384,
+        "data_sha256": "eded66579e891f4a99dfa158c2b2a4f7618c869de63f4148f3e59b560f8c4067",
+        "format": 5,
+        "height": 16,
+        "mipmaps": 0,
+        "width": 256
+      },
+      "before": {
+        "bytes": 16384,
+        "data_sha256": "eded66579e891f4a99dfa158c2b2a4f7618c869de63f4148f3e59b560f8c4067",
+        "format": 5,
+        "height": 16,
+        "mipmaps": 0,
+        "width": 256
+      },
+      "dependencies": [],
+      "filename": "9b61f04ade21306a.res",
+      "import_config_sha256": "7f03bc355bc531e8668e5330fcc6e2790caf9a547324a21706f5bcbe250e46ef",
+      "original_imported_artifacts": [
+        {
+          "bytes": 16436.0,
+          "path": "res://.godot/imported/cool_ramp.png-3f4fe5864043394a1c488ae9ce4f8a8c.ctex",
+          "sha256": "c95f27d3d6e0dd2733d7ee76d530e8308a6211fb30af8dabbe2270adf2b8fe31"
+        }
+      ],
+      "resource_class": "ImageTexture",
+      "sha256": "b6512ef219a083733725efd7719d0ccc1faad66e60df87b321eed309d022dd7a",
+      "source": "res://银狼/模型/body/texture/cool_ramp.png",
+      "source_sha256": "fbe8d8c85018c585be0ec4e5035355806df323f8c1523066be57c134377c3fa8"
+    },
+    {
+      "after": {
+        "bytes": 256,
+        "data_sha256": "b1fbde507d095187f3307b816d4e8a0bb90588c736ff725096dc407eff1dc48f",
+        "format": 5,
+        "height": 8,
+        "mipmaps": 0,
+        "width": 8
+      },
+      "before": {
+        "bytes": 256,
+        "data_sha256": "b1fbde507d095187f3307b816d4e8a0bb90588c736ff725096dc407eff1dc48f",
+        "format": 5,
+        "height": 8,
+        "mipmaps": 0,
+        "width": 8
+      },
+      "dependencies": [],
+      "filename": "fd6ab4a9010076fc.res",
+      "import_config_sha256": "d95e6da7e6b7cba2773a5f2a293750f9a4b991d78fcf32f6baa1caa2f4ce2c3c",
+      "original_imported_artifacts": [
+        {
+          "bytes": 308.0,
+          "path": "res://.godot/imported/lut.png-c7c885157bd0961c04e9130d44070e73.ctex",
+          "sha256": "840613d0f79c037c96a5a824cc69923d36c97e0f52c90129e70005b081d956f9"
+        }
+      ],
+      "resource_class": "ImageTexture",
+      "sha256": "51b0a51d2f7b336053a972c2eadfad74d58dbd0705abaea8c4e1305a10fbb6c8",
+      "source": "res://银狼/模型/body/texture/lut.png",
+      "source_sha256": "881f1e3ce2694b68e00f58775a85c5342ebf76024925bf500d86c7ce601c8698"
+    },
+    {
+      "after": [
+        {
+          "arrays": [
+            "0c23ce39b641f360d2031155cae40de315ccd3e8cdec312dfad7301849262c59",
+            "6887f73386d05fb51fc0f8a43d80544695a72f797b4ba3fc7ad03188f801a0a3",
+            "d7f006ab651555d21858cafe5cf4c825c4f979081fca4e4d11ce879169b12ec9",
+            "5fda54ebccb46a08dc1681dc18e43a26eb2afbbc9c3b470a016e87748435746d",
+            "d54b7b3a3b105d3fb438e7d472e8801322da9f383fb26fb949f8d6422f54f7ef",
+            "065d3617d55c7075d99dbc7f68705cd05d784c746c7a138da4f8e232a369dc9d",
+            "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+            "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+            "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+            "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+            "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+            "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+            "88797175414822c4561832d5b2f55088038f3c5236be71dbbafe92fc3459a400"
+          ],
+          "geometry": {
+            "attributes": "3e5aa9439536322f9f679109e2f2007722137fd7a19b6fdd62cc0c8dbfdca450",
+            "indices": 63429,
+            "lods": [
+              {
+                "attributes": "e503463fa4a1e8bb23dbc4fdab2ec555ca6b376ef220e44bbd0867b49b88e3ee",
+                "edge_length": 0.372440993785858,
+                "indices": 40257,
+                "positions": "7126a1516e7061d0ad18eadfee61de10e6412462063ad7a3ab8f4f2ba4e8babb"
+              },
+              {
+                "attributes": "6c870d36cf85f0063c29d4cd4b604cb9eb0ea061fedfbcb37181497c29b0ae7c",
+                "edge_length": 1.51223134994507,
+                "indices": 20127,
+                "positions": "664b3b99ca13d667b6c57aefce5e19bef92e7fbcd7e754a37f717e0f37f7917b"
+              },
+              {
+                "attributes": "7511a3624e6fb9434d05d9741e13542a2b3116ae11acc5c6acc4cd7dd62993c3",
+                "edge_length": 8.43495941162109,
+                "indices": 10065,
+                "positions": "38e748a6ae7ffda0fc7ca2e60907e34b7f399e29e44dfd013363632ad826f445"
+              }
+            ],
+            "positions": "2c466801fb3254ee64dadb81418a8f196c8265e690c396100dd3a7e56c6402bd",
+            "vertices": 21273
+          },
+          "import_id": "",
+          "mesh_name": "模型_Scene",
+          "native": {
+            "aabb": "e208d8f811cf8549f7f08a5dc81ac60ce36e22483c2dfc3e67a26e9949d8f247",
+            "attribute_data": "ad167a87762577af7beded62efa2eb2c664fa1e6fdab80076656373692998c54",
+            "format": "60a9e08c4b7685ccd2e1411a545878b567a890ab846000e73e67f53c048ee5b4",
+            "index_count": "ecb2e15d41c10ca09c1fd6d2e75bdb086fd05117858ca72893283ab27fd13e12",
+            "index_data": "1b8b70cf6a566ff919931df9185403ae31bb5a9622e4839d0464bdaa1f4d4a56",
+            "lods": "ee154c90fb56fb877988407e26a41ed36b07227fe66a769b6ab8a063533ebadf",
+            "primitive": "0c40fc912bea3d01b4dbad07de4c8cf177ac0c424bc11d622d2239c0e5988986",
+            "uv_scale": "57b495fdff979e705ef969a81cfee6c51aa20bf514a557e2415ee073d98fb580",
+            "vertex_count": "c3ceb2f917b7c0791e645c64da8f4c0950b540a99658481700851619158c48c1",
+            "vertex_data": "b9534f59583b2296cbe89b09cf8afadd1c61813fe04490f6f752912b268cb8a6"
+          },
+          "node": "模型",
+          "root_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+          "surface": 0,
+          "transform": "[X: (1.84936, 0.0, 0.0), Y: (0.0, 0.0, 1.84936), Z: (0.0, -1.84936, 0.0), O: (0.0, 0.0, 0.0)]"
+        }
+      ],
+      "before": [
+        {
+          "arrays": [
+            "0c23ce39b641f360d2031155cae40de315ccd3e8cdec312dfad7301849262c59",
+            "6887f73386d05fb51fc0f8a43d80544695a72f797b4ba3fc7ad03188f801a0a3",
+            "d7f006ab651555d21858cafe5cf4c825c4f979081fca4e4d11ce879169b12ec9",
+            "5fda54ebccb46a08dc1681dc18e43a26eb2afbbc9c3b470a016e87748435746d",
+            "d54b7b3a3b105d3fb438e7d472e8801322da9f383fb26fb949f8d6422f54f7ef",
+            "065d3617d55c7075d99dbc7f68705cd05d784c746c7a138da4f8e232a369dc9d",
+            "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+            "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+            "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+            "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+            "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+            "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+            "88797175414822c4561832d5b2f55088038f3c5236be71dbbafe92fc3459a400"
+          ],
+          "geometry": {
+            "attributes": "3e5aa9439536322f9f679109e2f2007722137fd7a19b6fdd62cc0c8dbfdca450",
+            "indices": 63429,
+            "lods": [
+              {
+                "attributes": "e503463fa4a1e8bb23dbc4fdab2ec555ca6b376ef220e44bbd0867b49b88e3ee",
+                "edge_length": 0.372440993785858,
+                "indices": 40257,
+                "positions": "7126a1516e7061d0ad18eadfee61de10e6412462063ad7a3ab8f4f2ba4e8babb"
+              },
+              {
+                "attributes": "6c870d36cf85f0063c29d4cd4b604cb9eb0ea061fedfbcb37181497c29b0ae7c",
+                "edge_length": 1.51223134994507,
+                "indices": 20127,
+                "positions": "664b3b99ca13d667b6c57aefce5e19bef92e7fbcd7e754a37f717e0f37f7917b"
+              },
+              {
+                "attributes": "7511a3624e6fb9434d05d9741e13542a2b3116ae11acc5c6acc4cd7dd62993c3",
+                "edge_length": 8.43495941162109,
+                "indices": 10065,
+                "positions": "38e748a6ae7ffda0fc7ca2e60907e34b7f399e29e44dfd013363632ad826f445"
+              }
+            ],
+            "positions": "2c466801fb3254ee64dadb81418a8f196c8265e690c396100dd3a7e56c6402bd",
+            "vertices": 21273
+          },
+          "import_id": "",
+          "mesh_name": "模型_Scene",
+          "native": {
+            "aabb": "e208d8f811cf8549f7f08a5dc81ac60ce36e22483c2dfc3e67a26e9949d8f247",
+            "attribute_data": "ad167a87762577af7beded62efa2eb2c664fa1e6fdab80076656373692998c54",
+            "format": "60a9e08c4b7685ccd2e1411a545878b567a890ab846000e73e67f53c048ee5b4",
+            "index_count": "ecb2e15d41c10ca09c1fd6d2e75bdb086fd05117858ca72893283ab27fd13e12",
+            "index_data": "1b8b70cf6a566ff919931df9185403ae31bb5a9622e4839d0464bdaa1f4d4a56",
+            "lods": "ee154c90fb56fb877988407e26a41ed36b07227fe66a769b6ab8a063533ebadf",
+            "primitive": "0c40fc912bea3d01b4dbad07de4c8cf177ac0c424bc11d622d2239c0e5988986",
+            "uv_scale": "57b495fdff979e705ef969a81cfee6c51aa20bf514a557e2415ee073d98fb580",
+            "vertex_count": "c3ceb2f917b7c0791e645c64da8f4c0950b540a99658481700851619158c48c1",
+            "vertex_data": "b9534f59583b2296cbe89b09cf8afadd1c61813fe04490f6f752912b268cb8a6"
+          },
+          "node": "模型",
+          "root_transform": "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]",
+          "surface": 0,
+          "transform": "[X: (1.84936, 0.0, 0.0), Y: (0.0, 0.0, 1.84936), Z: (0.0, -1.84936, 0.0), O: (0.0, 0.0, 0.0)]"
+        }
+      ],
+      "dependencies": [],
+      "filename": "92863b1ecc066454.scn",
+      "import_config_sha256": "43ce227a5b619edcfe0cda4c58525c14e9f70cb775e3e78b09f7c41dbd17e86b",
+      "original_imported_artifacts": [
+        {
+          "bytes": 984199.0,
+          "path": "res://.godot/imported/模型.glb-80d44e3d921da4cb5aae73b03a4ee8db.scn",
+          "sha256": "70191e319097524a0e73f8219df6447bbd77c18fe71bff4e2791a1957ac4cbe2"
+        }
+      ],
+      "resource_class": "PackedScene",
+      "sha256": "2bb1a9cbdb3acdb16405dee1dc7bf7becbfec561df8c1382366212ce1860ce19",
+      "source": "res://银狼/模型/gltf/模型.glb",
+      "source_sha256": "8c27031931b56f7ae6c840a1003be83ddbcba18b2c4f93aa01a712462bb9d153"
+    }
+  ],
+  "checks": [
+    {
+      "label": "Create prototype asset directory",
+      "pass": true
+    },
+    {
+      "label": "Verified source and import config: res://银狼/模型/hair/texture/ilm.png",
+      "pass": true
+    },
+    {
+      "label": "Verified approved imported bytes: res://.godot/imported/ilm.png-1999c47195885c43fc2390beb576bd79.s3tc.ctex",
+      "pass": true
+    },
+    {
+      "label": "New output path: c7d3552d6fb5d2d0.res",
+      "pass": true
+    },
+    {
+      "label": "Save c7d3552d6fb5d2d0.res",
+      "pass": true
+    },
+    {
+      "label": "Reload c7d3552d6fb5d2d0.res",
+      "pass": true
+    },
+    {
+      "label": "Exact full geometry/LOD or image data: res://银狼/模型/hair/texture/ilm.png",
+      "pass": true
+    },
+    {
+      "label": "Resource has no external dependencies: c7d3552d6fb5d2d0.res",
+      "pass": true
+    },
+    {
+      "label": "Verified source and import config: res://银狼/模型/hair/texture/ramp.png",
+      "pass": true
+    },
+    {
+      "label": "Verified approved imported bytes: res://.godot/imported/ramp.png-2721a45ab8793791533f503063d81730.ctex",
+      "pass": true
+    },
+    {
+      "label": "New output path: d006903991c6c13b.res",
+      "pass": true
+    },
+    {
+      "label": "Save d006903991c6c13b.res",
+      "pass": true
+    },
+    {
+      "label": "Reload d006903991c6c13b.res",
+      "pass": true
+    },
+    {
+      "label": "Exact full geometry/LOD or image data: res://银狼/模型/hair/texture/ramp.png",
+      "pass": true
+    },
+    {
+      "label": "Resource has no external dependencies: d006903991c6c13b.res",
+      "pass": true
+    },
+    {
+      "label": "Verified source and import config: res://银狼/模型/hair/texture/ramp_cool.png",
+      "pass": true
+    },
+    {
+      "label": "Verified approved imported bytes: res://.godot/imported/ramp_cool.png-586e3993e60a3eb1255fc84b011c1e28.s3tc.ctex",
+      "pass": true
+    },
+    {
+      "label": "New output path: 334d1c06d5e37d66.res",
+      "pass": true
+    },
+    {
+      "label": "Save 334d1c06d5e37d66.res",
+      "pass": true
+    },
+    {
+      "label": "Reload 334d1c06d5e37d66.res",
+      "pass": true
+    },
+    {
+      "label": "Exact full geometry/LOD or image data: res://银狼/模型/hair/texture/ramp_cool.png",
+      "pass": true
+    },
+    {
+      "label": "Resource has no external dependencies: 334d1c06d5e37d66.res",
+      "pass": true
+    },
+    {
+      "label": "Verified source and import config: res://银狼/模型/hair/texture/base.png",
+      "pass": true
+    },
+    {
+      "label": "Verified approved imported bytes: res://.godot/imported/base.png-f7fd7b8d15cd0a815fef340e6ef61a6f.ctex",
+      "pass": true
+    },
+    {
+      "label": "New output path: 982d36ae33e550b3.res",
+      "pass": true
+    },
+    {
+      "label": "Save 982d36ae33e550b3.res",
+      "pass": true
+    },
+    {
+      "label": "Reload 982d36ae33e550b3.res",
+      "pass": true
+    },
+    {
+      "label": "Exact full geometry/LOD or image data: res://银狼/模型/hair/texture/base.png",
+      "pass": true
+    },
+    {
+      "label": "Resource has no external dependencies: 982d36ae33e550b3.res",
+      "pass": true
+    },
+    {
+      "label": "Verified source and import config: res://role/empty_texture/fog.png",
+      "pass": true
+    },
+    {
+      "label": "Verified approved imported bytes: res://.godot/imported/fog.png-5805ca83acaf03eb971a1f30eda2f97e.ctex3d",
+      "pass": true
+    },
+    {
+      "label": "Create exact volume texture",
+      "pass": true
+    },
+    {
+      "label": "New output path: c8289070e9e5c804.res",
+      "pass": true
+    },
+    {
+      "label": "Save c8289070e9e5c804.res",
+      "pass": true
+    },
+    {
+      "label": "Reload c8289070e9e5c804.res",
+      "pass": true
+    },
+    {
+      "label": "Exact full geometry/LOD or image data: res://role/empty_texture/fog.png",
+      "pass": true
+    },
+    {
+      "label": "Resource has no external dependencies: c8289070e9e5c804.res",
+      "pass": true
+    },
+    {
+      "label": "Verified source and import config: res://银狼/模型/face/texture/ilm.png",
+      "pass": true
+    },
+    {
+      "label": "Verified approved imported bytes: res://.godot/imported/ilm.png-9b7b73a7eb327fb91838e4ede66b1aed.s3tc.ctex",
+      "pass": true
+    },
+    {
+      "label": "New output path: 855ca2233e6e099f.res",
+      "pass": true
+    },
+    {
+      "label": "Save 855ca2233e6e099f.res",
+      "pass": true
+    },
+    {
+      "label": "Reload 855ca2233e6e099f.res",
+      "pass": true
+    },
+    {
+      "label": "Exact full geometry/LOD or image data: res://银狼/模型/face/texture/ilm.png",
+      "pass": true
+    },
+    {
+      "label": "Resource has no external dependencies: 855ca2233e6e099f.res",
+      "pass": true
+    },
+    {
+      "label": "Verified source and import config: res://银狼/模型/face/texture/face.png",
+      "pass": true
+    },
+    {
+      "label": "Verified approved imported bytes: res://.godot/imported/face.png-87a7cc5fe278950d818958f5c964b844.s3tc.ctex",
+      "pass": true
+    },
+    {
+      "label": "New output path: 8c33fdc39ce13bea.res",
+      "pass": true
+    },
+    {
+      "label": "Save 8c33fdc39ce13bea.res",
+      "pass": true
+    },
+    {
+      "label": "Reload 8c33fdc39ce13bea.res",
+      "pass": true
+    },
+    {
+      "label": "Exact full geometry/LOD or image data: res://银狼/模型/face/texture/face.png",
+      "pass": true
+    },
+    {
+      "label": "Resource has no external dependencies: 8c33fdc39ce13bea.res",
+      "pass": true
+    },
+    {
+      "label": "Verified source and import config: res://银狼/模型/face/texture/ramp.png",
+      "pass": true
+    },
+    {
+      "label": "Verified approved imported bytes: res://.godot/imported/ramp.png-6559318ecd84f0c45519207e840b9753.ctex",
+      "pass": true
+    },
+    {
+      "label": "New output path: 20e25fd6bd52d6c7.res",
+      "pass": true
+    },
+    {
+      "label": "Save 20e25fd6bd52d6c7.res",
+      "pass": true
+    },
+    {
+      "label": "Reload 20e25fd6bd52d6c7.res",
+      "pass": true
+    },
+    {
+      "label": "Exact full geometry/LOD or image data: res://银狼/模型/face/texture/ramp.png",
+      "pass": true
+    },
+    {
+      "label": "Resource has no external dependencies: 20e25fd6bd52d6c7.res",
+      "pass": true
+    },
+    {
+      "label": "Verified source and import config: res://银狼/模型/face/texture/base.png",
+      "pass": true
+    },
+    {
+      "label": "Verified approved imported bytes: res://.godot/imported/base.png-737a10dde1066d01e5738aaeb8270dca.ctex",
+      "pass": true
+    },
+    {
+      "label": "New output path: f643df455ba221fe.res",
+      "pass": true
+    },
+    {
+      "label": "Save f643df455ba221fe.res",
+      "pass": true
+    },
+    {
+      "label": "Reload f643df455ba221fe.res",
+      "pass": true
+    },
+    {
+      "label": "Exact full geometry/LOD or image data: res://银狼/模型/face/texture/base.png",
+      "pass": true
+    },
+    {
+      "label": "Resource has no external dependencies: f643df455ba221fe.res",
+      "pass": true
+    },
+    {
+      "label": "Verified source and import config: res://银狼/模型/hair/model/hair.glb",
+      "pass": true
+    },
+    {
+      "label": "Verified approved imported bytes: res://.godot/imported/hair.glb-758da2318f01ba34c07a8345688e7256.scn",
+      "pass": true
+    },
+    {
+      "label": "New output path: 092478ca23b46394.scn",
+      "pass": true
+    },
+    {
+      "label": "Save 092478ca23b46394.scn",
+      "pass": true
+    },
+    {
+      "label": "Reload 092478ca23b46394.scn",
+      "pass": true
+    },
+    {
+      "label": "Exact full geometry/LOD or image data: res://银狼/模型/hair/model/hair.glb",
+      "pass": true
+    },
+    {
+      "label": "Resource has no external dependencies: 092478ca23b46394.scn",
+      "pass": true
+    },
+    {
+      "label": "Verified source and import config: res://银狼/模型/face/model/face.fbx",
+      "pass": true
+    },
+    {
+      "label": "Verified approved imported bytes: res://.godot/imported/face.fbx-3e907417ee747f8991281c52c835fafd.scn",
+      "pass": true
+    },
+    {
+      "label": "New output path: 7b8b76058240b987.scn",
+      "pass": true
+    },
+    {
+      "label": "Save 7b8b76058240b987.scn",
+      "pass": true
+    },
+    {
+      "label": "Reload 7b8b76058240b987.scn",
+      "pass": true
+    },
+    {
+      "label": "Exact full geometry/LOD or image data: res://银狼/模型/face/model/face.fbx",
+      "pass": true
+    },
+    {
+      "label": "Resource has no external dependencies: 7b8b76058240b987.scn",
+      "pass": true
+    },
+    {
+      "label": "Verified source and import config: res://银狼/模型/body/texture/ilm.png",
+      "pass": true
+    },
+    {
+      "label": "Verified approved imported bytes: res://.godot/imported/ilm.png-56731d791d7ea9ff8aa0c3a08b706f4b.ctex",
+      "pass": true
+    },
+    {
+      "label": "New output path: 8c6e40828798e457.res",
+      "pass": true
+    },
+    {
+      "label": "Save 8c6e40828798e457.res",
+      "pass": true
+    },
+    {
+      "label": "Reload 8c6e40828798e457.res",
+      "pass": true
+    },
+    {
+      "label": "Exact full geometry/LOD or image data: res://银狼/模型/body/texture/ilm.png",
+      "pass": true
+    },
+    {
+      "label": "Resource has no external dependencies: 8c6e40828798e457.res",
+      "pass": true
+    },
+    {
+      "label": "Verified source and import config: res://银狼/模型/face/texture/effect.png",
+      "pass": true
+    },
+    {
+      "label": "Verified approved imported bytes: res://.godot/imported/effect.png-97e6abb2003fdbb8f689171c7782dc25.s3tc.ctex",
+      "pass": true
+    },
+    {
+      "label": "New output path: 5a9b32e31448ef10.res",
+      "pass": true
+    },
+    {
+      "label": "Save 5a9b32e31448ef10.res",
+      "pass": true
+    },
+    {
+      "label": "Reload 5a9b32e31448ef10.res",
+      "pass": true
+    },
+    {
+      "label": "Exact full geometry/LOD or image data: res://银狼/模型/face/texture/effect.png",
+      "pass": true
+    },
+    {
+      "label": "Resource has no external dependencies: 5a9b32e31448ef10.res",
+      "pass": true
+    },
+    {
+      "label": "Verified source and import config: res://银狼/模型/body/texture/base.png",
+      "pass": true
+    },
+    {
+      "label": "Verified approved imported bytes: res://.godot/imported/base.png-8662505371f9b318a427f7a38039a092.ctex",
+      "pass": true
+    },
+    {
+      "label": "New output path: 3076bb511fc083ee.res",
+      "pass": true
+    },
+    {
+      "label": "Save 3076bb511fc083ee.res",
+      "pass": true
+    },
+    {
+      "label": "Reload 3076bb511fc083ee.res",
+      "pass": true
+    },
+    {
+      "label": "Exact full geometry/LOD or image data: res://银狼/模型/body/texture/base.png",
+      "pass": true
+    },
+    {
+      "label": "Resource has no external dependencies: 3076bb511fc083ee.res",
+      "pass": true
+    },
+    {
+      "label": "Verified source and import config: res://银狼/模型/body/texture/ramp.png",
+      "pass": true
+    },
+    {
+      "label": "Verified approved imported bytes: res://.godot/imported/ramp.png-77b0d0dfc27e760c714d99013d7d2c95.ctex",
+      "pass": true
+    },
+    {
+      "label": "New output path: b22231b489d1e1bc.res",
+      "pass": true
+    },
+    {
+      "label": "Save b22231b489d1e1bc.res",
+      "pass": true
+    },
+    {
+      "label": "Reload b22231b489d1e1bc.res",
+      "pass": true
+    },
+    {
+      "label": "Exact full geometry/LOD or image data: res://银狼/模型/body/texture/ramp.png",
+      "pass": true
+    },
+    {
+      "label": "Resource has no external dependencies: b22231b489d1e1bc.res",
+      "pass": true
+    },
+    {
+      "label": "Verified source and import config: res://银狼/模型/body/texture/cool_ramp.png",
+      "pass": true
+    },
+    {
+      "label": "Verified approved imported bytes: res://.godot/imported/cool_ramp.png-3f4fe5864043394a1c488ae9ce4f8a8c.ctex",
+      "pass": true
+    },
+    {
+      "label": "New output path: 9b61f04ade21306a.res",
+      "pass": true
+    },
+    {
+      "label": "Save 9b61f04ade21306a.res",
+      "pass": true
+    },
+    {
+      "label": "Reload 9b61f04ade21306a.res",
+      "pass": true
+    },
+    {
+      "label": "Exact full geometry/LOD or image data: res://银狼/模型/body/texture/cool_ramp.png",
+      "pass": true
+    },
+    {
+      "label": "Resource has no external dependencies: 9b61f04ade21306a.res",
+      "pass": true
+    },
+    {
+      "label": "Verified source and import config: res://银狼/模型/body/texture/lut.png",
+      "pass": true
+    },
+    {
+      "label": "Verified approved imported bytes: res://.godot/imported/lut.png-c7c885157bd0961c04e9130d44070e73.ctex",
+      "pass": true
+    },
+    {
+      "label": "New output path: fd6ab4a9010076fc.res",
+      "pass": true
+    },
+    {
+      "label": "Save fd6ab4a9010076fc.res",
+      "pass": true
+    },
+    {
+      "label": "Reload fd6ab4a9010076fc.res",
+      "pass": true
+    },
+    {
+      "label": "Exact full geometry/LOD or image data: res://银狼/模型/body/texture/lut.png",
+      "pass": true
+    },
+    {
+      "label": "Resource has no external dependencies: fd6ab4a9010076fc.res",
+      "pass": true
+    },
+    {
+      "label": "Verified source and import config: res://银狼/模型/gltf/模型.glb",
+      "pass": true
+    },
+    {
+      "label": "Verified approved imported bytes: res://.godot/imported/模型.glb-80d44e3d921da4cb5aae73b03a4ee8db.scn",
+      "pass": true
+    },
+    {
+      "label": "New output path: 92863b1ecc066454.scn",
+      "pass": true
+    },
+    {
+      "label": "Save 92863b1ecc066454.scn",
+      "pass": true
+    },
+    {
+      "label": "Reload 92863b1ecc066454.scn",
+      "pass": true
+    },
+    {
+      "label": "Exact full geometry/LOD or image data: res://银狼/模型/gltf/模型.glb",
+      "pass": true
+    },
+    {
+      "label": "Resource has no external dependencies: 92863b1ecc066454.scn",
+      "pass": true
+    },
+    {
+      "label": "All 18 accepted runtime assets were converted",
+      "pass": true
+    }
+  ],
+  "source_inputs_sha256": "be54561352c5163e3389edfb3fa6a0722491fc1199d7df2b16af36bfba4d5375",
+  "status": "prototype_not_promoted"
+}

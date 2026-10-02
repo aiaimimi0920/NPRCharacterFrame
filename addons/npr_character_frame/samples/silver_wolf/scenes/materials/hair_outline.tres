@@ -1,0 +1,34 @@
+[gd_resource type="ShaderMaterial" load_steps=5 format=3]
+
+[ext_resource type="Shader" path="res://addons/npr_character_frame/shaders/hair/hair_outline.gdshader" id="1_nch8x"]
+[ext_resource type="Texture2D" path="res://addons/npr_character_frame/samples/silver_wolf/assets/canonical/silver_wolf/hair/textures/base.res" id="3_88gra"]
+[ext_resource type="Texture3D" path="res://addons/npr_character_frame/samples/silver_wolf/assets/canonical/silver_wolf/common/fog.res" id="3_pmkd7"]
+[ext_resource type="Texture2D" path="res://addons/npr_character_frame/samples/silver_wolf/assets/canonical/silver_wolf/hair/textures/ilm.res" id="5_jjbyi"]
+
+[resource]
+render_priority = 7
+shader = ExtResource("1_nch8x")
+shader_parameter/u_uv1_scale = Vector3(1, 1, 1)
+shader_parameter/u_uv1_offset = Vector3(0, 0, 0)
+shader_parameter/u_sdf_on_uv2 = true
+shader_parameter/u_outline_intensity = 0.035
+shader_parameter/u_initial_fade_factor = 0.0
+shader_parameter/u_outline_weight = 1.0
+shader_parameter/u_distance_fade_start = 0.0
+shader_parameter/u_distance_fade_end = 0.0
+shader_parameter/u_view_flip_index = 0
+shader_parameter/u_base_color = Color(1, 1, 1, 1)
+shader_parameter/u_back_color = Color(1, 1, 1, 1)
+shader_parameter/u_texture_base_map = ExtResource("3_88gra")
+shader_parameter/u_texture_lut_map = ExtResource("5_jjbyi")
+shader_parameter/u_distance_lut_grading_intensity = 1.0
+shader_parameter/u_outline_color = Vector3(0.5, 0.3, 0.2)
+shader_parameter/g_u_fog_matrix = Projection(0.47635, 0, 0, 0, 0, 0.26795, 0, -0.29739, 0, 7.89598e-09, 0, 0.14703, 0, -7.89598e-09, -1, -0.14703)
+shader_parameter/u_texture_fog_map = ExtResource("3_pmkd7")
+shader_parameter/u_dither_mask = 0
+shader_parameter/u_auto_outline_color = true
+shader_parameter/u_use_global_interior_line_darken_factor = false
+shader_parameter/u_interior_line_darken_factor = 0.2
+shader_parameter/u_dark_area_tint = Vector4(0, 0, 0, 0)
+shader_parameter/u_local_main_light_disabled = true
+shader_parameter/u_outline_additive_factor = Color(0, 0, 0, 0)

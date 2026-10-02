@@ -1,0 +1,13 @@
+{
+  "schema": 1,
+  "purpose": "Sample-only rain regression camera targets; not runtime model data",
+  "provenance": {
+    "source": "Retired droplet attachment manifest, first knots of markers 2 and 9",
+    "source_sha256": "56db10ff0a3a2c75a5bf5d1f8bcf0322fd41d91f6639160577e5e2102496df72",
+    "offset_source": "Retired droplet response surface_offset, in metres"
+  },
+  "anchors": {
+    "2": {"surface_triangle": [10728, 6569, 10730], "barycentric": [0.34391966, 0.33794186, 0.31813848], "normal_sign": 1, "surface_offset": 0.00045},
+    "9": {"surface_triangle": [11995, 4852, 11996], "barycentric": [0.78652125, 0.16251635, 0.0509624], "normal_sign": 1, "surface_offset": 0.00045}
+  }
+}

@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="NPRStylePreset" load_steps=2 format=3]
+[ext_resource type="Script" path="res://addons/npr_character_frame/npr_style_preset.gd" id="1"]
+[resource]
+script = ExtResource("1")
+display_name = "对话近景"
+character_values = {"ramp_mix": 0.38, "sdf_feather": 0.08, "outline_width": 0.8, "hair_highlight": 0.08, "rim_strength": 0.08, "face_light_weight": 0.5}
+lighting_values = {"yaw": -30.0, "elevation": 45.0, "fill_strength": 0.12, "shadow_strength": 0.22}

@@ -1,0 +1,12 @@
+{
+  "schema": 1,
+  "head_bvh_origin": [-0.112, 2.58, -0.06],
+  "files": {
+    "rig": {"path": "character_rig.blend", "sha256": "c26b3afd371ab118a01f9772adae1d07c9d11b7adbb22ef6395ef19417ab2dbd"},
+    "performance": {"path": "../assets/authoring/silver_wolf/wardrobe/performance.json", "sha256": "a302f798cb18a22a507a5b4a6563377c2b5cb869df3651be7f3f59931f930485"},
+    "profile": {"path": "../assets/authoring/silver_wolf/wardrobe/hair_motion_profile_v1.json", "sha256": "375c773b84064a3c1faf84d93e2d443948ab7b18758ca91fb0a920fabae1eea8"}
+  },
+  "historical_input_blend_sha256": "29e6126d52eeb5a54f8045b3d4389faf16fa43a23694a44ef7b1f5a5cdc1497d",
+  "historical_snapshot_manifest_sha256": "0fb7b8b12ff069825bb43018ffb35e8883d126be68e00a972415521903222aab",
+  "note": "Current rig is a distinct capture. Preserve the historical motion profile identity and accept reconstruction only after comparing all dynamic, weight and contact fields. No external snapshot dependency."
+}

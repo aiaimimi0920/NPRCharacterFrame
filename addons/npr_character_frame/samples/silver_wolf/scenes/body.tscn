@@ -1,0 +1,152 @@
+[gd_scene load_steps=15 format=3 uid="uid://bx8w0n1a47dwi"]
+
+[ext_resource type="PackedScene" path="res://addons/npr_character_frame/samples/silver_wolf/assets/canonical/silver_wolf/body/mesh.scn" id="1_h3h7d"]
+[ext_resource type="Shader" uid="uid://cu1iqmh4g3pwd" path="res://addons/npr_character_frame/shaders/body/body_npr.gdshader" id="2_7dwc1"]
+[ext_resource type="Material" path="res://addons/npr_character_frame/samples/silver_wolf/scenes/materials/body_outline.tres" id="2_h3h7d"]
+[ext_resource type="Texture2D" path="res://addons/npr_character_frame/samples/silver_wolf/assets/canonical/silver_wolf/body/textures/lut.res" id="4_s84xd"]
+[ext_resource type="Texture2D" path="res://addons/npr_character_frame/samples/silver_wolf/assets/canonical/silver_wolf/body/textures/cool_ramp.res" id="4_sl6q6"]
+[ext_resource type="Texture2D" path="res://addons/npr_character_frame/samples/silver_wolf/assets/canonical/silver_wolf/body/textures/ramp.res" id="5_apwmp"]
+[ext_resource type="Texture2D" path="res://addons/npr_character_frame/samples/silver_wolf/assets/canonical/silver_wolf/body/textures/base.res" id="5_s84xd"]
+[ext_resource type="Texture3D" path="res://addons/npr_character_frame/samples/silver_wolf/assets/canonical/silver_wolf/common/fog.res" id="6_s84xd"]
+[ext_resource type="Texture2D" path="res://addons/npr_character_frame/materials/textures/white.tres" id="7_h3h7d"]
+[ext_resource type="Texture2D" path="res://addons/npr_character_frame/samples/silver_wolf/assets/canonical/silver_wolf/face/textures/effect.res" id="8_effect"]
+[ext_resource type="Texture2D" path="res://addons/npr_character_frame/samples/silver_wolf/assets/canonical/silver_wolf/body/textures/ilm.res" id="9_h3h7d"]
+[ext_resource type="Script" uid="uid://cku3moolk6nij" path="res://addons/npr_character_frame/runtime/role_light.gd" id="11_ld7n5"]
+[ext_resource type="Script" uid="uid://cjv2wb1fvsqxh" path="res://addons/npr_character_frame/runtime/outline_light.gd" id="12_y2mhi"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rt5q1"]
+render_priority = 0
+next_pass = ExtResource("2_h3h7d")
+shader = ExtResource("2_7dwc1")
+shader_parameter/u_debug_frag_height_lerp_enabled = true
+shader_parameter/u_debug_frag_bloom_enabled = true
+shader_parameter/u_debug_frag_special_effect_enabled = true
+shader_parameter/u_debug_frag_fog_enabled = true
+shader_parameter/u_debug_frag_dithering_enabled = true
+shader_parameter/u_part_mask_visible = 255
+shader_parameter/u_hide_parts_flag = false
+shader_parameter/u_reflection_matrix = Projection(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)
+shader_parameter/u_reflection_flag = false
+shader_parameter/u_uv1_scale = Vector3(1, 1, 1)
+shader_parameter/u_uv1_offset = Vector3(0, 0, 0)
+shader_parameter/u_uv2_scale = Vector3(1, 1, 1)
+shader_parameter/u_uv2_offset = Vector3(0, 0, 0)
+shader_parameter/u_channel_mask = Vector4(1, 1, 1, 1)
+shader_parameter/u_view_flip_index = 0
+shader_parameter/u_material_values_pack_lut = ExtResource("4_s84xd")
+shader_parameter/u_character_shadow_factor_u = 0.0
+shader_parameter/u_base_color = Color(1, 1, 1, 1)
+shader_parameter/u_back_color = Color(1, 1, 1, 1)
+shader_parameter/u_texture_base_map = ExtResource("5_s84xd")
+shader_parameter/u_texture_light_map = ExtResource("9_h3h7d")
+shader_parameter/u_texture_shadow_map = ExtResource("7_h3h7d")
+shader_parameter/u_rim_shadow_offset = Vector4(0, 0, 0, 0)
+shader_parameter/u_shadow_ramp = 1.0
+shader_parameter/u_skin_shadow_color = Color(0, 0, 0, 0)
+shader_parameter/u_level_shadow_color = Color(0, 0, 0, 0)
+shader_parameter/u_character_disable_local_light = false
+shader_parameter/u_is_monster = false
+shader_parameter/u_monster_light_color = Color(1, 1, 1, 1)
+shader_parameter/u_light_color = Color(1, 1, 1, 1)
+shader_parameter/u_lightmap_intensity_multiplier = 1.0
+shader_parameter/u_new_local_light = Vector4(0.3, 0.3, 0.5, 0)
+shader_parameter/u_texture_diffuse_ramp = ExtResource("5_apwmp")
+shader_parameter/u_texture_diffuse_cool_ramp = ExtResource("4_sl6q6")
+shader_parameter/u_character_toon_ramp_mode_compensation = 0.2
+shader_parameter/u_enable_metal_reflection_flag = false
+shader_parameter/u_skin_tint_for_overexposed = Color(1, 1, 1, 0.5)
+shader_parameter/u_accessory_tint_for_overexposed = Color(1, 1, 1, 0.5)
+shader_parameter/u_skin_tint_for_normal = Color(1, 1, 1, 0.5)
+shader_parameter/u_accessory_tint_for_normal = Color(1, 1, 1, 0.5)
+shader_parameter/u_remap_max = 1.0
+shader_parameter/u_remap_min = 0.0
+shader_parameter/u_remap_middle = 0.55
+shader_parameter/u_shadow_brightness = 0.0
+shader_parameter/u_contrast_switch = true
+shader_parameter/u_dark_area_tint = Vector4(3.655, 0, 0, 0)
+shader_parameter/u_local_main_light_disabled = false
+shader_parameter/u_outline_additive_factor = Color(0, 0, 0, 0)
+shader_parameter/u_rim_shadow_color = Color(0, 0, 0, 0)
+shader_parameter/u_rim_shadow_width = 0.0
+shader_parameter/u_rim_shadow_feather = 0.99
+shader_parameter/u_rim_shadow_ct = 1.0
+shader_parameter/u_rim_shadow_intensity = 1.0
+shader_parameter/u_specular_color = Color(0, 0, 0, 1)
+shader_parameter/u_specular_shininess = 10.0
+shader_parameter/u_specular_roughness = 0.02
+shader_parameter/u_specular_intensity = 1.0
+shader_parameter/u_specular_shadow_offset = 0.1
+shader_parameter/u_specular_shadow_multiple = 1.0
+shader_parameter/u_emission_threshold = 1.0
+shader_parameter/u_emission_intensity = 0.0
+shader_parameter/u_fresnel_color = Color(0, 0, 0, 0)
+shader_parameter/u_fresnel_BSI = Vector4(1, 1, 1, 0)
+shader_parameter/u_fresnel_color_strength = 1.0
+shader_parameter/u_character_world_space_offset = Vector3(0, 0, 0)
+shader_parameter/u_bloom_intensity = 0.02
+shader_parameter/u_one_minus_global_main_intensity_enable = false
+shader_parameter/u_one_minus_global_main_intensity = 4.0
+shader_parameter/u_world_gen_params = Vector4(300, 10, 800, 130)
+shader_parameter/u_uv_distortion_scale = 0.1
+shader_parameter/u_special_gen_uv_scale = Vector2(1, 1)
+shader_parameter/u_special_plane = Projection(-1, 0, 0, 0, 0, 1, 0, 0, 0, 0, -1, 0, 0, 1, 0, 0)
+shader_parameter/u_plane_feather_width = 40.0
+shader_parameter/u_effect_intensity_B = 1.0
+shader_parameter/u_plane_offset = 6.0
+shader_parameter/u_pattern_animation_time = 0.0
+shader_parameter/u_pattern_animation_speed = 0.0
+shader_parameter/u_pattern_v_offset_A = 0.5625
+shader_parameter/u_pattern_v_offset_B = 0.8125
+shader_parameter/u_effect_pattern_texture = ExtResource("8_effect")
+shader_parameter/u_brightness_intensity = 0.0
+shader_parameter/u_fog_density = 0.0
+shader_parameter/u_fog_offset = 0.0
+shader_parameter/u_fog_intensity = 0.0
+shader_parameter/u_fog_overall_intensity = 0.0
+shader_parameter/u_ndc_to_fog_space_matrix = Projection(0.47635, 0, 0, 0, 0, 0.26795, 0, -0.29739, 0, 7.89598e-09, 0, 0.14703, 0, -7.89598e-09, -1, -0.14703)
+shader_parameter/u_texture_fog = ExtResource("6_s84xd")
+shader_parameter/u_color_mode = 0
+
+[node name="模型2" instance=ExtResource("1_h3h7d") unique_id=1479950903]
+
+[node name="模型" parent="." index="0"]
+transform = Transform3D(8.74228e-09, 0.2, -3.01992e-08, 0.2, -8.74228e-09, 0, -1.32005e-15, -3.01992e-08, -0.2, 0, 0, 0)
+instance_shader_parameters/u_custom_main_light_dir = Vector4(0, 0, -1, 0.3)
+instance_shader_parameters/u_light_position = Vector4(0, 0, 0, 0.3)
+instance_shader_parameters/u_main_light_position = Vector4(0, 0, -1, 0.3)
+instance_shader_parameters/u_outline_light_direction = Vector4(0, 0, -1, 0.3)
+surface_material_override/0 = SubResource("ShaderMaterial_rt5q1")
+
+[node name="Camera3D" type="Camera3D" parent="." index="1" unique_id=323483283]
+transform = Transform3D(0.998421, -0.0351341, 0.0438478, 0, 0.780383, 0.6253, -0.0561875, -0.624313, 0.779152, 0.830326, 25.1431, 8.0651)
+
+[node name="MainLightDir" type="DirectionalLight3D" parent="." index="2" node_paths=PackedStringArray("model_instance_array") unique_id=613323027]
+transform = Transform3D(0.0689279, -0.51416, 0.85492, 0.355124, 0.813471, 0.4606, -0.932275, 0.271855, 0.238661, 0.26836, 18.0036, 6.94648)
+directional_shadow_mode = 0
+sky_mode = 1
+script = ExtResource("11_ld7n5")
+model_instance_array = [NodePath("../模型")]
+change_params_name = "u_main_light_position"
+
+[node name="CustomMainLightDir" type="DirectionalLight3D" parent="." index="3" node_paths=PackedStringArray("model_instance_array") unique_id=1326531378]
+transform = Transform3D(0.474518, -0.809939, 0.344719, 0.513869, 0.572846, 0.638581, -0.714683, -0.125878, 0.688029, 13.7661, 13.7208, -10.9185)
+directional_shadow_mode = 0
+sky_mode = 1
+script = ExtResource("11_ld7n5")
+model_instance_array = [NodePath("../模型")]
+change_params_name = "u_custom_main_light_dir"
+
+[node name="OutlineLight" type="DirectionalLight3D" parent="." index="4" node_paths=PackedStringArray("model_instance_array") unique_id=965373494]
+transform = Transform3D(-0.368012, 0.446401, 0.815655, 0.00525168, -0.876206, 0.481909, 0.929806, 0.181632, 0.32011, 7.4634, 15.0394, -2.46262)
+directional_shadow_mode = 0
+sky_mode = 1
+script = ExtResource("11_ld7n5")
+model_instance_array = [NodePath("../模型")]
+change_params_name = "u_outline_light_direction"
+
+[node name="Marker3D" type="DirectionalLight3D" parent="." index="5" node_paths=PackedStringArray("model_instance_array") unique_id=878597823]
+transform = Transform3D(0.0247186, -0.777675, -0.628181, 0.986311, 0.121447, -0.111538, 0.163031, -0.616824, 0.770031, -7.56514, 15.7504, 1.31972)
+sky_mode = 1
+script = ExtResource("12_y2mhi")
+model_instance_array = [NodePath("../模型")]
+change_params_name = "u_light_position"

@@ -1,0 +1,12 @@
+{
+  "schema": 1,
+  "files": {
+    "rig": {"path": "character_rig.blend", "sha256": "c26b3afd371ab118a01f9772adae1d07c9d11b7adbb22ef6395ef19417ab2dbd"},
+    "probe": {"path": "soft_tissue_input_probe.json", "sha256": "5510eb176b9af55527424312fabba253ddbe2e14012f9c36ef1830500e9b0859"},
+    "garment": {"path": "visual_maps_garment_v1.png", "sha256": "6c9cad2c6e4882b0ba784593a9ca316a954123e9b4584e5d6dc597397571fc8b"},
+    "body": {"path": "../assets/canonical/silver_wolf/body/mesh.scn", "sha256": "2bb1a9cbdb3acdb16405dee1dc7bf7becbfec561df8c1382366212ce1860ce19"}
+  },
+  "historical_input_blend_sha256": "29e6126d52eeb5a54f8045b3d4389faf16fa43a23694a44ef7b1f5a5cdc1497d",
+  "historical_snapshot_manifest_sha256": "3e9a48f3c654e33741559db6eabb0eeacebec571e7c43690da6abb89374a5512",
+  "note": "Existing rig is a distinct capture from the unavailable historical snapshot; accept only after full Body corrective reconstruction comparison. Historical probe and garment identities are preserved."
+}

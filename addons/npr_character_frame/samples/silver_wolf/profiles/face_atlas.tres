@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="NPRFaceAtlasProfile" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://addons/npr_character_frame/npr_face_atlas_profile.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+accent_uv_min = Vector2(0.283203125, 0.02734375)
+accent_uv_max = Vector2(0.326171875, 0.08203125)
+accent_plate_uv = Vector2(0.3037109375, 0.0986328125)
+skin_sample_v = 0.4
+replacement_eye_a_max_uv = Vector2(0.38, 0.32)
+replacement_eye_b_min_u = 0.84
+replacement_eye_b_v_range = Vector2(0.125, 0.32)
+round_eye_center_uv = Vector2(0.130, 0.165)
+round_eye_aspect = Vector2(1.0, 0.82)
+round_eye_pupil_radii = Vector2(0.022, 0.032)
+round_eye_disc_radii = Vector2(0.070, 0.082)

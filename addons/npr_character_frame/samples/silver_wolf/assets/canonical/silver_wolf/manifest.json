@@ -1,0 +1,159 @@
+{
+    "schema_version":  1,
+    "representation":  "canonical-godot-resources-v1",
+    "revision":  "silver-wolf-approved-geometry-04cf045-v1",
+    "seed":  {
+                 "path":  "res://addons/npr_character_frame/samples/silver_wolf/assets/canonical/silver_wolf/provenance/seed.json",
+                 "sha256":  "79513ced29f64839bfc02e1c320daaa08390175055608a2b3c290000ea04e60a"
+             },
+    "source_inputs":  {
+                          "path":  "res://addons/npr_character_frame/samples/silver_wolf/assets/canonical/silver_wolf/provenance/source-inputs.json",
+                          "sha256":  "be54561352c5163e3389edfb3fa6a0722491fc1199d7df2b16af36bfba4d5375"
+                      },
+    "assets":  [
+                   {
+                       "source":  "res://银狼/模型/hair/texture/ilm.png",
+                       "authoring_path":  "res://addons/npr_character_frame/samples/silver_wolf/assets/authoring/silver_wolf/import_sources/hair/texture/ilm.png",
+                       "path":  "res://addons/npr_character_frame/samples/silver_wolf/assets/canonical/silver_wolf/hair/textures/ilm.res",
+                       "bytes":  94125,
+                       "sha256":  "bcc2304f82e0fef72e51220f9d4870e898df1968addccc18b4fd7372a0d75f9b",
+                       "resource_class":  "ImageTexture"
+                   },
+                   {
+                       "source":  "res://银狼/模型/hair/texture/ramp.png",
+                       "authoring_path":  "res://addons/npr_character_frame/samples/silver_wolf/assets/authoring/silver_wolf/import_sources/hair/texture/ramp.png",
+                       "path":  "res://addons/npr_character_frame/samples/silver_wolf/assets/canonical/silver_wolf/hair/textures/ramp.res",
+                       "bytes":  693,
+                       "sha256":  "344ffdd30aa65d9e08777f8a2bd27ab2608bd6aaf72f023d266a75d06f78a8f2",
+                       "resource_class":  "ImageTexture"
+                   },
+                   {
+                       "source":  "res://银狼/模型/hair/texture/ramp_cool.png",
+                       "authoring_path":  "res://addons/npr_character_frame/samples/silver_wolf/assets/authoring/silver_wolf/import_sources/hair/texture/ramp_cool.png",
+                       "path":  "res://addons/npr_character_frame/samples/silver_wolf/assets/canonical/silver_wolf/hair/textures/ramp_cool.res",
+                       "bytes":  524,
+                       "sha256":  "f8e3437a4267f4951495d6b1b9ad02b0b2786807c8671823efae73e81344246f",
+                       "resource_class":  "ImageTexture"
+                   },
+                   {
+                       "source":  "res://银狼/模型/hair/texture/base.png",
+                       "authoring_path":  "res://addons/npr_character_frame/samples/silver_wolf/assets/authoring/silver_wolf/import_sources/hair/texture/base.png",
+                       "path":  "res://addons/npr_character_frame/samples/silver_wolf/assets/canonical/silver_wolf/hair/textures/base.res",
+                       "bytes":  235760,
+                       "sha256":  "4f6a2e3aef4d944ab136351757e7a41ed49fc42ff11510a2080d4a951dd1e37f",
+                       "resource_class":  "ImageTexture"
+                   },
+                   {
+                       "source":  "res://addons/npr_character_frame/role/empty_texture/fog.png",
+                       "authoring_path":  "res://addons/npr_character_frame/samples/silver_wolf/assets/authoring/shared/fog.png",
+                       "path":  "res://addons/npr_character_frame/samples/silver_wolf/assets/canonical/silver_wolf/common/fog.res",
+                       "bytes":  285,
+                       "sha256":  "3c6e3f6c9b27b915071da177874dfa4dd8e98e0153709ef8e81e23f9ada0591c",
+                       "resource_class":  "ImageTexture3D"
+                   },
+                   {
+                       "source":  "res://银狼/模型/face/texture/ilm.png",
+                       "authoring_path":  "res://addons/npr_character_frame/samples/silver_wolf/assets/authoring/silver_wolf/import_sources/face/texture/ilm.png",
+                       "path":  "res://addons/npr_character_frame/samples/silver_wolf/assets/canonical/silver_wolf/face/textures/ilm.res",
+                       "bytes":  234291,
+                       "sha256":  "5eda7234dc4c06eab5fb2a7ca4672fb454ebb555cb06f6a843c25da8daa56167",
+                       "resource_class":  "ImageTexture"
+                   },
+                   {
+                       "source":  "res://银狼/模型/face/texture/face.png",
+                       "authoring_path":  "res://addons/npr_character_frame/samples/silver_wolf/assets/authoring/silver_wolf/import_sources/face/texture/face.png",
+                       "path":  "res://addons/npr_character_frame/samples/silver_wolf/assets/canonical/silver_wolf/face/textures/face.res",
+                       "bytes":  48259,
+                       "sha256":  "e9abe79e743b05845d1fec2c386038fcd40395a8304d27c2cee32fc9492d9039",
+                       "resource_class":  "ImageTexture"
+                   },
+                   {
+                       "source":  "res://银狼/模型/face/texture/ramp.png",
+                       "authoring_path":  "res://addons/npr_character_frame/samples/silver_wolf/assets/authoring/silver_wolf/import_sources/face/texture/ramp.png",
+                       "path":  "res://addons/npr_character_frame/samples/silver_wolf/assets/canonical/silver_wolf/face/textures/ramp.res",
+                       "bytes":  6706,
+                       "sha256":  "17b71878bb6c1ea9c12dc75f5f1990d4e802a98b491ca4655f106bfc81f514da",
+                       "resource_class":  "ImageTexture"
+                   },
+                   {
+                       "source":  "res://银狼/模型/face/texture/base.png",
+                       "authoring_path":  "res://addons/npr_character_frame/samples/silver_wolf/assets/authoring/silver_wolf/import_sources/face/texture/base.png",
+                       "path":  "res://addons/npr_character_frame/samples/silver_wolf/assets/canonical/silver_wolf/face/textures/base.res",
+                       "bytes":  123193,
+                       "sha256":  "b5b789b5c13fe812e1ad3e21d477c4cd84d75ae7559b45dce1c919082abb3a93",
+                       "resource_class":  "ImageTexture"
+                   },
+                   {
+                       "source":  "res://银狼/模型/hair/model/hair.glb",
+                       "authoring_path":  "res://addons/npr_character_frame/samples/silver_wolf/assets/authoring/silver_wolf/import_sources/hair/model/hair.glb",
+                       "path":  "res://addons/npr_character_frame/samples/silver_wolf/assets/canonical/silver_wolf/hair/mesh.scn",
+                       "bytes":  237405,
+                       "sha256":  "d663eab838cc2ae139543f143f72241131f98d0de7c38178373fb5303109825f",
+                       "resource_class":  "PackedScene"
+                   },
+                   {
+                       "source":  "res://银狼/模型/face/model/face.fbx",
+                       "authoring_path":  "res://addons/npr_character_frame/samples/silver_wolf/assets/authoring/silver_wolf/import_sources/face/model/face.fbx",
+                       "path":  "res://addons/npr_character_frame/samples/silver_wolf/assets/canonical/silver_wolf/face/mesh.scn",
+                       "bytes":  191972,
+                       "sha256":  "f61098f40bb3538a9fc77ac758b4e9aa26f796363ac35c803a343ce3cee91778",
+                       "resource_class":  "PackedScene"
+                   },
+                   {
+                       "source":  "res://银狼/模型/body/texture/ilm.png",
+                       "authoring_path":  "res://addons/npr_character_frame/samples/silver_wolf/assets/authoring/silver_wolf/import_sources/body/texture/ilm.png",
+                       "path":  "res://addons/npr_character_frame/samples/silver_wolf/assets/canonical/silver_wolf/body/textures/ilm.res",
+                       "bytes":  801869,
+                       "sha256":  "0b1832723074b859ea9a7bec8b63973659464614ddc82bb77ba00edb883347d3",
+                       "resource_class":  "ImageTexture"
+                   },
+                   {
+                       "source":  "res://银狼/模型/face/texture/effect.png",
+                       "authoring_path":  "res://addons/npr_character_frame/samples/silver_wolf/assets/authoring/silver_wolf/import_sources/face/texture/effect.png",
+                       "path":  "res://addons/npr_character_frame/samples/silver_wolf/assets/canonical/silver_wolf/face/textures/effect.res",
+                       "bytes":  301,
+                       "sha256":  "75238f9244cd1beb3542aae5d8d5d301f89344656ebe0570a8fd246d264c4a32",
+                       "resource_class":  "ImageTexture"
+                   },
+                   {
+                       "source":  "res://银狼/模型/body/texture/base.png",
+                       "authoring_path":  "res://addons/npr_character_frame/samples/silver_wolf/assets/authoring/silver_wolf/import_sources/body/texture/base.png",
+                       "path":  "res://addons/npr_character_frame/samples/silver_wolf/assets/canonical/silver_wolf/body/textures/base.res",
+                       "bytes":  742037,
+                       "sha256":  "0c6cf48c515b22a922588c9a420f11143f369bf7a6901c7f4e36d4e8c0b3536f",
+                       "resource_class":  "ImageTexture"
+                   },
+                   {
+                       "source":  "res://银狼/模型/body/texture/ramp.png",
+                       "authoring_path":  "res://addons/npr_character_frame/samples/silver_wolf/assets/authoring/silver_wolf/import_sources/body/texture/ramp.png",
+                       "path":  "res://addons/npr_character_frame/samples/silver_wolf/assets/canonical/silver_wolf/body/textures/ramp.res",
+                       "bytes":  2465,
+                       "sha256":  "5b1bc8d77f2c72460d7d7825acd49c081fa95a9a5e93719ffead3cab01141c15",
+                       "resource_class":  "ImageTexture"
+                   },
+                   {
+                       "source":  "res://银狼/模型/body/texture/cool_ramp.png",
+                       "authoring_path":  "res://addons/npr_character_frame/samples/silver_wolf/assets/authoring/silver_wolf/import_sources/body/texture/cool_ramp.png",
+                       "path":  "res://addons/npr_character_frame/samples/silver_wolf/assets/canonical/silver_wolf/body/textures/cool_ramp.res",
+                       "bytes":  2419,
+                       "sha256":  "b6512ef219a083733725efd7719d0ccc1faad66e60df87b321eed309d022dd7a",
+                       "resource_class":  "ImageTexture"
+                   },
+                   {
+                       "source":  "res://银狼/模型/body/texture/lut.png",
+                       "authoring_path":  "res://addons/npr_character_frame/samples/silver_wolf/assets/authoring/silver_wolf/import_sources/body/texture/lut.png",
+                       "path":  "res://addons/npr_character_frame/samples/silver_wolf/assets/canonical/silver_wolf/body/textures/lut.res",
+                       "bytes":  349,
+                       "sha256":  "51b0a51d2f7b336053a972c2eadfad74d58dbd0705abaea8c4e1305a10fbb6c8",
+                       "resource_class":  "ImageTexture"
+                   },
+                   {
+                       "source":  "res://银狼/模型/gltf/模型.glb",
+                       "authoring_path":  "res://addons/npr_character_frame/samples/silver_wolf/assets/authoring/silver_wolf/import_sources/body/model/body.glb",
+                       "path":  "res://addons/npr_character_frame/samples/silver_wolf/assets/canonical/silver_wolf/body/mesh.scn",
+                       "bytes":  984558,
+                       "sha256":  "2bb1a9cbdb3acdb16405dee1dc7bf7becbfec561df8c1382366212ce1860ce19",
+                       "resource_class":  "PackedScene"
+                   }
+               ]
+}

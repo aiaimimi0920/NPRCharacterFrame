@@ -1,0 +1,71 @@
+{
+  "schema": 2,
+  "name": "eye_authored_v1",
+  "blender": "5.2.1 LTS",
+  "source": "samples/silver_wolf/assets/authoring/silver_wolf/wardrobe/sources/eye_authored_v1.blend",
+  "glb": "samples/silver_wolf/assets/runtime/eye_authored_v1.glb",
+  "character_reference": "samples/silver_wolf/assets/authoring/silver_wolf/wardrobe/sources/character_rig.blend",
+  "source_sha256": "35862918120298d08f4c43afe8a2318910760040f8eb533c0f1f2b4ad5ae33d7",
+  "glb_sha256": "627cac1779dcd8caebdda1858a560bd65c39ff6195efbe2223122024f818ace6",
+  "character_sha256": "c26b3afd371ab118a01f9772adae1d07c9d11b7adbb22ef6395ef19417ab2dbd",
+  "backup_manifest_sha256": "baff1e9133ef831287b64314a2a8238de9965f1c8d7f69a091b3cbedc8e02c48",
+  "generator_sha256": "dc1b12d37d257ee20b802c7b7335a14ae55da99342c8d05f142b07710be5f51f",
+  "landmarks": {
+    "EyeL": {
+      "center": [
+        -0.186,
+        2.509,
+        0.08106694269180298
+      ],
+      "aperture": [
+        0.0345,
+        0.019
+      ],
+      "bone": "head"
+    },
+    "EyeR": {
+      "center": [
+        -0.039,
+        2.5205,
+        0.08221692490577698
+      ],
+      "aperture": [
+        0.0345,
+        0.019
+      ],
+      "bone": "head"
+    }
+  },
+  "objects": [
+    "EyeL_Sclera",
+    "EyeL_Iris",
+    "EyeL_Pupil",
+    "EyeL_TearFilm",
+    "EyeR_Sclera",
+    "EyeR_Iris",
+    "EyeR_Pupil",
+    "EyeR_TearFilm"
+  ],
+  "materials": [
+    "Eye_Sclera",
+    "Eye_Iris",
+    "Eye_Pupil",
+    "Eye_TearFilm"
+  ],
+  "default_disabled": true,
+  "coordinate_system": "Godot Y-up authored positions, Blender Z-up export",
+  "closure_shape": "shared sliding lids; rigid ocular surfaces",
+  "depth_fit": "lid_surface_v2 curved shell",
+  "lid_source": "samples/silver_wolf/assets/authoring/silver_wolf/wardrobe/lid_surface_v2.json",
+  "lid_source_sha256": "2c4604a41336608bcb45e30dce5a64f7afa7512ec97b8a22e1a3ed6269807d8f",
+  "max_envelope_offset_m": 0.004,
+  "iris_texture": {
+    "path": "samples/silver_wolf/import_sources/eye_iris_v1.png",
+    "sha256": "09bc7555a3d81ed86ceed022321d6e64239d4160b03c2f7b9218a89b99f88c5c",
+    "color_space": "sRGB",
+    "size": [
+      256,
+      256
+    ]
+  }
+}

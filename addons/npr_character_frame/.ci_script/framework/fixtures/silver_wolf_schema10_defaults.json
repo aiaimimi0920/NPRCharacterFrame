@@ -1,0 +1,61 @@
+{
+  "action": 0,
+  "authored_materials_enabled": false,
+  "blink": true,
+  "character": "silver_wolf",
+  "colors": [
+    "7772c9",
+    "303041",
+    "e6e8ee"
+  ],
+  "droplet_count": 0,
+  "droplet_seed": 17,
+  "droplet_speed": 0.35,
+  "droplets_enabled": false,
+  "equipment": [
+    false,
+    false,
+    false,
+    false
+  ],
+  "expression": 0,
+  "eye_geometry_enabled": false,
+  "eye_left": [
+    0.0,
+    0.0,
+    1.0
+  ],
+  "eye_right": [
+    0.0,
+    0.0,
+    1.0
+  ],
+  "eye_symbol": 0,
+  "eye_symbol_size": 1.0,
+  "eye_symbol_stroke": 0.1,
+  "eye_wetness": 0.0,
+  "hair_collision_enabled": false,
+  "hair_dynamic_enabled": false,
+  "hosiery_height": 1.34,
+  "hosiery_roughness": 0.27,
+  "hosiery_sheen": 0.2,
+  "hosiery_stitch": 0.0,
+  "hosiery_style": 0,
+  "hosiery_weave": 0.035,
+  "mouth_symbol": 0,
+  "mouth_symbol_size": 1.0,
+  "mouth_symbol_stroke": 0.1,
+  "palette": 0,
+  "schema": 10,
+  "secondary": true,
+  "soft_tissue_pressure": 0.0,
+  "stocking_transparency": 0.5,
+  "tulle_geometry_enabled": false,
+  "wetness_regions": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "wind_strength": 0.0
+}

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="NPRWetnessProfile" load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://addons/npr_character_frame/npr_wetness_profile.gd" id="1"]
+[ext_resource type="Texture2D" path="res://addons/npr_character_frame/samples/silver_wolf/assets/authoring/silver_wolf/wardrobe/wetness_map.png" id="2"]
+[ext_resource type="Texture2D" path="res://addons/npr_character_frame/samples/silver_wolf/assets/authoring/silver_wolf/wardrobe/material_wetness.png" id="3"]
+[ext_resource type="Texture2D" path="res://addons/npr_character_frame/samples/silver_wolf/assets/authoring/silver_wolf/wardrobe/eye_tear_mask.png" id="4"]
+[ext_resource type="Texture2D" path="res://addons/npr_character_frame/samples/silver_wolf/assets/authoring/silver_wolf/wardrobe/hair_wetness_map.png" id="5"]
+
+[resource]
+script = ExtResource("1")
+body_mask = ExtResource("2")
+material_regions = ExtResource("3")
+eye_tear_mask = ExtResource("4")
+hair_mask = ExtResource("5")
+eye_tear_uv_limit = Vector2(0.26, 0.32)

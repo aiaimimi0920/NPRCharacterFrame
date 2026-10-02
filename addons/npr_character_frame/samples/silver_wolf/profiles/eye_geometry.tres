@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="NPREyeGeometryProfile" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://addons/npr_character_frame/npr_eye_geometry_profile.gd" id="1"]
+[ext_resource type="PackedScene" path="res://addons/npr_character_frame/samples/silver_wolf/assets/runtime/eye_authored_v1.glb" id="2"]
+
+[resource]
+script = ExtResource("1")
+model_scene = ExtResource("2")
+landmarks_path = "res://addons/npr_character_frame/samples/silver_wolf/assets/authoring/silver_wolf/wardrobe/eye_authored_v1.json"
+gaze_gain = Vector2(0.012, 0.008)
+aperture_size = Vector2(0.0345, 0.019)
+aperture_slope = 0.08
+upper_shade = 0.18
+layer_depths = Vector4(0.0018, 0.0012, 0.0007, 0.00025)
+closure_meeting = 0.72
+shell_offset = 0.00035
+shell_bulge_max = 0.008
+shell_bulge_ratio = 0.2
+tear_tint = Color(0.70, 0.90, 1.0, 1.0)
+tear_alpha = 0.20
+refraction_strength = 0.012
+ior = 1.333
+thickness = 0.0015
+tear_transmission = 0.72

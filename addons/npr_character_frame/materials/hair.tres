@@ -1,0 +1,42 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3]
+
+[ext_resource type="Shader" path="res://addons/npr_character_frame/shaders/hair/hair_base_without_eye.gdshader" id="1_shader"]
+
+[resource]
+render_priority = 3
+shader = ExtResource("1_shader")
+shader_parameter/u_hide_npc_parts = false
+shader_parameter/u_uv1_scale = Vector2(1, 1)
+shader_parameter/u_uv1_offset = Vector2(0, 0)
+shader_parameter/u_channel_mask = Vector4i(1, 1, 1, 1)
+shader_parameter/u_base_color = Color(1, 1, 1, 1)
+shader_parameter/u_back_color = Color(1, 1, 1, 1)
+shader_parameter/u_is_monster = false
+shader_parameter/u_diffuse_ramp_shadow_strength = 0.1
+shader_parameter/u_diffuse_ramp_skin_shadow_tint = Color(0, 0, 0, 0)
+shader_parameter/u_diffuse_ramp_level_shadow_tint = Color(0, 0, 0, 0)
+shader_parameter/u_shadow_ramp = 1.0
+shader_parameter/g_u_level_adjust_on = false
+shader_parameter/u_skin_light_color = Color(1, 1, 1, 0.5)
+shader_parameter/u_level_light_color = Color(1, 1, 1, 0.5)
+shader_parameter/u_skin_shadow_color = Color(1, 1, 1, 0.5)
+shader_parameter/u_level_shadow_color = Color(1, 1, 1, 0.5)
+shader_parameter/u_level_white_point = 1.0
+shader_parameter/u_level_black_point = 0.0
+shader_parameter/u_level_mid_point = 0.55
+shader_parameter/u_contrast_adjust_on = false
+shader_parameter/u_contrast_strength = 0.0
+shader_parameter/u_rim_shadow_color = Color(0, 0, 0, 1)
+shader_parameter/u_rim_shadow_width = 0.0
+shader_parameter/u_rim_shadow_feather = 0.99
+shader_parameter/u_rim_shadow_offset = Vector3(0.3, 0.3, 0.2)
+shader_parameter/u_rim_shadow_ct = 1.0
+shader_parameter/u_rim_shadow_intensity = 1.0
+shader_parameter/u_accent_light_pos = Vector3(20, 10, 40)
+shader_parameter/u_accent_light_direction = Vector3(0.5, 0.5, 0.5)
+shader_parameter/u_accent_rim_spot_mix_factor = 0.5
+shader_parameter/u_accent_split_tone_tint = Vector3(0.2, 0.4, 0.5)
+shader_parameter/u_accent_split_tone_strength = 0.5
+shader_parameter/u_accent_additive_highlight_strength = 0.5
+shader_parameter/u_accent_additive_highlight_color = Vector3(0.5, 0.7, 0.2)
+shader_parameter/u_dither_mask = 0

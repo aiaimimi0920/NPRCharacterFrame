@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="NPRComicProfile" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://addons/npr_character_frame/npr_comic_profile.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+anchor_bone = "head"
+anchor_origin = Vector3(-0.105, 2.55, 0)
+card_offsets = PackedVector3Array(-0.128, 0.09, 0.55, 0.105, 0.125, 0.55, 0, 0.29, 0.55)
+card_sizes = PackedVector2Array(0.085, 0.125, 0.105, 0.105, 0.12, 0.14)
+tear_left = Vector4(-0.184, 2.473, 0.035, 0.055)
+tear_right = Vector4(-0.033, 2.485, 0.035, 0.055)
+hatching_left = Vector4(-0.190, 2.473, 0.060, 0.030)
+hatching_right = Vector4(-0.029, 2.485, 0.060, 0.030)

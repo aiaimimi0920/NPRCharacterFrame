@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://cqgy6vq1r3iav"]
+
+[ext_resource type="PackedScene" path="res://addons/npr_character_frame/samples/silver_wolf/assets/canonical/silver_wolf/hair/mesh.scn" id="1_3urw0"]
+[ext_resource type="Script" uid="uid://cku3moolk6nij" path="res://addons/npr_character_frame/runtime/role_light.gd" id="2_nxlb4"]
+[ext_resource type="Script" uid="uid://cjv2wb1fvsqxh" path="res://addons/npr_character_frame/runtime/outline_light.gd" id="3_jdy2b"]
+[ext_resource type="Material" path="res://addons/npr_character_frame/samples/silver_wolf/scenes/materials/hair_base_without_eye.tres" id="4_3urw0"]
+
+[node name="hair" instance=ExtResource("1_3urw0")]
+
+[node name="Camera3D" type="Camera3D" parent="." index="0"]
+transform = Transform3D(0.231683, -0.126207, 0.96457, 0, 0.991548, 0.129737, -0.972791, -0.0300579, 0.229725, 0.830326, 25.1431, 8.0651)
+
+[node name="MainLightDir" type="DirectionalLight3D" parent="." index="1" node_paths=PackedStringArray("model_instance_array")]
+transform = Transform3D(0.0520658, -0.945777, 0.320618, 0.00865159, -0.320614, -0.94717, 0.998606, 0.0520891, -0.00851055, 0, 0.00105225, 0.00454147)
+directional_shadow_mode = 0
+sky_mode = 1
+script = ExtResource("2_nxlb4")
+model_instance_array = [null]
+change_params_name = "g_u_character_main_light_position"
+
+[node name="CustomMainLightDir" type="DirectionalLight3D" parent="." index="2" node_paths=PackedStringArray("model_instance_array")]
+transform = Transform3D(0.641587, -0.247681, 0.725962, -0.608399, -0.7407, 0.284979, 0.467136, -0.624514, -0.625913, 0.000501709, 0.00125023, -0.00391155)
+directional_shadow_mode = 0
+sky_mode = 1
+script = ExtResource("2_nxlb4")
+model_instance_array = [null]
+change_params_name = "u_custom_main_light_dir"
+
+[node name="OutlineLight" type="DirectionalLight3D" parent="." index="3" node_paths=PackedStringArray("model_instance_array")]
+transform = Transform3D(-0.368012, 0.446401, 0.815655, -0.666195, -0.738544, 0.103621, 0.648653, -0.505252, 0.569183, 0, -0.00491814, 0.00598968)
+directional_shadow_mode = 0
+sky_mode = 1
+script = ExtResource("2_nxlb4")
+model_instance_array = [null]
+change_params_name = "u_outline_light_direction"
+
+[node name="Marker3D" type="DirectionalLight3D" parent="." index="4" node_paths=PackedStringArray("model_instance_array")]
+transform = Transform3D(0.0793438, 0.464877, 0.881813, 0.409216, -0.821819, 0.396429, 0.908981, 0.329398, -0.255441, 0.00560425, 0.00581421, -0.0145514)
+sky_mode = 1
+script = ExtResource("3_jdy2b")
+model_instance_array = [null]
+change_params_name = "u_character_local_main_light_position"
+
+[node name="头发模型" parent="." index="5"]
+surface_material_override/0 = ExtResource("4_3urw0")

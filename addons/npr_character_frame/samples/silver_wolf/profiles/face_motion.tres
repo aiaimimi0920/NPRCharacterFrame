@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="NPRFaceMotionProfile" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://addons/npr_character_frame/npr_face_motion_profile.gd" id="1"]
+[ext_resource type="Resource" path="res://addons/npr_character_frame/samples/silver_wolf/profiles/silver_wolf_expressions.tres" id="2"]
+
+[resource]
+script = ExtResource("1")
+expression_profile = ExtResource("2")
+lid_surface_path = "res://addons/npr_character_frame/samples/silver_wolf/assets/authoring/silver_wolf/wardrobe/lid_surface_v2.json"
+feature_component_limit = 200
+skin_component_min = 1000
+eye_height_range = Vector2(2.475, 2.6)
+eye_front_min = 0.015
+mouth_height_max = 2.47
+mouth_front_min = 0.0
+mouth_center_x = -0.104
+mouth_half_width = 0.06
+side_split_x = -0.11
+iris_max_u = 0.26
+iris_min_v = 0.68
+pupil_u_range = Vector2(0.26, 0.35)
+pupil_min_v = 0.85
+glint_uv_bounds = Vector4(0.30, 0.38, 0.79, 0.85)
+minimum_eye_vertices = 100
+expected_pupil_vertices = 28
+horizontal_motion = PackedVector3Array(0.01, 0, 0.002, 0.01, 0, -0.002)
+vertical_motion = Vector3(0, 0.006, -0.001)
+pupil_scale_step = 0.35
+pupil_forward_offset = 0.0027
+lid_centers = PackedVector2Array(-0.188, 2.514, -0.034, 2.526)
+lid_canvas_scale = Vector2(0.025, 0.014)

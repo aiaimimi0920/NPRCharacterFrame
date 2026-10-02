@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="NPRCharacterMaterials" load_steps=9 format=3]
+
+[ext_resource type="Script" path="res://addons/npr_character_frame/npr_character_materials.gd" id="1_materials"]
+[ext_resource type="Texture2D" path="res://addons/npr_character_frame/samples/silver_wolf/assets/authoring/silver_wolf/optional/body_effects.png" id="2_body"]
+[ext_resource type="Texture2D" path="res://addons/npr_character_frame/samples/silver_wolf/assets/authoring/silver_wolf/optional/matcap_texture.png" id="3_matcap"]
+[ext_resource type="Texture2D" path="res://addons/npr_character_frame/samples/silver_wolf/assets/authoring/silver_wolf/optional/face_expression.png" id="4_face"]
+[ext_resource type="Texture2D" path="res://addons/npr_character_frame/samples/silver_wolf/assets/authoring/silver_wolf/optional/face_outline_control.png" id="8_outline"]
+[ext_resource type="Texture2D" path="res://addons/npr_character_frame/samples/silver_wolf/assets/authoring/silver_wolf/optional/hair_effects.png" id="5_hair"]
+[ext_resource type="Texture2D" path="res://addons/npr_character_frame/samples/silver_wolf/assets/authoring/silver_wolf/optional/hair_flow_map.png" id="6_flow"]
+[ext_resource type="Texture2D" path="res://addons/npr_character_frame/samples/silver_wolf/assets/authoring/silver_wolf/optional/dissolve_noise.png" id="7_dissolve"]
+
+[resource]
+script = ExtResource("1_materials")
+body_effects = ExtResource("2_body")
+matcap_texture = ExtResource("3_matcap")
+face_expression = ExtResource("4_face")
+face_outline_control = ExtResource("8_outline")
+hair_effects = ExtResource("5_hair")
+hair_flow_map = ExtResource("6_flow")
+dissolve_noise = ExtResource("7_dissolve")
+hair_side_axis = Vector3(0, 0, 1)

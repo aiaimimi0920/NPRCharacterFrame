@@ -1,0 +1,23 @@
+{
+  "schema": 1,
+  "source_sha256": "cb078b49f18395c41f264e89305558342f63c6b2097d289217d55867d08bb60d",
+  "probe_sha256": "5510eb176b9af55527424312fabba253ddbe2e14012f9c36ef1830500e9b0859",
+  "channels": [
+    "cool fabric",
+    "dark fabric",
+    "light trim",
+    "skin for vertex-gated hosiery"
+  ],
+  "covered_pixels": [
+    48416,
+    150143,
+    100780,
+    36024
+  ],
+  "identity": "Skin excluded from RGB; head-only components excluded; face/hair assets untouched",
+  "domain_policy": "connected surface minimum height with conservative shared-UV exclusion",
+  "generator_sha256": "ef4a9cbb7125280dab4f579ba26d1271c7c48b00d538140f31cef6d0c1d519d0",
+  "output_sha256": "cc3aa0e89e18f5633ffbe45b266419662d89302d4390f1539203e58e90fb1711",
+  "head_only_vertices": 2215,
+  "note": "Source model and UVs unchanged; full connected collars remain dyeable"
+}

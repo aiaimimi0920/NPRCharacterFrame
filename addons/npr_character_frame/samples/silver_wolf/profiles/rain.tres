@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="NPRRainProfile" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://addons/npr_character_frame/npr_rain_profile.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+surface_path = "res://addons/npr_character_frame/samples/silver_wolf/assets/authoring/silver_wolf/wardrobe/rain_surface.json"
+chart_path = "res://addons/npr_character_frame/samples/silver_wolf/assets/authoring/silver_wolf/wardrobe/rain_chart.bin"
+vertex_uv_path = "res://addons/npr_character_frame/samples/silver_wolf/assets/authoring/silver_wolf/wardrobe/rain_vertex_uv.bin"

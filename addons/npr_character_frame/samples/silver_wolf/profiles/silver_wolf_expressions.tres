@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="NPRExpressionProfile" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://addons/npr_character_frame/npr_expression_profile.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+behaviors = {
+"neutral": {"eyes": {}, "mouth": {}, "brows": {}, "color": Vector3(0, 0, 0)},
+"blush": {"color": Vector3(0, 0, 0.72)},
+"sparkle": {"color": Vector3(0, 0.78, 0.08)},
+"surprised": {"eyes": {}, "eye_emphasis": 1.0, "mouth": {"oh": 0.6}, "color": Vector3(0.12, 0.92, 0.10)},
+"tense": {"color": Vector3(0.52, 0, 0)},
+"happy": {"brows": {"happy": 0.8}},
+"sad": {"brows": {"sad": 0.8}},
+"angry": {"brows": {"angry": 0.8}},
+"sleepy": {"eyes": {"blink.L": 0.35, "blink.R": 0.35}},
+"squeeze": {"eyes": {}, "eye_symbol": 1},
+"wave_mouth": {"mouth": {}, "mouth_symbol": 1},
+"star_eyes": {"eyes": {}, "eye_symbol": 5},
+"heart_eyes": {"eyes": {}, "eye_symbol": 6},
+"shy": {"color": Vector3(0, 0, 0.8), "transition": 0.12},
+"tension": {"color": Vector3(0.65, 0, 0), "transition": 0.12}
+}

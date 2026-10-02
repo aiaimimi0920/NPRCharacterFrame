@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="NPRMaterialProfile" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://addons/npr_character_frame/runtime/npr_material_profile.gd" id="1_profile"]
+
+[resource]
+script = ExtResource("1_profile")
+source_note = "Silver Wolf studio artistic fallback. RGBA8 capture LUT clipped row-1 exponent; no alternate high-precision source was found. Other LUT channels stay unchanged."
+capture_verified = false
+specular_exponents = PackedFloat32Array(24, 24, 24, 24, 24, 24, 24, 24)

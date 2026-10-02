@@ -1,0 +1,287 @@
+[gd_scene load_steps=11 format=3]
+
+[ext_resource type="Script" path="res://addons/npr_character_frame/showcase/npr_lab.gd" id="1_lab"]
+
+[sub_resource type="Environment" id="Environment_studio"]
+background_mode = 1
+background_color = Color(0.20, 0.21, 0.26, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.66, 0.7, 0.85, 1)
+ambient_light_energy = 0.6
+tonemap_mode = 0
+
+[sub_resource type="StandardMaterial3D" id="Material_floor"]
+albedo_color = Color(0.095, 0.11, 0.16, 1)
+roughness = 0.95
+
+[sub_resource type="PlaneMesh" id="Mesh_floor"]
+material = SubResource("Material_floor")
+size = Vector2(200, 200)
+
+[sub_resource type="StandardMaterial3D" id="Material_plinth"]
+albedo_color = Color(0.18, 0.2, 0.28, 1)
+roughness = 0.9
+
+[sub_resource type="CylinderMesh" id="Mesh_plinth"]
+material = SubResource("Material_plinth")
+top_radius = 0.86
+bottom_radius = 0.9
+height = 0.08
+radial_segments = 96
+
+[sub_resource type="StandardMaterial3D" id="Material_ring"]
+shading_mode = 0
+albedo_color = Color(0.56, 0.43, 0.85, 1)
+
+[sub_resource type="TorusMesh" id="Mesh_ring"]
+material = SubResource("Material_ring")
+inner_radius = 0.884
+outer_radius = 0.893
+rings = 96
+ring_segments = 12
+
+[sub_resource type="StyleBoxFlat" id="Style_sidebar"]
+bg_color = Color(0.1, 0.11, 0.155, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_left = 12
+corner_radius_bottom_right = 12
+
+[sub_resource type="StyleBoxFlat" id="Style_toolbar"]
+bg_color = Color(0.1, 0.11, 0.155, 1)
+content_margin_left = 16.0
+content_margin_top = 10.0
+content_margin_right = 16.0
+content_margin_bottom = 10.0
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_left = 10
+corner_radius_bottom_right = 10
+
+[node name="NPRLab" type="Control" unique_id=2088491073]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lab")
+
+[node name="Background" type="ColorRect" parent="." unique_id=819449644]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.052, 0.058, 0.085, 1)
+
+[node name="Margin" type="MarginContainer" parent="." unique_id=2068881142]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Columns" type="HBoxContainer" parent="Margin" unique_id=2078895373]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="PreviewColumn" type="VBoxContainer" parent="Margin/Columns" unique_id=79020685]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 12
+
+[node name="Header" type="HBoxContainer" parent="Margin/Columns/PreviewColumn" unique_id=1669113668]
+layout_mode = 2
+theme_override_constants/separation = 18
+
+[node name="Titles" type="VBoxContainer" parent="Margin/Columns/PreviewColumn/Header" unique_id=16039762]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Title" type="Label" parent="Margin/Columns/PreviewColumn/Header/Titles" unique_id=857308048]
+layout_mode = 2
+theme_override_font_sizes/font_size = 29
+text = "银狼 / SILVER WOLF"
+
+[node name="Subtitle" type="Label" parent="Margin/Columns/PreviewColumn/Header/Titles" unique_id=1874510409]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.59, 0.62, 0.73, 1)
+theme_override_font_sizes/font_size = 13
+text = "NPR MATERIAL STUDIO   /   角色渲染展示"
+
+[node name="Views" type="HBoxContainer" parent="Margin/Columns/PreviewColumn/Header" unique_id=1916751971]
+layout_mode = 2
+alignment = 2
+
+[node name="FullView" type="Button" parent="Margin/Columns/PreviewColumn/Header/Views" unique_id=1158286167]
+unique_name_in_owner = true
+layout_mode = 2
+text = "全身"
+toggle_mode = true
+
+[node name="HalfView" type="Button" parent="Margin/Columns/PreviewColumn/Header/Views" unique_id=1792204246]
+unique_name_in_owner = true
+layout_mode = 2
+text = "半身"
+toggle_mode = true
+
+[node name="FaceView" type="Button" parent="Margin/Columns/PreviewColumn/Header/Views" unique_id=256527691]
+unique_name_in_owner = true
+layout_mode = 2
+text = "面部"
+toggle_mode = true
+
+[node name="StageView" type="SubViewportContainer" parent="Margin/Columns/PreviewColumn" unique_id=820168274]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+stretch = true
+mouse_filter = 0
+
+[node name="Viewport" type="SubViewport" parent="Margin/Columns/PreviewColumn/StageView" unique_id=521180687]
+unique_name_in_owner = true
+own_world_3d = true
+size = Vector2i(920, 720)
+render_target_update_mode = 4
+msaa_3d = 2
+
+[node name="Studio" type="Node3D" parent="Margin/Columns/PreviewColumn/StageView/Viewport" unique_id=450466826]
+
+[node name="StudioEnvironment" type="WorldEnvironment" parent="Margin/Columns/PreviewColumn/StageView/Viewport/Studio" unique_id=1241734829]
+unique_name_in_owner = true
+environment = SubResource("Environment_studio")
+
+[node name="StudioCamera" type="Camera3D" parent="Margin/Columns/PreviewColumn/StageView/Viewport/Studio" unique_id=527498274]
+unique_name_in_owner = true
+position = Vector3(0, 1.59, 5.6)
+current = true
+fov = 36.0
+near = 0.03
+far = 250.0
+
+[node name="Floor" type="MeshInstance3D" parent="Margin/Columns/PreviewColumn/StageView/Viewport/Studio" unique_id=1996982458]
+position = Vector3(0, -0.085, 0)
+mesh = SubResource("Mesh_floor")
+
+[node name="Plinth" type="MeshInstance3D" parent="Margin/Columns/PreviewColumn/StageView/Viewport/Studio" unique_id=1090834569]
+position = Vector3(0, -0.04, 0)
+mesh = SubResource("Mesh_plinth")
+
+[node name="Ring" type="MeshInstance3D" parent="Margin/Columns/PreviewColumn/StageView/Viewport/Studio" unique_id=894739701]
+position = Vector3(0, -0.025, 0)
+mesh = SubResource("Mesh_ring")
+
+[node name="Turntable" type="Node3D" parent="Margin/Columns/PreviewColumn/StageView/Viewport/Studio" unique_id=746629643]
+unique_name_in_owner = true
+
+[node name="Toolbar" type="PanelContainer" parent="Margin/Columns/PreviewColumn" unique_id=1342578177]
+layout_mode = 2
+theme_override_styles/panel = SubResource("Style_toolbar")
+
+[node name="Buttons" type="HBoxContainer" parent="Margin/Columns/PreviewColumn/Toolbar" unique_id=1858399317]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="RotateLeft" type="Button" parent="Margin/Columns/PreviewColumn/Toolbar/Buttons" unique_id=1294482646]
+unique_name_in_owner = true
+layout_mode = 2
+text = "左转 15°"
+
+[node name="Front" type="Button" parent="Margin/Columns/PreviewColumn/Toolbar/Buttons" unique_id=834660763]
+unique_name_in_owner = true
+layout_mode = 2
+text = "回到正面"
+
+[node name="RotateRight" type="Button" parent="Margin/Columns/PreviewColumn/Toolbar/Buttons" unique_id=1120255372]
+unique_name_in_owner = true
+layout_mode = 2
+text = "右转 15°"
+
+[node name="Spacer" type="Control" parent="Margin/Columns/PreviewColumn/Toolbar/Buttons" unique_id=561635135]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="AutoRotate" type="CheckButton" parent="Margin/Columns/PreviewColumn/Toolbar/Buttons" unique_id=1083319458]
+unique_name_in_owner = true
+layout_mode = 2
+text = "自动旋转"
+
+[node name="Hint" type="Label" parent="Margin/Columns/PreviewColumn" unique_id=172155763]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.59, 0.62, 0.73, 1)
+theme_override_font_sizes/font_size = 13
+text = "左键拖动旋转 · 指向人物滚轮前推 / 后拉，放大鼠标处细节 · 视角按钮恢复构图"
+autowrap_mode = 3
+
+[node name="Sidebar" type="PanelContainer" parent="Margin/Columns" unique_id=1812293698]
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("Style_sidebar")
+
+[node name="Padding" type="MarginContainer" parent="Margin/Columns/Sidebar" unique_id=2041387662]
+layout_mode = 2
+theme_override_constants/margin_left = 22
+theme_override_constants/margin_top = 22
+theme_override_constants/margin_right = 22
+theme_override_constants/margin_bottom = 22
+
+[node name="Content" type="VBoxContainer" parent="Margin/Columns/Sidebar/Padding" unique_id=69722779]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Title" type="Label" parent="Margin/Columns/Sidebar/Padding/Content" unique_id=1834133612]
+layout_mode = 2
+theme_override_font_sizes/font_size = 23
+text = "实时调参"
+
+[node name="Status" type="Label" parent="Margin/Columns/Sidebar/Padding/Content" unique_id=478308120]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.62, 0.92, 1)
+theme_override_font_sizes/font_size = 13
+text = "RAMP  /  FACE SDF  /  STENCIL\n实时阴影 · 像素描边 · Forward+"
+
+[node name="ExtendedMaterials" type="CheckButton" parent="Margin/Columns/Sidebar/Padding/Content" unique_id=296467126]
+unique_name_in_owner = true
+layout_mode = 2
+button_pressed = true
+text = "NPR 1.1 扩展材质"
+tooltip_text = "切换控制图驱动的扩展材质与基线材质"
+
+[node name="Separator" type="HSeparator" parent="Margin/Columns/Sidebar/Padding/Content" unique_id=1846258088]
+layout_mode = 2
+
+[node name="Scroll" type="ScrollContainer" parent="Margin/Columns/Sidebar/Padding/Content" unique_id=261854303]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="ParameterPadding" type="MarginContainer" parent="Margin/Columns/Sidebar/Padding/Content/Scroll" unique_id=680267156]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_right = 14
+
+[node name="ParameterRows" type="VBoxContainer" parent="Margin/Columns/Sidebar/Padding/Content/Scroll/ParameterPadding" unique_id=1611460355]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 15
+
+[node name="Reset" type="Button" parent="Margin/Columns/Sidebar/Padding/Content" unique_id=438820799]
+unique_name_in_owner = true
+layout_mode = 2
+text = "恢复展示预设"
+
+[node name="Note" type="Label" parent="Margin/Columns/Sidebar/Padding/Content" unique_id=1603777378]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.59, 0.62, 0.73, 1)
+theme_override_font_sizes/font_size = 12
+text = "仅调整当前展示实例\n不会覆盖原始角色材质文件"

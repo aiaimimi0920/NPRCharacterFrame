@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "source": "wardrobe_visual_layers.gd",
+  "units": "metres in the normalized silver_wolf display space",
+  "layers": {
+    "tulle_shell": {
+      "scope": "body lower legs",
+      "material": "alpha tulle",
+      "default_enabled": false,
+      "coverage": "one fitted child mesh sharing the current Body mesh, skeleton, skin and blend shapes"
+    },
+    "stitch_ring": {
+      "scope": "upper stocking boundary",
+      "material": "metric seam contribution in the Body and fitted hosiery shaders",
+      "default_enabled": false,
+      "coverage": "shared Body and fitted hosiery surfaces; no separate seam mesh"
+    },
+    "eye_sclera_iris": {
+      "scope": "left and right eye",
+      "material": "independent opaque sclera and iris",
+      "default_enabled": false,
+      "coverage": "independent child meshes"
+    },
+    "tear_film": {
+      "scope": "left and right eye",
+      "material": "alpha tear film",
+      "default_enabled": false,
+      "coverage": "independent child mesh with depth always"
+    }
+  },
+  "provenance": {
+    "generator": "showcase/wardrobe_visual_layers.gd",
+    "fitted_hosiery": {
+      "runtime": "runtime/hosiery/npr_fitted_hosiery.gd",
+      "profile": "samples/silver_wolf/profiles/hosiery.tres",
+      "texture_generator": ".ci_script/tools/generate_hosiery_textures.py",
+      "runtime_policy": "current Body geometry and deformation are shared; no separate hosiery scene or fallback asset"
+    },
+    "asset_bounds": "v12_asset_probe_20260921/wardrobe_asset_probe.json",
+    "rebuild": "instantiate wardrobe scene and call VisualLayers.setup"
+  }
+}

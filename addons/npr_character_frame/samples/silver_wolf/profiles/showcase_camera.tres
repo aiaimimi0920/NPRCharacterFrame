@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="NPRShowcaseCameraProfile" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://addons/npr_character_frame/npr_showcase_camera_profile.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+view_heights = PackedFloat64Array(1.55, 2.17, 2.55)
+view_distances = PackedFloat64Array(5.6, 3.0, 1.75)
+horizontal_offset = 0.34
+vertical_offset = 0.06
+field_of_view = 36.0
+pressure_target = Vector3(-0.13, 1.295, 0.0)
+pressure_distance = 1.1

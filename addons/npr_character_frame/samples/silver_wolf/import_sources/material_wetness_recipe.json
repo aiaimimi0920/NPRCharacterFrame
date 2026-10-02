@@ -1,0 +1,109 @@
+{
+  "schema": 1,
+  "probe_sha256": "5510eb176b9af55527424312fabba253ddbe2e14012f9c36ef1830500e9b0859",
+  "historical_probe_sha256": "1afd0727b5db2dacdec69ecfc8e2001bb024427691a8791036a0a173f23d17b3",
+  "historical_regions_sha256": "1f8ec6f670eed88aef8452f59aa4a8c89a711ecc5bad7c8a329375fa84ed1b63",
+  "reconstruction_note": "Existing rest probe replaces unavailable historical capture; region rules unchanged; verify against shipped mask before use.",
+  "source_mesh_sha256": "2bb1a9cbdb3acdb16405dee1dc7bf7becbfec561df8c1382366212ce1860ce19",
+  "coordinates": "source body base.png pixels, 1024 x 512; UV=(u,1-v)",
+  "classification": "Manually authored from isolated component UV tiles and current rendered model; never inferred from dye colors.",
+  "groups": [
+    {
+      "name": "jacket_shorts_liner",
+      "ids": [
+        12
+      ],
+      "channel": 0,
+      "exclude_uv_rects": [
+        [
+          0,
+          0,
+          190,
+          214
+        ],
+        [
+          326,
+          288,
+          445,
+          346
+        ]
+      ]
+    },
+    {
+      "name": "sash_skirt_fur",
+      "ids": [
+        7,
+        18,
+        55
+      ],
+      "channel": 0
+    },
+    {
+      "name": "gloves",
+      "ids": [
+        14,
+        15
+      ],
+      "channel": 1,
+      "exclude_uv_rects": [
+        [
+          0,
+          0,
+          190,
+          214
+        ]
+      ]
+    },
+    {
+      "name": "boots",
+      "ids": [
+        16,
+        17
+      ],
+      "channel": 1
+    },
+    {
+      "name": "phone_shell_and_decals",
+      "ids": [
+        70,
+        52,
+        53,
+        54
+      ],
+      "channel": 2
+    },
+    {
+      "name": "gamepad_and_belt_controls",
+      "ids": [
+        24,
+        25,
+        81
+      ],
+      "channel": 2
+    },
+    {
+      "name": "belt_and_buckles",
+      "ids": [
+        0,
+        19,
+        20,
+        21,
+        22,
+        23,
+        26,
+        28,
+        33,
+        69
+      ],
+      "channel": 3
+    }
+  ],
+  "channels": {
+    "R": "absorbent textile / fur",
+    "G": "coated fabric / leather",
+    "B": "hard polymer",
+    "A": "metal hardware"
+  },
+  "unclassified": "dry; skin, hosiery and hair retain their independent controls",
+  "shared_uv_conflicts": "excluded rather than guessing"
+}

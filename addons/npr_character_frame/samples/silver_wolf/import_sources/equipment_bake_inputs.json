@@ -1,0 +1,7 @@
+{
+  "schema": 1,
+  "files": {
+    "equipment": {"path": "equipment.blend", "sha256": "cc7bc4225f0b15d91136349ccfe4c38a026cb924c23cd8895fb54cabc74f10a5"}
+  },
+  "note": "Archived base equipment source matches the current material asset input. The procedural base is checked against this geometry before writing output. The material stage consumes this exact source; the newly saved base Blend has its own identity."
+}
