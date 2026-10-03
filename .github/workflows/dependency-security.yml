@@ -1,0 +1,138 @@
+name: Dependency Security
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "30 18 * * 0"
+  workflow_dispatch:
+    inputs:
+      fail-on-vuln:
+        description: Enforce findings for an explicit release validation
+        type: boolean
+        default: false
+  workflow_call:
+    inputs:
+      checkout-ref:
+        description: Exact branch, tag, or commit to scan
+        required: false
+        type: string
+      fail-on-vuln:
+        description: Release callers enforce findings by default
+        required: false
+        type: boolean
+        default: true
+
+concurrency:
+  group: dependency-security-${{ github.event.pull_request.number || inputs.checkout-ref || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+permissions:
+  contents: read
+
+jobs:
+  policy-contract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ inputs.checkout-ref || github.ref }}
+          persist-credentials: false
+      - name: Test execution, inventory and SARIF guards
+        run: python3 -m unittest discover -s scripts/security-tests -p "test_*.py"
+
+  osv-scan:
+    name: Scan committed dependency locks
+    needs: policy-contract
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      actions: read
+      contents: read
+    env:
+      FAIL_ON_VULN: ${{ inputs.fail-on-vuln || startsWith(github.ref, 'refs/tags/') }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ inputs.checkout-ref || github.ref }}
+          persist-credentials: false
+      - name: Resolve actual Python tooling requirements in an isolated environment
+        run: |
+          python3 -m venv "$RUNNER_TEMP/npr-security-resolver"
+          "$RUNNER_TEMP/npr-security-resolver/bin/python" -m pip install --disable-pip-version-check \
+            --only-binary=:all: -r addons/npr_character_frame/.ci_script/framework/requirements.txt
+          mkdir -p .tmp/dependency-security
+          "$RUNNER_TEMP/npr-security-resolver/bin/python" -m pip freeze \
+            > .tmp/dependency-security/requirements.txt
+          test -s .tmp/dependency-security/requirements.txt
+      - name: Run pinned scanner for complete JSON and SARIF
+        id: raw
+        shell: bash
+        run: |
+          set -euo pipefail
+          evidence="$PWD/.tmp/dependency-security"
+          mkdir -p "$evidence"
+          image="ghcr.io/google/osv-scanner@sha256:8108ae94eadea5a02c9bec6e646909d5b790b44bd62d7f5b7f0b1d6d0ffc7734"
+          [[ "$image" == "ghcr.io/google/osv-scanner@sha256:8108ae94eadea5a02c9bec6e646909d5b790b44bd62d7f5b7f0b1d6d0ffc7734" ]]
+          docker pull "$image" > "$evidence/image.log" 2>&1
+          common=(--rm --user="$(id -u):$(id -g)" --read-only --cap-drop=ALL --security-opt=no-new-privileges
+            --cpus=2 --memory=1g '--tmpfs=/tmp:rw,nosuid,nodev,size=128m'
+            --volume="$PWD:/github/workspace:ro" --volume="$evidence:/evidence"
+            --workdir=/github/workspace --env=GOTOOLCHAIN=auto)
+          timeout --signal=TERM --kill-after=10s 60s docker run "${common[@]}" \
+            --entrypoint=/osv-scanner "$image" --version > "$evidence/version.log" 2>&1
+          grep -Fx 'osv-scanner version: 2.5.1' "$evidence/version.log"
+          lock_args=(
+            --lockfile=/github/workspace/.tmp/dependency-security/requirements.txt)
+          set +e
+          timeout --signal=TERM --kill-after=30s 600s docker run "${common[@]}" \
+            --entrypoint=/osv-scanner "$image" scan source --all-packages --all-vulns \
+            --format=json --output-file=/evidence/osv-results.json \
+            "${lock_args[@]}" > "$evidence/scanner.log" 2>&1
+          scanner_status=$?
+          reporter_status=125
+          if [[ "$scanner_status" == 0 || "$scanner_status" == 1 ]]; then
+            timeout --signal=TERM --kill-after=30s 600s docker run "${common[@]}" \
+              --entrypoint=/osv-scanner "$image" scan source --all-packages --all-vulns \
+                --format=sarif --output-file=/evidence/osv-results.sarif \
+            "${lock_args[@]}" > "$evidence/reporter.log" 2>&1
+            reporter_status=$?
+          fi
+          set -e
+          printf 'scanner-exit=%s\nreporter-exit=%s\n' "$scanner_status" "$reporter_status" >> "$GITHUB_OUTPUT"
+      - name: Validate complete reports and classify findings
+        id: report
+        env:
+          SCANNER_EXIT: ${{ steps.raw.outputs.scanner-exit }}
+          REPORTER_EXIT: ${{ steps.raw.outputs.reporter-exit }}
+        run: |
+          python3 scripts/osv_scan_summary.py --json .tmp/dependency-security/osv-results.json \
+            --sarif .tmp/dependency-security/osv-results.sarif --scan-exit "$SCANNER_EXIT" \
+            --report-exit "$REPORTER_EXIT" --lockfile .tmp/dependency-security/requirements.txt --advisory
+      - name: Retain complete dependency evidence
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: osv-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            .tmp/dependency-security/osv-results.json
+            .tmp/dependency-security/osv-results.sarif
+            .tmp/dependency-security/requirements.txt
+            .tmp/dependency-security/image.log
+            .tmp/dependency-security/version.log
+            .tmp/dependency-security/scanner.log
+            .tmp/dependency-security/reporter.log
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 14
+      - name: Enforce release findings after evidence upload
+        if: ${{ !cancelled() && steps.report.outputs.report_valid == 'true' && env.FAIL_ON_VULN == 'true' }}
+        env:
+          SCANNER_EXIT: ${{ steps.raw.outputs.scanner-exit }}
+          REPORTER_EXIT: ${{ steps.raw.outputs.reporter-exit }}
+        run: |
+          python3 scripts/osv_scan_summary.py --json .tmp/dependency-security/osv-results.json \
+            --sarif .tmp/dependency-security/osv-results.sarif --scan-exit "$SCANNER_EXIT" \
+            --report-exit "$REPORTER_EXIT" --lockfile .tmp/dependency-security/requirements.txt
