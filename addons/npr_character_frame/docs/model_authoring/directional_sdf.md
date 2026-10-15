@@ -19,3 +19,5 @@
 定向图集当前只支持生成材质模式（use_source_materials=false）及显式 sdf_on_uv2=true；源材质模式与非空定向图集组合会明确报错，避免静默忽略效果。空图集继续沿用基类行为。Face 网格仍需满足既有 UV2 模型检查。
 
 非空图集宽必须整除24，高必须整除7，每块宽高均大于4；尺寸检查不能代替2px扩边像素正确性的烘焙验证。非方形块本身不被错误拒绝。生成定义只引用固定插件路径，并对缺失/重复绑定字段立即报错。七个资源保留此前实际 Godot 导入生成的 UID，避免重新生成身份。
+
+补修验证：14项纯 Python 测试；在独立临时宿主复制插件、使用既有 4.8-dev 引擎运行 engine_contract.gd，15项断言通过（实际生成定义加载、材质类、图集绑定、null、有效128/256内核、非法尺寸、边距、UV2和源材质组合）。这不是完整角色渲染或全产品验收。运行入口：--headless --path <host> --script res://addons/npr_character_frame/.ci_script/tools/sdf360/engine_contract.gd；仅在临时宿主执行，会在 .temp 写测试图集。
