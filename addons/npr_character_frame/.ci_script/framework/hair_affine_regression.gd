@@ -41,7 +41,7 @@ var _native_post_light := false
 func _run() -> void:
 	root.mouse_passthrough = true
 	root.unfocusable = true
-	_lab = load("res://addons/npr_character_frame/showcase/npr_lab.tscn").instantiate()
+	_lab = load("res://addons/npr_character_frame/showcase/wardrobe.tscn").instantiate()
 	root.add_child(_lab)
 	await _frames(8)
 	_lab.set_view("face")
