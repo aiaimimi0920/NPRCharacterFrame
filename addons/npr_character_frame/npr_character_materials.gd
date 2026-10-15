@@ -82,6 +82,11 @@ func validate() -> PackedStringArray:
 	return errors
 
 
+## Validate the source-material path separately from generated materials.
+func validate_source_materials() -> PackedStringArray:
+	return validate_optional()
+
+
 ## Source-material characters may provide only these optional extension inputs.
 func validate_optional() -> PackedStringArray:
 	var errors := PackedStringArray()
@@ -194,7 +199,7 @@ func build() -> Array[ShaderMaterial]:
 ## Bind extension textures to duplicated, module-compatible source materials.
 ## Existing base/ILM/LUT/ramp parameters remain owned by the authored source chain.
 func apply_optional_to(source_materials: Array[ShaderMaterial]) -> bool:
-	if source_materials.size() != 3 or not validate_optional().is_empty():
+	if source_materials.size() != 3 or not validate_source_materials().is_empty():
 		return false
 	var body := source_materials[0]
 	var face := source_materials[1]

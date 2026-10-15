@@ -15,6 +15,7 @@ def build_request(recipe_dir, workspace=None):
     for name, path in [
         ("face", RECIPE / "face.py"),
         ("distance_field", HERE / "distance_field.py"),
+        ("definition_output", HERE / "definition_output.py"),
     ]:
         code += f'm=types.ModuleType({name!r});sys.modules[{name!r}]=m;m.STYLE={style!r}\nexec(compile({path.read_text()!r},{name!r},"exec"),m.__dict__)\n'
     code += (HERE / "bake.py").read_text()
@@ -23,7 +24,7 @@ def build_request(recipe_dir, workspace=None):
         "assets/aster/head_recovery_664/aster_definition.tres",
         "assets/aster/sdf_664/bake_report.json",
     ]
-    for name in ["bake.py", "distance_field.py"]:
+    for name in ["bake.py", "distance_field.py", "definition_output.py"]:
         path = "assets/aster/sdf_664/" + name
         code += (
             f"Path(beaver_output({path!r})).write_text({(HERE/name).read_text()!r})\n"

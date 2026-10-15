@@ -2,12 +2,16 @@ name: Directional SDF contracts
 on:
   pull_request:
     paths:
+      - 'addons/npr_character_frame/npr_character_materials.gd'
+      - 'addons/npr_character_frame/npr_character_definition.gd'
       - 'addons/npr_character_frame/shaders/face/sdf360/**'
       - 'addons/npr_character_frame/.ci_script/tools/sdf360/**'
       - '.github/workflows/directional-sdf.yml'
   push:
     branches: [main]
     paths:
+      - 'addons/npr_character_frame/npr_character_materials.gd'
+      - 'addons/npr_character_frame/npr_character_definition.gd'
       - 'addons/npr_character_frame/shaders/face/sdf360/**'
       - 'addons/npr_character_frame/.ci_script/tools/sdf360/**'
 permissions:
@@ -22,4 +26,4 @@ jobs:
           python-version: '3.12'
       - run: python -m pip install numpy gdtoolkit
       - run: python -m unittest discover -s addons/npr_character_frame/.ci_script/tools/sdf360 -p 'test_*.py'
-      - run: gdformat --check addons/npr_character_frame/shaders/face/sdf360/sdf_materials.gd
+      - run: gdformat --check addons/npr_character_frame/shaders/face/sdf360/sdf_materials.gd addons/npr_character_frame/npr_character_materials.gd addons/npr_character_frame/npr_character_definition.gd
