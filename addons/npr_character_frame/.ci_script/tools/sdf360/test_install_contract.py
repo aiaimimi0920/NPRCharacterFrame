@@ -6,7 +6,10 @@ from definition_output import bind_directional_atlas, MATERIAL_SCRIPT, BASE_SCRI
 
 ROOT = Path(__file__).resolve().parents[3]
 SOURCE = (
-    BASE_SCRIPT + '\n[sub_resource type="Resource" id="Materials"]\nsdf_on_uv2 = true\n'
+    '[ext_resource type="Script" path="'
+    + BASE_SCRIPT
+    + '" id="2"]'
+    + '\n[sub_resource type="Resource" id="Materials"]\nsdf_on_uv2 = true\n'
 )
 
 
@@ -19,6 +22,16 @@ class InstallContract(unittest.TestCase):
             (ROOT.parent.parent / MATERIAL_SCRIPT.removeprefix("res://")).is_file()
         )
         self.assertIn('face_sdf360 = ExtResource("sdf360_atlas")', output)
+
+    def test_old_uid_is_not_retained_on_replaced_script(self):
+        source = SOURCE.replace(
+            'path="' + BASE_SCRIPT, 'uid="uid://351gncpluue5" path="' + BASE_SCRIPT
+        )
+        source += '\n[ext_resource type="Script" uid="uid://keepme" path="res://unrelated.gd" id="3"]'
+        output = bind_directional_atlas(source, "assets/face.png")
+        self.assertNotIn("uid://351gncpluue5", output)
+        self.assertIn("uid://keepme", output)
+        self.assertIn('id="2"', output)
 
     def test_missing_and_duplicate_fields_fail(self):
         for token in (

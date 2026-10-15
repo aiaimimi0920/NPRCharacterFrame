@@ -1,5 +1,7 @@
 """Generate a definition using only the fixed, published plugin location."""
 
+import re
+
 MATERIAL_SCRIPT = (
     "res://addons/npr_character_frame/shaders/face/sdf360/sdf_materials.gd"
 )
@@ -21,7 +23,21 @@ def bind_directional_atlas(source, atlas_path):
         raise ValueError("Atlas path must be a project-relative resource path")
     if atlas_path.startswith(("/", "res://")) or ":" in atlas_path:
         raise ValueError("Atlas path must be project relative")
-    source = source.replace(BASE_SCRIPT, MATERIAL_SCRIPT)
+    pattern = (
+        r'\[ext_resource\b[^\]\r\n]*\bpath="'
+        + re.escape(BASE_SCRIPT)
+        + r'"[^\]\r\n]*\]'
+    )
+    declarations = list(re.finditer(pattern, source))
+    if len(declarations) != 1:
+        raise ValueError("Expected one base material ext_resource declaration")
+    old = declarations[0].group(0)
+    # The old UID identifies the base class even after its path is changed.
+    # Drop only that declaration's UID; Godot resolves the new fixed path.
+    updated = re.sub(r'\s+uid="[^"]*"', "", old).replace(BASE_SCRIPT, MATERIAL_SCRIPT)
+    source = (
+        source[: declarations[0].start()] + updated + source[declarations[0].end() :]
+    )
     source = source.replace(
         marker,
         '[ext_resource type="Texture2D" path="res://'
