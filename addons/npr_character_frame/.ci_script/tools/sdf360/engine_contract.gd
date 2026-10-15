@@ -15,8 +15,6 @@ func texture(w: int, h: int) -> Texture2D:
 
 
 func _init() -> void:
-	DirAccess.make_dir_recursive_absolute("res://.temp")
-	ResourceSaver.save(texture(3168, 924), "res://.temp/sdf_install_atlas.res")
 	var loaded = load(
 		"res://addons/npr_character_frame/.ci_script/tools/sdf360/install_fixture.tres"
 	)
