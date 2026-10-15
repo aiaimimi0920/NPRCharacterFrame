@@ -83,19 +83,9 @@ im.file_format = "PNG"
 im.filepath_raw = beaver_output(OUT + "face_sdf360.png")
 im.save()
 definition = (ROOT / "assets/aster/head_recovery_662/aster_definition.tres").read_text()
-definition = definition.replace(
-    '[sub_resource type="Resource" id="Materials"]',
-    '[ext_resource type="Texture2D" path="res://'
-    + OUT
-    + 'face_sdf360.png" id="17"]\n\n[sub_resource type="Resource" id="Materials"]',
-)
-definition = definition.replace(
-    "res://addons/npr_character_frame/npr_character_materials.gd",
-    "res://showcase_extensions/sdf360/sdf_materials.gd",
-)
-definition = definition.replace(
-    "sdf_on_uv2 = true", 'sdf_on_uv2 = true\nface_sdf360 = ExtResource("17")'
-)
+from definition_output import bind_directional_atlas
+
+definition = bind_directional_atlas(definition, OUT + "face_sdf360.png")
 Path(beaver_output("assets/aster/head_recovery_664/aster_definition.tres")).write_text(
     definition
 )

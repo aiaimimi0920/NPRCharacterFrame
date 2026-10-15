@@ -77,7 +77,7 @@ func validate() -> PackedStringArray:
 		else:
 			errors.append_array(material_set.validate())
 	elif material_set != null:
-		errors.append_array(material_set.validate_optional())
+		errors.append_array(material_set.validate_source_materials())
 	if face_motion_profile != null:
 		for error in face_motion_profile.validate():
 			errors.append("face_motion_profile: " + error)
