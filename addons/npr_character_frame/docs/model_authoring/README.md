@@ -58,3 +58,6 @@ Body/Face/Hair 的湿润输入使用 [湿润纹理](wetness.md) 指定四张数�
 完整展示配色由角色显式提供 [配色制作规范](showcase_palette.md) 所述资源；保留槽位 0 原材质与 -1 自定义语义，不机械覆盖用户存档 RGB。
 
 P05-BN 显式展示高度配置见 [袜口高度校准](showcase_height.md)；新增 `showcase_height_profile_regression.gd`，完整 suite 增至 25 阶段。
+
+
+定向面部SDF可选扩展与作者合同见 [定向SDF](../model_authoring/directional_sdf.md)。

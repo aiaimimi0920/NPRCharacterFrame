@@ -120,3 +120,6 @@
 ### 展示袜口高度作者输入
 
 完整展示必须提供 showcase_height_profile；其闭区间、工厂值与 UI 步长使用入树快照，基础渲染可省略。几何候选域不替代选择范围；旧 schema 填 1.34 与作者工厂值分开，已有数值不按步长量化。见 [高度制作规范](../model_authoring/showcase_height.md)。
+
+
+定向面部SDF可选扩展与作者合同见 [定向SDF](../model_authoring/directional_sdf.md)。
