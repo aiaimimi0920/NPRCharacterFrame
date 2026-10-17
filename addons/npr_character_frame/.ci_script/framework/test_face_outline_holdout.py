@@ -4,8 +4,9 @@ from pathlib import Path
 import re
 import unittest
 
-
-SHADER = Path(__file__).resolve().parents[2] / "shaders/face/face_outline_pixels.gdshader"
+SHADER = (
+    Path(__file__).resolve().parents[2] / "shaders/face/face_outline_pixels.gdshader"
+)
 
 
 class FaceOutlineHoldoutTests(unittest.TestCase):
@@ -17,28 +18,55 @@ class FaceOutlineHoldoutTests(unittest.TestCase):
         # Match the production branch, then evaluate its actual scalar predicates.
         branch = re.search(
             r"if\s*\((?P<guard>u_npr_outline_control_enabled\s*&&\s*u_npr_outline_role\s*==\s*1)\)\s*\{"
-            r"\s*float holdout = texture\(u_npr_outline_control, v_npr_outline_uv\)\.b;"
+            r"\s*(?://[^\n]*\n\s*)*float holdout = textureLod\(u_npr_outline_control, v_npr_outline_uv, 0\.0\)\.b;"
             r"\s*if\s*\((?P<cutoff>holdout\s*>=\s*1\.0)\)\s*\{\s*discard;\s*\}\s*\}",
             self.fragment,
         )
-        self.assertIsNotNone(branch, "Full holdout must discard in fragment, not only reduce width")
-        self.assertNotIn("u_npr_outline_lip_fix_enabled", self.fragment[:branch.end()])
-        predicate = "(" + branch["guard"].replace("&&", "and") + ") and (" + branch["cutoff"] + ")"
+        self.assertIsNotNone(
+            branch, "Full holdout must discard in fragment, not only reduce width"
+        )
+        self.assertNotIn("u_npr_outline_lip_fix_enabled", self.fragment[: branch.end()])
+        predicate = (
+            "("
+            + branch["guard"].replace("&&", "and")
+            + ") and ("
+            + branch["cutoff"]
+            + ")"
+        )
         for enabled in (False, True):
             for role in (0, 1, 2):
                 for holdout in (0.0, 0.5, 254 / 255, 1.0):
                     with self.subTest(enabled=enabled, role=role, holdout=holdout):
-                        actual = eval(predicate, {"__builtins__": {}}, {
-                            "u_npr_outline_control_enabled": enabled,
-                            "u_npr_outline_role": role,
-                            "holdout": holdout,
-                        })
-                        self.assertEqual(actual, enabled and role == 1 and holdout == 1.0)
+                        actual = eval(
+                            predicate,
+                            {"__builtins__": {}},
+                            {
+                                "u_npr_outline_control_enabled": enabled,
+                                "u_npr_outline_role": role,
+                                "holdout": holdout,
+                            },
+                        )
+                        self.assertEqual(
+                            actual, enabled and role == 1 and holdout == 1.0
+                        )
+
+    def test_control_sampling_uses_base_level_in_both_stages(self):
+        self.assertIn(
+            "textureLod(u_npr_outline_control, authored_uv, 0.0).rgb", self.vertex
+        )
+        self.assertIn(
+            "textureLod(u_npr_outline_control, v_npr_outline_uv, 0.0).b", self.fragment
+        )
+        self.assertNotIn("texture(u_npr_outline_control", self.fragment)
 
     def test_disabled_default_and_partial_width_path_are_preserved(self):
-        self.assertIn("uniform bool u_npr_outline_control_enabled = false;", self.source)
+        self.assertIn(
+            "uniform bool u_npr_outline_control_enabled = false;", self.source
+        )
         self.assertIn("resolved_width *= 1.0 - control.b;", self.vertex)
-        self.assertIn("if (u_npr_outline_lip_fix_enabled && u_npr_outline_role == 1)", self.vertex)
+        self.assertIn(
+            "if (u_npr_outline_lip_fix_enabled && u_npr_outline_role == 1)", self.vertex
+        )
         self.assertIn("render_mode unshaded, cull_front,", self.source)
         self.assertNotIn("outline_width_pixels", self.fragment)
 

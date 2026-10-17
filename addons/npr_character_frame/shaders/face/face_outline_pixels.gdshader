@@ -84,7 +84,8 @@ void fragment() {
 	// Zero extrusion still draws exposed backfaces. Full authored holdout must
 	// suppress coverage too, independently of the optional lip-width correction.
 	if (u_npr_outline_control_enabled && u_npr_outline_role == 1) {
-		float holdout = texture(u_npr_outline_control, v_npr_outline_uv).b;
+		// Coverage masks must not leak averaged mip levels on oblique thin surfaces.
+		float holdout = textureLod(u_npr_outline_control, v_npr_outline_uv, 0.0).b;
 		if (holdout >= 1.0) { discard; }
 	}
 	if (npr_symbol_canvas.w > 2.5) { discard; }
