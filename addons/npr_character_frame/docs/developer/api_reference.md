@@ -114,6 +114,10 @@ func apply_optional_to(source_materials: Array[ShaderMaterial]) -> bool:
 func outline_smooth_normal_source(role: int) -> int:
 ```
 
+`face_outline_control` 是可选的 Face UV1 线性数据贴图；未提供时关闭控制，保持原描边行为。R/G 继续供唇部宽度修正使用；B=1 表示完整描边遮罩，在 Face 描边 fragment 中丢弃像素，独立于 `lip_outline_fix_enabled`。仅将挤出宽度设为零不会隐藏 `cull_front` pass 的可见背面，因此完整遮罩同时禁止这类填色。0≤B<1 不触发丢弃，保留现有唇部修正路径中的 `1-B` 宽度缩放；其他角色不受此 Face 遮罩影响。
+
+遮罩按过滤后的采样值判定；作者应为完整遮罩区域留足 B=1 的边界余量，避免线性过滤或 mip 混合使其降为部分值。框架不预设眼部或其他 UV 区域。生产 GPU/模型验证仍需检查实际姿态和材质链，CPU 源码合同测试不代表视觉验收。
+
 ## NPRComicProfile
 
 [源代码](../../npr_comic_profile.gd)
