@@ -81,6 +81,12 @@ void vertex() {
 
 void fragment() {
 	if (u_npr_diagnostic_mode != 0 && u_npr_diagnostic_mode != 8) { discard; }
+	// Zero extrusion still draws exposed backfaces. Full authored holdout must
+	// suppress coverage too, independently of the optional lip-width correction.
+	if (u_npr_outline_control_enabled && u_npr_outline_role == 1) {
+		float holdout = texture(u_npr_outline_control, v_npr_outline_uv).b;
+		if (holdout >= 1.0) { discard; }
+	}
 	if (npr_symbol_canvas.w > 2.5) { discard; }
 	if (u_npr_symbolic_eyes) {
 		if (abs(npr_symbol_canvas.w - 1.0) < 0.1) { discard; }
