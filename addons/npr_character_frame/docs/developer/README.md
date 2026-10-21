@@ -8,6 +8,8 @@
 
 ## 使用入口
 
+独立材质浏览器及其多视图入口已移除。角色观察和参数调试统一使用 `showcase/wardrobe.tscn`；独立启动器同样进入完整展示台。旧 `--multiview` 参数会明确报错退出，不能作为验收入口。渲染运行时、材质及着色器继续保留。
+
 复制整个 `addons/npr_character_frame/` 到宿主项目，使用用户提供的 Godot 引擎。启用插件后安装 shader globals，工具菜单 `Run NPR Character Showcase` 启动 [展示场景](../../showcase/wardrobe.tscn)。命令行可先执行 `--headless --path <host> --script res://addons/npr_character_frame/install.gd`，再导入项目。
 
 提供 `NPRCharacterDefinition` Resource：`model_scene`、三个角色节点路径、`material_set`、`material_profile`、`use_source_materials`、`display_height`。先调用 `validate()` 获取错误列表，再赋给 `NPRCharacter.definition`，最后把角色节点加入场景树。源材质模式要求事先正确构建框架 shader 材质链；不是任意原始材质兼容模式。
