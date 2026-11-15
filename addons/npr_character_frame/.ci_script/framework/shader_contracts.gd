@@ -3,6 +3,9 @@ extends RefCounted
 
 const BODY := "res://addons/npr_character_frame/shaders/body/body_npr.gdshader"
 const FACE := "res://addons/npr_character_frame/shaders/face/face_base.gdshader"
+const FACE_LIGHTING := (
+	"res://addons/npr_character_frame/shaders/face/" + "face_lighting_helpers.gdshaderinc"
+)
 const HAIR := "res://addons/npr_character_frame/shaders/hair/hair_base_common.gdshaderinc"
 const EYE := "res://addons/npr_character_frame/shaders/face/face_eye_stencil.gdshader"
 const MATH := '#include "res://addons/npr_character_frame/shaders/common/npr_math.gdshaderinc"\n'
@@ -89,7 +92,7 @@ func _check_samplers() -> void:
 
 func _check_sdf() -> void:
 	var factor := MATH + "uniform float u_sdf_feather_radius = 0.0;\n"
-	factor += _function_source(FACE, "calculate_sdf_factor")
+	factor += _function_source(FACE_LIGHTING, "calculate_sdf_factor")
 	for center in [0.0, 0.0001, 0.5, 0.9999, 1.0]:
 		var expression := "vec3(calculate_sdf_factor(%s, %s))" % [center, center]
 		var actual := await _probe(factor, expression)
@@ -185,7 +188,7 @@ func _check_eye_effect() -> void:
 	var declarations := "uniform float u_eyeball_effect_intensity;\n"
 	declarations += "uniform vec3 u_eyeball_effect_tint;\n"
 	declarations += "uniform vec3 probe_color;\nuniform float probe_mask;\n"
-	declarations += _function_source(FACE, "apply_eyeball_effect")
+	declarations += _function_source(FACE_LIGHTING, "apply_eyeball_effect")
 	var tint := Vector3(0.2, 0.7, 1.3)
 	for color: Vector3 in [Vector3(0.2, 0.6, 0.8), Vector3(-0.2, 0.4, 1.6)]:
 		for mask in [0.1, 0.1001, 0.5, 0.7999, 0.8]:
@@ -217,7 +220,7 @@ func _check_eye_effect() -> void:
 
 
 func _check_eye_vfx() -> void:
-	var declarations := _declaration(FACE, "u_eyeball_vfx_pattern_texture")
+	var declarations := _declaration(FACE_LIGHTING, "u_eyeball_vfx_pattern_texture")
 	declarations += "uniform bool u_procedural_fx_enable;\n"
 	declarations += "uniform vec4 u_eyeball_vfx_uv_transform;\n"
 	declarations += "uniform vec4 u_eyeball_vfx_anim_params;\n"
@@ -226,7 +229,7 @@ func _check_eye_vfx() -> void:
 	declarations += "uniform float u_eyeball_vfx_intensity;\n"
 	declarations += "uniform vec2 probe_uv;\nuniform float probe_time;\n"
 	declarations += "uniform float probe_mask;\nuniform vec2 probe_sdf;\n"
-	declarations += _function_source(FACE, "apply_eyeball_vfx")
+	declarations += _function_source(FACE_LIGHTING, "apply_eyeball_vfx")
 	var image := Image.create(4, 4, false, Image.FORMAT_RGBA8)
 	for y in range(4):
 		for x in range(4):
