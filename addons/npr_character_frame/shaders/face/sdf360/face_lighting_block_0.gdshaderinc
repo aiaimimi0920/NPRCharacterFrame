@@ -238,7 +238,8 @@ void vertex() {
 
 	// 部件显隐与顶点掩码处理
 	bool render_condition = get_render_condition(COLOR);
-	POSITION = mix(C_POSITION_CLIPPED, position_cs, float(render_condition));
+	// Select exact clip coordinates: arithmetic mix loses thin-layer depth precision.
+	POSITION = mix(C_POSITION_CLIPPED, position_cs, bvec4(render_condition));
 
 		vec3 tangent_ms = TANGENT;
 		vec3 binormal_ms = BINORMAL;
