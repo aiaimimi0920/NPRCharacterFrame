@@ -61,3 +61,5 @@ P05-BN 显式展示高度配置见 [袜口高度校准](showcase_height.md)；�
 
 
 定向面部SDF可选扩展与作者合同见 [定向SDF](../model_authoring/directional_sdf.md)。
+
+Optional authored nose-line parameters and verification limits: [mesh-local nose line](nose_local.md).
