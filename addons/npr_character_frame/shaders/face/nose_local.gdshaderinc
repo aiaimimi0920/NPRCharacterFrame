@@ -14,8 +14,10 @@ vec3 npr_nose_local_albedo(vec3 base, vec3 position) {
 	float nx = position.x;
 	float scale = max(abs(u_npr_nose_local_curve.z), 0.000001);
 	float width = max(abs(u_npr_nose_local_curve.w), 0.000001);
-	float center_y = u_npr_nose_local_curve.x + u_npr_nose_local_curve.y * pow(nx / scale, 2.0);
-	float mask = exp(-pow((position.y - center_y) / width, 2.0));
+	float normalized_x = nx / scale;
+	float center_y = u_npr_nose_local_curve.x + u_npr_nose_local_curve.y * normalized_x * normalized_x;
+	float normalized_y = (position.y - center_y) / width;
+	float mask = exp(-(normalized_y * normalized_y));
 	float x_outer = max(u_npr_nose_local_domain.y, u_npr_nose_local_domain.x + 0.000001);
 	float z_upper = max(u_npr_nose_local_domain.w, u_npr_nose_local_domain.z + 0.000001);
 	mask *= 1.0 - smoothstep(u_npr_nose_local_domain.x, x_outer, abs(nx));
