@@ -1,4 +1,5 @@
 shader_type spatial;
+#include "res://addons/npr_character_frame/shaders/face/nose_local.gdshaderinc"
 #include "res://addons/npr_character_frame/shaders/face/face_atlas_calibration.gdshaderinc"
 #include "res://addons/npr_character_frame/shaders/face/symbol_calibration.gdshaderinc"
 #include "res://addons/npr_character_frame/shaders/comic/comic_surface.gdshaderinc"
@@ -202,6 +203,7 @@ vec3 npr_face_light_direction(vec3 scene_direction) {
 }
 
 void vertex() {
+	npr_nose_local_position = VERTEX;
 	npr_pupil_uv_pivot = CUSTOM0.xy;
 	npr_symbol_canvas = CUSTOM1;
 
@@ -425,6 +427,9 @@ void fragment() {
 	// --- 鼻线 ---
 	float nose_line_factor  = calculate_nose_line_factor(normal_ws, view_dir_ws, ilm_sample.b);
 	vec3 albedo_blender_color = mix(albedo.rgb, u_nose_line_color, nose_line_factor);
+	if (u_npr_nose_local_enabled) {
+		albedo_blender_color = npr_nose_local_albedo(albedo.rgb, npr_nose_local_position);
+	}
 
 
 	// --- 唇线 ---
