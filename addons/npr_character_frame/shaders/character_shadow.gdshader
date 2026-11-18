@@ -10,13 +10,17 @@ uniform float shadow_strength : hint_range(0.0, 1.0) = 0.35;
 varying vec2 visibility_uv;
 varying vec3 visibility_position_ws;
 
+uniform bool u_npr_posterior_enabled = false;
+varying flat float npr_posterior_domain;
 void vertex() {
+ npr_posterior_domain = CUSTOM3.x;
 	visibility_uv = vec2(UV.x, 1.0 - UV.y);
 	visibility_position_ws = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz;
 	POSITION = npr_clip_position(PROJECTION_MATRIX, MODELVIEW_MATRIX, VERTEX);
 }
 
 void fragment() {
+ if (u_npr_posterior_enabled && npr_posterior_domain > 0.5) { discard; }
 	vec4 surface_fx = npr_surface_effects(visibility_uv);
 	if (!npr_visibility_keep(FRAGCOORD.xy)
 			|| npr_dissolve_signed_distance(visibility_uv, visibility_position_ws, surface_fx.a) < 0.0) {

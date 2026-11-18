@@ -202,7 +202,10 @@ vec3 npr_face_light_direction(vec3 scene_direction) {
 	return dot(mixed_direction, mixed_direction) > 0.00001 ? normalize(mixed_direction) : scene_direction;
 }
 
+uniform bool u_npr_posterior_enabled = false;
+varying flat float npr_posterior_domain;
 void vertex() {
+ npr_posterior_domain = CUSTOM3.x;
 	npr_nose_local_position = VERTEX;
 	npr_pupil_uv_pivot = CUSTOM0.xy;
 	npr_symbol_canvas = CUSTOM1;
@@ -320,6 +323,7 @@ group_uniforms;
 #include "res://addons/npr_character_frame/shaders/face/face_surface_effects.gdshaderinc"
 
 void fragment() {
+ if (u_npr_posterior_enabled && npr_posterior_domain > 0.5) { discard; }
 		if (u_npr_diagnostic_mode != 1) {
 			if (u_npr_eye_symbol != 0 && abs(npr_symbol_lash - 1.0) < 0.1) { discard; }
 			if (u_npr_mouth_symbol != 0 && abs(npr_symbol_lash - 2.0) < 0.1) { discard; }

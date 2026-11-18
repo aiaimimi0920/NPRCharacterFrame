@@ -258,7 +258,13 @@ func _apply_display_preset() -> void:
 	face.set_shader_parameter("u_emission_threshold", 1.0)
 	face.set_shader_parameter("u_emission_intensity", 1.0)
 	material_profile.apply_visibility(face.next_pass as ShaderMaterial)
+	var posterior_lit := face.next_pass.next_pass as ShaderMaterial
+	if posterior_lit != null and (posterior_lit.shader == OUTLINE):
+		posterior_lit = posterior_lit.next_pass as ShaderMaterial
 	face.next_pass.next_pass = _make_outline(1, face, Color(0.24, 0.12, 0.18))
+	preload("res://addons/npr_character_frame/runtime/npr_posterior_contract.gd").configure(
+		face, face.next_pass.next_pass, posterior_lit
+	)
 	var hair := materials[2]
 	var eye_hair := hair.next_pass as ShaderMaterial
 	for material in [hair, eye_hair]:
@@ -506,6 +512,10 @@ func set_dissolve(value: float) -> void:
 		materials[2].next_pass as ShaderMaterial
 	]
 	affected.append_array(outlines)
+	if materials[1].get_shader_parameter("u_npr_posterior_enabled") == true:
+		var posterior := outlines[1].next_pass as ShaderMaterial
+		if posterior != null:
+			affected.append(posterior)
 	for material in affected:
 		material.set_shader_parameter("u_npr_dissolve_enabled", resolved > 0.0)
 		material.set_shader_parameter("u_npr_dissolve_amount", resolved)
@@ -530,6 +540,10 @@ func set_visibility_alpha(value: float) -> void:
 		materials[2].next_pass as ShaderMaterial
 	]
 	affected.append_array(outlines)
+	if materials[1].get_shader_parameter("u_npr_posterior_enabled") == true:
+		var posterior := outlines[1].next_pass as ShaderMaterial
+		if posterior != null:
+			affected.append(posterior)
 	for material in affected:
 		material.set_shader_parameter("u_npr_visibility_alpha", resolved)
 		material.set_shader_parameter("u_npr_visibility_dither_enabled", dither_enabled)

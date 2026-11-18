@@ -29,7 +29,10 @@ varying flat float v_npr_outline_slot;
 varying vec2 v_npr_outline_uv;
 varying vec3 v_npr_outline_position_ws;
 
+uniform bool u_npr_posterior_enabled = false;
+varying flat float npr_posterior_domain;
 void vertex() {
+ npr_posterior_domain = CUSTOM3.x;
 	npr_symbol_lash = CUSTOM0.w;
 	npr_symbol_canvas = CUSTOM1;
 	vec2 authored_uv = vec2(UV.x, 1.0 - UV.y);
@@ -80,6 +83,7 @@ void vertex() {
 }
 
 void fragment() {
+ if (u_npr_posterior_enabled && npr_posterior_domain > 0.5) { discard; }
 	if (u_npr_diagnostic_mode != 0 && u_npr_diagnostic_mode != 8) { discard; }
 	// Zero extrusion still draws exposed backfaces. Full authored holdout must
 	// suppress coverage too, independently of the optional lip-width correction.

@@ -67,8 +67,25 @@ static func validate(
 		if (format & Mesh.ARRAY_FORMAT_BONES) != 0:
 			if mesh.skin == null or not mesh.get_node_or_null(mesh.skeleton) is Skeleton3D:
 				errors.append(label + ": skinned mesh requires Skin and a resolvable Skeleton3D")
+		if (
+			not authored
+			and index == 1
+			and array_mesh.surface_get_arrays(0)[Mesh.ARRAY_CUSTOM3] != null
+		):
+			errors.append(
+				label + ": posterior domains require authored supported material contract"
+			)
 		if authored:
 			_validate_chain(mesh.get_active_material(0), index, label, errors)
+			if index == 1 and mesh.get_active_material(0) is ShaderMaterial:
+				errors.append_array(
+					(
+						preload(
+							"res://addons/npr_character_frame/runtime/npr_posterior_contract.gd"
+						)
+						. validate(array_mesh, mesh.get_active_material(0))
+					)
+				)
 	for mesh in root.find_children("*", "MeshInstance3D", true, false):
 		if mesh not in bound:
 			errors.append(str(root.get_path_to(mesh)) + ": unbound mesh; merge equipment into Body")

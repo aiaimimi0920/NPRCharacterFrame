@@ -1,6 +1,6 @@
 {
   "contract": "npr-character-frame",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "engine": {
     "family": "RoleNPR custom Godot",
     "renderer": "forward_plus",
@@ -333,6 +333,47 @@
     "region_controls": {"slot_count": 8, "body_slot_source": "body_ilm.A", "hair_slot_source": "hair_ilm.A", "face_slot": 0},
     "auxiliary_buffer": {"default_enabled": false, "transparent_background_required": true, "background_alpha": 0, "channels": {"R,G": "octahedral world normal", "B": "centered (role * 8 + material slot) / 24", "A": "coverage"}},
     "motion_vectors": {"source": "custom Godot RD mesh-instance double-buffered deformed vertices", "covers": ["object transform", "skeleton", "blend shape"], "first_frame": "current equals previous", "deformation_history": "validated with consecutive adjacent-frame pose changes", "isolated_pose_jump_after_long_idle": "may be treated as teleport/no continuous previous deformation"}
+  },
+  "posterior_domain": {
+    "default_enabled": false,
+    "opt_in_uniform": "u_npr_posterior_enabled",
+    "role": "Face",
+    "authored_materials_required": true,
+    "surface_count": 1,
+    "primitive": "indexed TRIANGLES",
+    "channels": {
+      "CUSTOM2": {
+        "format": "RGBA_FLOAT",
+        "posterior_rgb": "finite sRGB [0,1], vertex-stage linear decode",
+        "posterior_alpha": 1
+      },
+      "CUSTOM3": {
+        "format": "RGBA_FLOAT",
+        "x": {
+          "face": 0,
+          "posterior": 1
+        },
+        "yzw": 0,
+        "triangle_domain": "uniform; both domains required"
+      }
+    },
+    "pass_chain": [
+      "face_base",
+      "face_eye_stencil",
+      "optional face_outline_pixels",
+      "exactly one posterior_lit"
+    ],
+    "lit_priority": 0,
+    "shared_uniforms": "resolved values equal Face; runtime display profile shared values authoritative",
+    "visibility": "finite alpha [0,1]; fractional requires coverage dither; continuous transparency rejected",
+    "unsupported": [
+      "textured surface effects",
+      "independent lit overrides",
+      "extra lit tail",
+      "tagged geometry with feature disabled"
+    ],
+    "migration": "Untagged original models retain default path. CUSTOM3 is now reserved; legacy arbitrary CUSTOM3 requires explicit author review, never auto-repair.",
+    "guide": "docs/model_authoring/posterior_domain.md"
   },
   "scope": {
     "generic_capture_fog": "disabled; host owns environment fog",

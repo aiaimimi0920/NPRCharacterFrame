@@ -124,7 +124,10 @@ bool get_render_condition(vec4 color) {
 }
 
 
+uniform bool u_npr_posterior_enabled = false;
+varying flat float npr_posterior_domain;
 void vertex() {
+ npr_posterior_domain = CUSTOM3.x;
 	// 模型空间 -> 世界空间 (传递给FS)
 	v_position_ws = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz;
 
@@ -239,6 +242,7 @@ group_uniforms;
 uniform bool u_npr_symbolic_eyes = false;
 uniform float u_eye_threshold = 0.5;
 void fragment() {
+ if (u_npr_posterior_enabled && npr_posterior_domain > 0.5) { discard; }
 	if (u_npr_symbolic_eyes) { discard; }
 	vec2 use_sdf_uv = mix(v_sdf_uv, UV, bvec2(u_sdf_on_uv2));
 	vec2 frag_uv = vec2(use_sdf_uv.x, 1.0 - use_sdf_uv.y);
