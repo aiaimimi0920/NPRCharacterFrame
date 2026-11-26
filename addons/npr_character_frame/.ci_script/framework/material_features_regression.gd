@@ -1,7 +1,7 @@
 extends SceneTree
 ## Silver Wolf NPR 1.1 visual acceptance using non-canonical diagnostic maps.
 
-const LAB = preload("res://addons/npr_character_frame/showcase/npr_lab.tscn")
+const LAB = preload("res://addons/npr_character_frame/showcase/wardrobe.tscn")
 const PREVIEW = preload("res://addons/npr_character_frame/showcase/npr_character_preview.gd")
 const ACCEPTANCE_MATERIALS = preload(
 	(
@@ -33,30 +33,20 @@ func _initialize() -> void:
 func _run() -> void:
 	DirAccess.make_dir_recursive_absolute(_output)
 	_lab = LAB.instantiate()
+	_lab.character_definition = _lab.character_definition.duplicate(true)
+	_lab.character_definition.material_set = ACCEPTANCE_MATERIALS
+	_lab.character_definition.material_profile = ACCEPTANCE_PROFILE
 	root.add_child(_lab)
 	await process_frame
 	await process_frame
-	var original: Node = _lab.preview
-	_lab.preview = null
-	original.queue_free()
-	await process_frame
-
-	_actor = PREVIEW.new()
-	_actor.name = "SilverWolfAcceptancePreview"
-	_actor.definition.material_set = ACCEPTANCE_MATERIALS
-	_actor.definition.material_profile = ACCEPTANCE_PROFILE
-	_lab.turntable.add_child(_actor)
-	_lab.preview = _actor
-	await process_frame
-	await process_frame
-	await process_frame
+	_actor = _lab.preview
 	_check(_actor.initialized, "Acceptance actor initializes")
 	if not _actor.initialized:
 		for error in _actor.validation_errors:
 			push_error(error)
 		_finish()
 		return
-	_viewport = _lab.get_node("%Viewport") as SubViewport
+	_viewport = _lab.viewport as SubViewport
 	_check_source_bindings()
 	_check_mesh_attributes()
 	_disable_extended_features()

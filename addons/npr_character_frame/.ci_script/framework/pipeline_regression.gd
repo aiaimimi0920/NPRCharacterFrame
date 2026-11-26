@@ -19,7 +19,7 @@ func _run() -> void:
 	root.mouse_passthrough = true
 	root.unfocusable = true
 	DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
-	_lab = load("res://addons/npr_character_frame/showcase/npr_lab.tscn").instantiate()
+	_lab = load("res://addons/npr_character_frame/showcase/wardrobe.tscn").instantiate()
 	root.add_child(_lab)
 	await _frames(10)
 	_check_depth("full")
@@ -53,7 +53,8 @@ func _run() -> void:
 	_lab.camera = original_camera
 	alternate.queue_free()
 	root.size = Vector2i(1440, 900)
-	_lab.reset_all()
+	_lab.reset_scheme()
+	_lab.set_view("full")
 	await _frames(5)
 	await _check_effects()
 	await _check_isolation()
@@ -301,7 +302,8 @@ func _check_effects() -> void:
 			index += 1
 	_lab.preview.meshes[1].show()
 	_lab.preview.meshes[2].show()
-	_lab.reset_all()
+	_lab.reset_scheme()
+	_lab.set_view("full")
 
 
 func _check_isolation() -> void:
@@ -332,7 +334,7 @@ func _check_isolation() -> void:
 			stage_meshes.append(child)
 			child.hide()
 	await _capture("isolation_before")
-	var other: Node3D = _lab.PREVIEW.new()
+	var other: Node3D = load("res://addons/npr_character_frame/showcase/npr_character_preview.gd").new()
 	other.position.x = 3.0
 	_lab.turntable.add_child(other)
 	# Godot repacks its shared directional shadow atlas when a second shadowed
@@ -386,7 +388,7 @@ func _benchmark() -> void:
 	_lab.camera.position = Vector3(0, 1.6, 8)
 	_lab.camera.look_at(Vector3(0, 1.5, 0))
 	for x in [0.0, 2.1]:
-		var other: Node3D = _lab.PREVIEW.new()
+		var other: Node3D = load("res://addons/npr_character_frame/showcase/npr_character_preview.gd").new()
 		other.position.x = x
 		_lab.turntable.add_child(other)
 		other.set_ramp_mix(0.45)
@@ -395,7 +397,7 @@ func _benchmark() -> void:
 		other.set_hair_contact(0.35)
 		other.set_rim_strength(0.1)
 		actors.append(other)
-	var views: Array[Viewport] = [root, _lab.get_node("%Viewport")]
+	var views: Array[Viewport] = [root, _lab.viewport]
 	for actor in actors:
 		views.append_array(actor.depth_pass.viewports)
 	for viewport in views:
@@ -480,5 +482,5 @@ func _frames(count: int) -> void:
 func _capture(label: String) -> void:
 	await _frames(4)
 	await RenderingServer.frame_post_draw
-	var image: Image = _lab.get_node("%Viewport").get_texture().get_image()
+	var image: Image = _lab.viewport.get_texture().get_image()
 	image.save_png(_output.path_join(label + ".png"))

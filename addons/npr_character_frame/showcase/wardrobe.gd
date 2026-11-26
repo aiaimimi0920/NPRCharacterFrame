@@ -1,5 +1,5 @@
 extends Control
-## Game-facing customization. NPRLab remains an independent technical scene.
+## Complete character showcase with the shared model inspection and debug controls.
 
 const STATE = preload("res://addons/npr_character_frame/showcase/wardrobe_state.gd")
 const CONFIGURATION = preload("res://addons/npr_character_frame/showcase/wardrobe_configuration.gd")

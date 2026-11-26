@@ -2,7 +2,7 @@ param(
     [string]$GodotPath = $env:NPR_GODOT_PATH,
     [string]$OutputPath = "",
     [string]$TestScript = "",
-    [ValidateSet("inspect", "capture", "import", "lab", "startup")][string]$Mode = "capture",
+    [ValidateSet("inspect", "capture", "import", "showcase", "startup")][string]$Mode = "capture",
     [ValidateRange(1, 3600)][int]$TimeoutSeconds = 120,
     [switch]$MonitorMemory
 )
@@ -27,8 +27,8 @@ if ($Mode -eq "import") {
     $arguments += @("--rendering-method", "forward_plus", "--quit-after", "90")
 } else {
     if ($Mode -eq "inspect") { $arguments += "--headless" }
-    else { $arguments += @("--rendering-method", "forward_plus", "--resolution", $(if ($Mode -eq "lab") { "1440x900" } else { "1152x648" })) }
-    $script = if ($Mode -eq "lab") { "res://addons/npr_character_frame/.ci_script/framework/lab_regression.gd" } else { "res://addons/npr_character_frame/.ci_script/framework/render_regression.gd" }
+    else { $arguments += @("--rendering-method", "forward_plus", "--resolution", $(if ($Mode -eq "showcase") { "1440x900" } else { "1152x648" })) }
+    $script = if ($Mode -eq "showcase") { "res://addons/npr_character_frame/.ci_script/framework/showcase_ui_regression.gd" } else { "res://addons/npr_character_frame/.ci_script/framework/render_regression.gd" }
     if ($TestScript) { $script = $TestScript }
     $arguments += @("--script", $script, "--", $Mode, ('"' + $output + '"'))
 }
@@ -71,7 +71,7 @@ try {
     if ($issues.Count) { $issues | Select-Object -First 12 }
     if ($Mode -eq "inspect") { $log -split "`n" | Where-Object { $_ -match "^MESH |^COLORS |^\{|REGRESSION_OK" } }
     if ($proc.ExitCode -ne 0 -or $issues.Count -gt 0) { throw "Validation failed; see $output" }
-    if ($Mode -in @("inspect", "capture", "lab") -and $log -notmatch "REGRESSION_OK") { throw "Regression did not finish" }
+    if ($Mode -in @("inspect", "capture", "showcase") -and $log -notmatch "REGRESSION_OK") { throw "Regression did not finish" }
 } finally {
     # Capture owned renderer children before stopping the console wrapper.
     if ($proc) {
